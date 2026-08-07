@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.agrilink'
+    namespace 'com.agrilink.app'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.agrilink"
+        applicationId "com.agrilink.app"
         minSdk 24
         targetSdk 34
         versionCode 1

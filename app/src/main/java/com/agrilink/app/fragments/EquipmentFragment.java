@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.agrilink.R;
+import com.agrilink.app.R;
 import com.agrilink.app.adapters.EquipmentAdapter;
 import com.agrilink.app.models.EquipmentItem;
 

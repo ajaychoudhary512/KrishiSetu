@@ -1,4 +1,4 @@
-package com.example.agrilink;
+package com.agrilink.app;
 
 import android.os.Bundle;
 import android.widget.Button;

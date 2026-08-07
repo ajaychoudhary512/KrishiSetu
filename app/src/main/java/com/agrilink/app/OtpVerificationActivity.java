@@ -1,4 +1,4 @@
-package com.example.agrilink;
+package com.agrilink.app;
 
 import android.content.Intent;
 import android.os.Bundle;

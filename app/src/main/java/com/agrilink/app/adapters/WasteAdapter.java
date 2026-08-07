@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.agrilink.R;
+import com.agrilink.app.R;
 import com.agrilink.app.models.WasteItem;
 
 import java.util.List;

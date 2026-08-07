@@ -1,4 +1,4 @@
-package com.example.agrilink.models;
+package com.agrilink.app.models;
 
 public class ChatMessage {
     private String text;
