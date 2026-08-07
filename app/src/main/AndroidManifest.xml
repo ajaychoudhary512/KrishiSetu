@@ -28,7 +28,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".OnboardingActivity" android:theme="@style/Theme.AgriLink.NoActionBar"/>
         <activity android:name=".LoginActivity" android:theme="@style/Theme.AgriLink.NoActionBar"/>
         <activity android:name=".RegisterActivity" android:theme="@style/Theme.AgriLink.NoActionBar"/>
         <activity android:name=".OtpVerificationActivity" android:theme="@style/Theme.AgriLink.NoActionBar"/>

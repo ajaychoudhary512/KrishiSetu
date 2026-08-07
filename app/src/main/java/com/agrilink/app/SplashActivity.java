@@ -14,13 +14,13 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         findViewById(R.id.btnGetStarted).setOnClickListener(v -> {
-            startActivity(new Intent(SplashActivity.this, OnboardingActivity.class));
+            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             finish();
         });
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             if (!isFinishing()) {
-                startActivity(new Intent(SplashActivity.this, OnboardingActivity.class));
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 finish();
             }
         }, 2500);
