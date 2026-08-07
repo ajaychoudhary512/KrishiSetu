@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AgriLink</string>
+    <string name="tagline">Connecting Farms, Industries &amp; People</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="login_to_continue">Login to Continue</string>
+    <string name="create_account">Create Account</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="choose_your_role">Choose Your Role</string>
+    <string name="home">Home</string>
+    <string name="market">Market</string>
+    <string name="deals">Deals/Chat</string>
+    <string name="profile">Profile</string>
+</resources>

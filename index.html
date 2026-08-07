@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AGRI LINK - Smart Agriculture Marketplace & Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Phosphor Icons for ultra modern app look -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <!-- Top App Navigation Header -->
+  <div class="prototype-bar" id="prototypeBar" style="display: none;">
+    <div class="brand">
+      <i class="ph-fill ph-plant"></i>
+      <span>AGRI LINK</span>
+      <span class="badge">Live App</span>
+    </div>
+  </div>
+
+
+  <!-- Mobile Floating Screen Selector Pill -->
+  <button class="mobile-proto-trigger" onclick="openProtoDrawer()" style="display: none;">
+    <i class="ph-bold ph-list"></i>
+    <span>Screens (20)</span>
+  </button>
+
+
+  <!-- Mobile Prototype Screen Drawer Overlay -->
+  <div class="proto-drawer-overlay" id="protoDrawer">
+    <div class="proto-drawer">
+      <h4>
+        <span>Jump to Screen (1-20)</span>
+        <button class="btn-close" onclick="closeProtoDrawer()">&times;</button>
+      </h4>
+      <div class="proto-drawer-grid">
+        <button class="proto-drawer-btn" onclick="goToScreen(1); closeProtoDrawer();">01. Splash</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(2); closeProtoDrawer();">02. Onboarding</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(3); closeProtoDrawer();">03. Login</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(4); closeProtoDrawer();">04. Register</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(5); closeProtoDrawer();">05. OTP Verify</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(6); closeProtoDrawer();">06. Choose Role</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(7); closeProtoDrawer();">07. Home Dashboard</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(8); closeProtoDrawer();">08. Waste Market</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(9); closeProtoDrawer();">09. Equipment Rental</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(10); closeProtoDrawer();">10. Labour Hiring</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(11); closeProtoDrawer();">11. Disease Check</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(12); closeProtoDrawer();">12. Profile</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(13); closeProtoDrawer();">13. Waste Detail</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(14); closeProtoDrawer();">14. Equip Detail</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(15); closeProtoDrawer();">15. Labour Detail</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(16); closeProtoDrawer();">16. Disease Result</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(17); closeProtoDrawer();">17. Order Tracking</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(18); closeProtoDrawer();">18. Payment</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(19); closeProtoDrawer();">19. Notifications</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(20); closeProtoDrawer();">20. Chat & Escrow</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Simulator Container -->
+  <div class="simulator-wrapper">
+    <div class="phone-frame" id="phoneFrame">
+      
+      <!-- Phone Header Notch / Status Bar -->
+      <div class="phone-status-bar" id="statusBar">
+        <span class="time">9:41</span>
+        <div class="notch"></div>
+        <div class="status-icons">
+          <i class="ph-bold ph-cellular-signal-5"></i>
+          <i class="ph-bold ph-wifi-high"></i>
+          <i class="ph-bold ph-battery-full"></i>
+        </div>
+      </div>
+
+      <!-- APP VIEWPORT CONTENT -->
+      <div class="app-viewport">
+
+        <!-- 01. SPLASH SCREEN -->
+        <div class="screen" id="screen-1">
+          <div class="splash-container">
+            <div class="splash-brand">
+              <div class="logo-box">
+                <img src="assets/logo.png" alt="AGRI LINK Logo">
+              </div>
+              <h1>AGRI LINK</h1>
+              <span class="sub-text">Smart Agriculture</span>
+            </div>
+            <div class="splash-hero-art" style="background-image: url('assets/agri_waste_banner.png');"></div>
+            <div class="splash-footer">
+              <p class="splash-desc">
+                Connecting Farms, Industries & People<br>
+                <strong>One platform for Waste • Equipment • Labour • Crop Health</strong>
+              </p>
+              <button class="btn-splash-start" onclick="goToScreen(2)">Get Started <i class="ph-bold ph-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02. ONBOARDING / LANDING SCREEN -->
+        <div class="screen" id="screen-2">
+          <div class="landing-hero-container">
+            <div class="landing-header">
+              <div class="landing-logo-badge">A</div>
+              <div class="landing-brand-info">
+                <h2>AGRI LINK</h2>
+                <p>Smart Agriculture</p>
+              </div>
+            </div>
+            <div class="landing-hero-body">
+              <h1 class="landing-title">All Agriculture<br>Needs<span class="accent">One Smart Platform</span></h1>
+              <p class="landing-subtitle">Connecting Farmers, Industries &amp; People for a Better Tomorrow</p>
+              <button class="btn-landing-pill" onclick="goToScreen(3)">Get Started <i class="ph-bold ph-arrow-right"></i></button>
+            </div>
+            <div class="landing-stats-bar">
+              <div class="stat-col">
+                <h4>50,000+</h4>
+                <p>Farmers Connected</p>
+              </div>
+              <div class="stat-col">
+                <h4>1,200+</h4>
+                <p>Industries Registered</p>
+              </div>
+              <div class="stat-col">
+                <h4>₹2.5 Cr</h4>
+                <p>Waste Traded Monthly</p>
+              </div>
+              <div class="stat-col">
+                <h4>98%</h4>
+                <p>Satisfaction Rate</p>
+              </div>
+            </div>
+            <div class="landing-features-section">
+              <h3>Everything You Need</h3>
+              <p class="sub">One platform for all agriculture needs</p>
+              <div class="feature-item-card" onclick="goToScreen(8)">
+                <i class="ph-fill ph-recycle"></i>
+                <div>
+                  <h4>Waste Marketplace</h4>
+                  <p>Sell agri waste directly to industries at best prices</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03. LOGIN SCREEN -->
+        <div class="screen" id="screen-3">
+          <div class="auth-container">
+            <div class="auth-logo-header">
+              <img src="assets/logo.png" alt="AGRI LINK Logo" style="width:52px; height:52px; object-fit:contain; margin-bottom:6px;">
+              <h2>Welcome Back!</h2>
+              <p>Login to continue</p>
+            </div>
+            <form onsubmit="event.preventDefault(); goToScreen(5);">
+              <div class="form-group">
+                <label><i class="ph ph-phone"></i> Mobile Number</label>
+                <div class="input-prefix">
+                  <span>+91</span>
+                  <input type="tel" value="9876543210" placeholder="Enter Mobile Number" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label><i class="ph ph-lock"></i> Password</label>
+                <div class="input-icon">
+                  <input type="password" value="••••••••" placeholder="Enter Password" required>
+                  <i class="ph ph-eye"></i>
+                </div>
+              </div>
+              <div class="forgot-link">
+                <a href="#">Forgot Password?</a>
+              </div>
+              <button type="submit" class="btn-primary-block">LOGIN</button>
+            </form>
+            <div class="divider"><span>or continue with</span></div>
+            <div class="social-login">
+              <button class="social-btn"><i class="ph-bold ph-google-logo"></i></button>
+              <button class="social-btn"><i class="ph-bold ph-facebook-logo"></i></button>
+              <button class="social-btn"><i class="ph-bold ph-phone"></i></button>
+            </div>
+            <div class="auth-footer">
+              Don't have an account? <a href="#" onclick="goToScreen(4)">Register</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04. REGISTER SCREEN -->
+        <div class="screen" id="screen-4">
+          <div class="auth-container">
+            <div class="auth-logo-header">
+              <i class="ph-fill ph-plant"></i>
+              <h2>Create Account</h2>
+              <p>Register to get started</p>
+            </div>
+            <form onsubmit="event.preventDefault(); goToScreen(5);">
+              <div class="form-group">
+                <label><i class="ph ph-user"></i> Full Name</label>
+                <input type="text" value="Ramesh Kumar" placeholder="Full Name" required>
+              </div>
+              <div class="form-group">
+                <label><i class="ph ph-phone"></i> Mobile Number</label>
+                <div class="input-prefix">
+                  <span>+91</span>
+                  <input type="tel" value="9876543210" placeholder="Mobile Number" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label><i class="ph ph-envelope"></i> Email (Optional)</label>
+                <input type="email" value="ramesh.farmer@gmail.com" placeholder="Email Address">
+              </div>
+              <div class="form-group">
+                <label><i class="ph ph-lock"></i> Password</label>
+                <input type="password" value="Password123" placeholder="Password" required>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="terms" checked required>
+                <label for="terms">I agree to Terms & Conditions</label>
+              </div>
+              <button type="submit" class="btn-primary-block">REGISTER</button>
+            </form>
+            <div class="auth-footer">
+              Already have an account? <a href="#" onclick="goToScreen(3)">Login</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05. OTP VERIFICATION SCREEN -->
+        <div class="screen" id="screen-5">
+          <div class="auth-container">
+            <div class="auth-logo-header">
+              <i class="ph-fill ph-shield-check"></i>
+              <h2>Verify OTP</h2>
+              <p>Enter the 6-digit code sent to<br><strong>+91 98765 43210</strong></p>
+            </div>
+            <div class="otp-inputs">
+              <input type="text" maxlength="1" value="1">
+              <input type="text" maxlength="1" value="2">
+              <input type="text" maxlength="1" value="3">
+              <input type="text" maxlength="1" value="4">
+              <input type="text" maxlength="1" value="5">
+              <input type="text" maxlength="1" value="6">
+            </div>
+            <div class="resend-box">
+              Resend OTP in <strong>00:25</strong>
+            </div>
+            <button class="btn-primary-block" onclick="goToScreen(6)">VERIFY & CONTINUE</button>
+            <div class="otp-graphic">
+              <i class="ph-fill ph-shield-check"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06. CHOOSE YOUR ROLE -->
+        <div class="screen" id="screen-6">
+          <div class="role-container">
+            <div class="role-header">
+              <h2>Choose Your Role</h2>
+              <p>Select your role to continue</p>
+            </div>
+            <div class="role-list">
+              <div class="role-card active" onclick="selectRole(this, 7)">
+                <div class="role-icon green"><i class="ph-fill ph-plant"></i></div>
+                <div class="role-info">
+                  <h4>Farmer</h4>
+                  <p>I grow crops & sell products</p>
+                </div>
+                <i class="ph-bold ph-caret-right arrow"></i>
+              </div>
+
+              <div class="role-card" onclick="selectRole(this, 8)">
+                <div class="role-icon blue"><i class="ph-fill ph-factory"></i></div>
+                <div class="role-info">
+                  <h4>Industry</h4>
+                  <p>I buy agricultural waste</p>
+                </div>
+                <i class="ph-bold ph-caret-right arrow"></i>
+              </div>
+
+              <div class="role-card" onclick="selectRole(this, 9)">
+                <div class="role-icon orange"><i class="ph-fill ph-tractor"></i></div>
+                <div class="role-info">
+                  <h4>Equipment Owner</h4>
+                  <p>I rent out equipment</p>
+                </div>
+                <i class="ph-bold ph-caret-right arrow"></i>
+              </div>
+
+              <div class="role-card" onclick="selectRole(this, 10)">
+                <div class="role-icon purple"><i class="ph-fill ph-users-three"></i></div>
+                <div class="role-info">
+                  <h4>Contractor / Thekedar</h4>
+                  <p>I provide labour to farmers</p>
+                </div>
+                <i class="ph-bold ph-caret-right arrow"></i>
+              </div>
+
+              <div class="role-card" onclick="selectRole(this, 10)">
+                <div class="role-icon yellow"><i class="ph-fill ph-user"></i></div>
+                <div class="role-info">
+                  <h4>Labor / Worker</h4>
+                  <p>I am looking for work</p>
+                </div>
+                <i class="ph-bold ph-caret-right arrow"></i>
+              </div>
+
+              <div class="role-card" onclick="selectRole(this, 8)">
+                <div class="role-icon teal"><i class="ph-fill ph-truck"></i></div>
+                <div class="role-info">
+                  <h4>Transporter</h4>
+                  <p>I provide transport services</p>
+                </div>
+                <i class="ph-bold ph-caret-right arrow"></i>
+              </div>
+            </div>
+                 <!-- 07. HOME DASHBOARD (FARMER) -->
+        <div class="screen active-screen" id="screen-7">
+          <div class="home-container" style="padding: 0 0 20px;">
+            <!-- Top Green Banner Header -->
+            <div class="dashboard-top-green">
+              <div class="dashboard-user-bar">
+                <div class="dashboard-user-info">
+                  <span style="font-size:0.8rem; color:#86efac; font-weight:600;">Good Morning,</span>
+                  <h3>Hello, Ramesh!</h3>
+                  <p><i class="ph-fill ph-map-pin"></i> Indore, Madhya Pradesh</p>
+                </div>
+                <div class="dashboard-top-actions">
+                  <div class="bell-btn-circle" onclick="goToScreen(19)">
+                    <i class="ph-bold ph-bell"></i>
+                    <span class="bell-badge">3</span>
+                  </div>
+                  <div class="user-avatar-circle">RP</div>
+                </div>
+              </div>
+
+              <!-- Earning Banner Card inside Header -->
+              <div class="earning-banner-card">
+                <div class="earning-info">
+                  <span class="tag">Earn from Agriculture Waste</span>
+                  <h2>₹4,250 earned this month</h2>
+                  <p class="sub">3 active listings • 2 pending offers</p>
+                </div>
+                <button class="btn-sell-orange" onclick="goToScreen(8)">Sell Now →</button>
+              </div>
+            </div>
+
+            <!-- Quick Stats 3-Cards Row -->
+            <div class="quick-stats-row">
+              <div class="stat-box-card mint">
+                <i>💰</i>
+                <h3>₹18,240</h3>
+                <span>Total Earnings</span>
+              </div>
+              <div class="stat-box-card blue">
+                <i>👛</i>
+                <h3>₹4,250</h3>
+                <span>Wallet Balance</span>
+              </div>
+              <div class="stat-box-card orange">
+                <i>📦</i>
+                <h3>5</h3>
+                <span>Active Orders</span>
+              </div>
+            </div>
+
+            <!-- Main Services Grid -->
+            <div class="section-title" style="padding:16px 16px 10px;">
+              <h3>Main Services</h3>
+            </div>
+            <div class="services-4grid">
+              <div class="service-card-item" onclick="goToScreen(8)">
+                <i class="ph-fill ph-recycle" style="color:#22c55e;"></i>
+                <span>Waste Market</span>
+              </div>
+              <div class="service-card-item" onclick="goToScreen(9)">
+                <i class="ph-fill ph-tractor" style="color:#22c55e;"></i>
+                <span>Equipment</span>
+              </div>
+              <div class="service-card-item" onclick="goToScreen(10)">
+                <i class="ph-fill ph-user-gear" style="color:#eab308;"></i>
+                <span>Hire Labour</span>
+              </div>
+              <div class="service-card-item" onclick="goToScreen(11)">
+                <i class="ph-fill ph-first-aid-kit" style="color:#a855f7;"></i>
+                <span>Disease Scan</span>
+              </div>
+            </div>
+
+            <!-- Other Services Grid -->
+            <div class="section-title" style="padding:16px 16px 10px;">
+              <h3>Other Services</h3>
+            </div>
+            <div class="services-4grid">
+              <div class="service-card-item">
+                <i class="ph-fill ph-clipboard-text" style="color:#0ea5e9;"></i>
+                <span>Crop Schemes</span>
+              </div>
+              <div class="service-card-item">
+                <i class="ph-fill ph-truck" style="color:#f59e0b;"></i>
+                <span>Transport</span>
+              </div>
+              <div class="service-card-item" onclick="showToast('Weather: 28°C Sunny in Indore')">
+                <i class="ph-fill ph-sun" style="color:#38bdf8;"></i>
+                <span>Weather</span>
+              </div>
+              <div class="service-card-item">
+                <i class="ph-fill ph-shield-check" style="color:#ec4899;"></i>
+                <span>Insurance</span>
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="section-title" style="padding:16px 16px 10px; display:flex; justify-content:space-between; align-items:center;">
+              <h3>Recent Activity</h3>
+              <a href="#" onclick="goToScreen(8)" style="color:#15803d; font-weight:700; font-size:0.82rem; text-decoration:none;">View All →</a>
+            </div>
+            <div class="live-deal-card" onclick="goToScreen(20)" style="margin: 0 16px;">
+              <div class="deal-status">
+                <span class="badge-active">Active Listing</span>
+                <span class="time-ago">2h ago</span>
+              </div>
+              <div class="deal-details">
+                <h4>Rice Straw Listing (50 Qtl)</h4>
+                <p>Status: <strong>2 Offers Received</strong></p>
+                <div class="price-row">
+                  <span class="price">Highest Offer: ₹110/Qtl</span>
+                </div>
+              </div>
+              <div class="deal-action">
+                <span>View Deal</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+iv>
+
+          </div>
+        </div>
+
+        <!-- 08. WASTE MARKETPLACE -->
+        <div class="screen" id="screen-8">
+          <div class="marketplace-container">
+            <div class="header-green-banner">
+              <div class="sub-header" style="padding:0; margin-bottom:12px;">
+                <button class="btn-back" onclick="goToScreen(7)" style="color:#fff;"><i class="ph-bold ph-arrow-left"></i></button>
+                <h2 style="color:#fff;">Waste Marketplace</h2>
+                <div class="header-icon" style="color:#fff;"><i class="ph-bold ph-funnel"></i></div>
+              </div>
+              <div class="search-input-pill">
+                <i class="ph-bold ph-magnifying-glass"></i>
+                <input type="text" id="wasteSearch" placeholder="Search waste (e.g. Rice Straw)" onkeyup="filterWasteList(this.value)">
+              </div>
+            </div>
+
+            <div class="filter-tabs" style="padding:12px 16px;">
+              <button class="tab-chip active" onclick="filterCategory(this, 'all')">All</button>
+              <button class="tab-chip" onclick="filterCategory(this, 'crop')">Crop Residue</button>
+              <button class="tab-chip" onclick="filterCategory(this, 'horticulture')">Horticulture</button>
+              <button class="tab-chip" onclick="filterCategory(this, 'other')">Oilseed Straw</button>
+            </div>
+
+            <div class="listings-list" id="wasteList">
+              <div class="waste-listing-card" onclick="goToScreen(13)">
+                <div class="waste-card-image" style="background-image: url('assets/rice_straw.png');">
+                  <span class="badge-tag-white">Crop Residue</span>
+                  <span class="badge-verified-green">✓ Verified</span>
+                </div>
+                <div class="waste-card-content">
+                  <div class="waste-card-top">
+                    <h3>Rice Straw</h3>
+                    <span class="price">₹100<small style="font-size:0.75rem; color:#64748b;">/quintal</small></span>
+                  </div>
+                  <div class="waste-card-details">
+                    <span>📍 Indore, MP • 12 km</span>
+                    <span style="font-weight:600; color:#0f172a; margin-top:2px;">Ramesh Patel</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="waste-listing-card" onclick="goToScreen(13)">
+                <div class="waste-card-image" style="background-image: url('assets/wheat_straw.png');">
+                  <span class="badge-tag-white">Crop Residue</span>
+                  <span class="badge-verified-green">✓ Verified</span>
+                </div>
+                <div class="waste-card-content">
+                  <div class="waste-card-top">
+                    <h3>Wheat Straw</h3>
+                    <span class="price">₹130<small style="font-size:0.75rem; color:#64748b;">/quintal</small></span>
+                  </div>
+                  <div class="waste-card-details">
+                    <span>📍 Dewas, MP • 12 km</span>
+                    <span style="font-weight:600; color:#0f172a; margin-top:2px;">Suresh Kumar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09. EQUIPMENT RENTAL -->
+        <div class="screen" id="screen-9">
+          <div class="marketplace-container">
+            <div class="header-blue-banner">
+              <div class="sub-header" style="padding:0; margin-bottom:12px;">
+                <button class="btn-back" onclick="goToScreen(7)" style="color:#fff;"><i class="ph-bold ph-arrow-left"></i></button>
+                <h2 style="color:#fff;">Equipment Rental</h2>
+                <div class="header-icon" style="color:#fff;"><i class="ph-bold ph-plus-circle"></i></div>
+              </div>
+              <div class="search-input-pill">
+                <i class="ph-bold ph-magnifying-glass"></i>
+                <input type="text" placeholder="Search equipment...">
+              </div>
+            </div>
+
+            <div class="filter-tabs" style="padding:12px 16px;">
+              <button class="tab-chip active">All</button>
+              <button class="tab-chip">Tractor</button>
+              <button class="tab-chip">Implements</button>
+              <button class="tab-chip">Harvesting</button>
+            </div>
+
+            <div class="listings-list" id="equipmentList">
+              <div class="equipment-row-card" onclick="goToScreen(14)">
+                <div class="equip-thumb-box" style="background-image: url('assets/tractor_45hp.png');"></div>
+                <div class="equip-details">
+                  <div class="equip-header-row">
+                    <h4>Tractor (45 HP)</h4>
+                    <span class="equip-rating">★ 4.8</span>
+                  </div>
+                  <span class="equip-location">📍 Indore, MP</span>
+                  <div class="equip-bottom-row">
+                    <span class="equip-price">₹1200<small style="font-size:0.7rem; color:#64748b;">/Day</small></span>
+                    <span class="status-pill-available">Available</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="equipment-row-card" onclick="goToScreen(14)">
+                <div class="equip-thumb-box" style="background-image: url('assets/rotavator.png');"></div>
+                <div class="equip-details">
+                  <div class="equip-header-row">
+                    <h4>Rotavator</h4>
+                    <span class="equip-rating">★ 4.6</span>
+                  </div>
+                  <span class="equip-location">📍 Dewas, MP</span>
+                  <div class="equip-bottom-row">
+                    <span class="equip-price">₹800<small style="font-size:0.7rem; color:#64748b;">/Day</small></span>
+                    <span class="status-pill-available">Available</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="equipment-row-card" onclick="goToScreen(14)">
+                <div class="equip-thumb-box" style="background-image: url('assets/seeder_machine.png');"></div>
+                <div class="equip-details">
+                  <div class="equip-header-row">
+                    <h4>Seeder Machine</h4>
+                    <span class="equip-rating">★ 4.7</span>
+                  </div>
+                  <span class="equip-location">📍 Indore, MP</span>
+                  <div class="equip-bottom-row">
+                    <span class="equip-price">₹700<small style="font-size:0.7rem; color:#64748b;">/Day</small></span>
+                    <span class="status-pill-available">Available</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="equipment-row-card" onclick="goToScreen(14)">
+                <div class="equip-thumb-box" style="background-image: url('assets/harvester.png');"></div>
+                <div class="equip-details">
+                  <div class="equip-header-row">
+                    <h4>Harvester</h4>
+                    <span class="equip-rating">★ 4.3</span>
+                  </div>
+                  <span class="equip-location">📍 Ujjain, MP</span>
+                  <div class="equip-bottom-row">
+                    <span class="equip-price">₹2500<small style="font-size:0.7rem; color:#64748b;">/Day</small></span>
+                    <span class="status-pill-booked">Booked</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="equipment-row-card" onclick="goToScreen(14)">
+                <div class="equip-thumb-box" style="background-image: url('assets/sprayer_power.png');"></div>
+                <div class="equip-details">
+                  <div class="equip-header-row">
+                    <h4>Sprayer (Power)</h4>
+                    <span class="equip-rating">★ 4.5</span>
+                  </div>
+                  <span class="equip-location">📍 Bhopal, MP</span>
+                  <div class="equip-bottom-row">
+                    <span class="equip-price">₹600<small style="font-size:0.7rem; color:#64748b;">/Day</small></span>
+                    <span class="status-pill-available">Available</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. LABOUR HIRING -->
+        <div class="screen" id="screen-10">
+          <div class="marketplace-container">
+            <div class="header-orange-banner">
+              <div class="sub-header" style="padding:0; margin-bottom:12px;">
+                <button class="btn-back" onclick="goToScreen(7)" style="color:#fff;"><i class="ph-bold ph-arrow-left"></i></button>
+                <h2 style="color:#fff;">Hire Labour</h2>
+                <div class="header-icon" style="color:#fff;"><i class="ph-bold ph-users-three"></i></div>
+              </div>
+              <div class="search-input-pill">
+                <i class="ph-bold ph-magnifying-glass"></i>
+                <input type="text" placeholder="Search labour or skill...">
+              </div>
+            </div>
+
+            <div class="filter-tabs" style="padding:12px 16px;">
+              <button class="tab-chip active">All</button>
+              <button class="tab-chip">Harvesting</button>
+              <button class="tab-chip">Planting</button>
+              <button class="tab-chip">Spraying</button>
+            </div>
+
+            <div class="listings-list" id="laborList">
+              <div class="labour-team-card">
+                <div class="labour-card-header">
+                  <h3>Harvesting Workers</h3>
+                  <span class="badge-urgent">Urgent</span>
+                </div>
+                <div class="labour-price-row">
+                  <span class="location">📍 Indore, MP</span>
+                  <span class="price">₹500</span>
+                </div>
+                <div class="labour-specs-row">
+                  <span>🧑 15 workers</span>
+                  <span>📅 18 Aug</span>
+                  <span>🔧 Harvesting</span>
+                </div>
+                <div class="labour-actions-row">
+                  <button class="btn-labour-outline" onclick="goToScreen(15)">View Details</button>
+                  <button class="btn-labour-solid" onclick="goToScreen(15)">Hire Now</button>
+                </div>
+              </div>
+
+              <div class="labour-team-card">
+                <div class="labour-card-header">
+                  <h3>Planting Workers</h3>
+                </div>
+                <div class="labour-price-row">
+                  <span class="location">📍 Dewas, MP</span>
+                  <span class="price">₹450</span>
+                </div>
+                <div class="labour-specs-row">
+                  <span>🧑 20 workers</span>
+                  <span>📅 20 Aug</span>
+                  <span>🔧 Planting</span>
+                </div>
+                <div class="labour-actions-row">
+                  <button class="btn-labour-outline" onclick="goToScreen(15)">View Details</button>
+                  <button class="btn-labour-solid" onclick="goToScreen(15)">Hire Now</button>
+                </div>
+              </div>
+
+              <div class="labour-team-card">
+                <div class="labour-card-header">
+                  <h3>Spraying Workers</h3>
+                  <span class="badge-urgent">Urgent</span>
+                </div>
+                <div class="labour-price-row">
+                  <span class="location">📍 Ujjain, MP</span>
+                  <span class="price">₹500</span>
+                </div>
+                <div class="labour-specs-row">
+                  <span>🧑 10 workers</span>
+                  <span>📅 21 Aug</span>
+                  <span>🔧 Spraying</span>
+                </div>
+                <div class="labour-actions-row">
+                  <button class="btn-labour-outline" onclick="goToScreen(15)">View Details</button>
+                  <button class="btn-labour-solid" onclick="goToScreen(15)">Hire Now</button>
+                </div>
+              </div>
+
+              <div class="labour-team-card">
+                <div class="labour-card-header">
+                  <h3>Irrigation Workers</h3>
+                </div>
+                <div class="labour-price-row">
+                  <span class="location">📍 Bhopal, MP</span>
+                  <span class="price">₹400</span>
+                </div>
+                <div class="labour-specs-row">
+                  <span>🧑 8 workers</span>
+                  <span>📅 22 Aug</span>
+                  <span>🔧 Irrigation</span>
+                </div>
+                <div class="labour-actions-row">
+                  <button class="btn-labour-outline" onclick="goToScreen(15)">View Details</button>
+                  <button class="btn-labour-solid" onclick="goToScreen(15)">Hire Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+                        <span class="unit">/ Day</span>
+                      </div>
+                      <button class="btn-sm-green" onclick="event.stopPropagation(); goToScreen(15)">Hire</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sticky-post-job">
+              <button class="btn-primary-block" onclick="showJobModal()"><i class="ph-bold ph-plus"></i> POST A JOB</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. DISEASE DETECTION -->
+        <div class="screen" id="screen-11">
+          <div class="marketplace-container">
+            <div class="sub-header">
+              <button class="btn-back" onclick="goToScreen(7)"><i class="ph-bold ph-arrow-left"></i></button>
+              <h2>Disease Detection</h2>
+              <div class="header-icon"><i class="ph-bold ph-sparkle"></i></div>
+            </div>
+
+            <div class="upload-card">
+              <h4>Upload Leaf Photo</h4>
+              <p>Take a clear photo of the affected leaf</p>
+              <div class="scan-frame" onclick="simulateScan()">
+                <img src="assets/leaf_disease_sample.png" alt="Leaf Sample" class="scan-img-preview">
+                <div class="scan-line"></div>
+              </div>
+              <button class="btn-primary-block" onclick="simulateScan()"><i class="ph-bold ph-upload-simple"></i> Upload Image</button>
+            </div>
+
+            <div class="section-title">
+              <h3>Recent Detections</h3>
+            </div>
+            <div class="detection-list">
+              <div class="detection-item" onclick="goToScreen(16)">
+                <div class="det-thumb"><img src="assets/leaf_disease_sample.png" alt="Tomato"></div>
+                <div class="det-info">
+                  <h4>Tomato - Early Blight</h4>
+                  <p class="accuracy text-red">Accuracy: 92%</p>
+                </div>
+                <button class="btn-sm-outline">View</button>
+              </div>
+
+              <div class="detection-item" onclick="goToScreen(16)">
+                <div class="det-thumb"><img src="assets/leaf_disease_sample.png" alt="Chili"></div>
+                <div class="det-info">
+                  <h4>Chili - Leaf Curl</h4>
+                  <p class="accuracy text-orange">Accuracy: 89%</p>
+                </div>
+                <button class="btn-sm-outline">View</button>
+              </div>
+            </div>
+
+            <div class="sticky-post-job">
+              <button class="btn-primary-block" onclick="goToScreen(16)"><i class="ph-bold ph-scan"></i> SCAN NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. PROFILE SCREEN -->
+        <div class="screen" id="screen-12">
+          <div class="profile-container">
+            <div class="profile-header">
+              <div class="avatar-large">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Ramesh">
+              </div>
+              <h3>Ramesh Kumar</h3>
+              <p class="user-role-badge">Farmer • Verified ✓</p>
+            </div>
+
+            <div class="menu-list" style="margin-top: 14px;">
+              <div class="menu-item" onclick="showToast('Profile')">
+                <i class="ph-fill ph-user menu-icon"></i>
+                <span>My Profile</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </div>
+              <div class="menu-item" onclick="goToScreen(17)">
+                <i class="ph-fill ph-shopping-bag menu-icon"></i>
+                <span>My Orders</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </div>
+              <div class="menu-item" onclick="goToScreen(8)">
+                <i class="ph-fill ph-list-plus menu-icon"></i>
+                <span>My Listings</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </div>
+              <div class="menu-item" onclick="goToScreen(18)">
+                <i class="ph-fill ph-wallet menu-icon"></i>
+                <span>Wallet</span>
+                <strong style="color: var(--primary);">₹4,250 ></strong>
+              </div>
+              <div class="menu-item" onclick="goToScreen(20)">
+                <i class="ph-fill ph-chats-teardrop menu-icon"></i>
+                <span>Messages</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </div>
+              <div class="menu-item" onclick="showToast('Settings')">
+                <i class="ph-fill ph-gear menu-icon"></i>
+                <span>Settings</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </div>
+              <div class="menu-item" onclick="showToast('Helpdesk Active: Call 1800-AGRI-LINK')">
+                <i class="ph-fill ph-question menu-icon"></i>
+                <span>Help & Support</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </div>
+              <div class="menu-item logout" onclick="goToScreen(3)">
+                <i class="ph-fill ph-sign-out menu-icon"></i>
+                <span>Logout</span>
+                <i class="ph-bold ph-caret-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. WASTE LISTING DETAILS -->
+        <div class="screen" id="screen-13">
+          <div style="height: 100%; display: flex; flex-direction: column;">
+            <div class="sub-header">
+              <button class="btn-back" onclick="goToScreen(8)"><i class="ph-bold ph-arrow-left"></i></button>
+              <h2>Waste Details</h2>
+              <div class="header-icon"><i class="ph-bold ph-share-network"></i></div>
+            </div>
+            <img src="assets/agri_waste_banner.png" alt="Wheat Straw" class="detail-hero-img">
+            <div class="detail-body">
+              <h2>Wheat Straw</h2>
+              <p class="subtitle">Premium Wheat Straw, 1,200 kg available • 12 km away</p>
+              <div class="price-tag-large">₹3.80 / kg <span class="badge-small">VERIFIED SELLER</span></div>
+              
+              <div class="metrics-grid">
+                <div class="metric-box"><label>Quality</label><span>Dry, clean & baled</span></div>
+                <div class="metric-box"><label>Pickup</label><span>Farmer location</span></div>
+                <div class="metric-box"><label>Seller</label><span>Verified farmer</span></div>
+                <div class="metric-box"><label>Available</label><span>18 Aug</span></div>
+              </div>
+
+              <div class="dual-actions">
+                <button class="btn-secondary-outline" onclick="goToScreen(20)">CHAT SELLER</button>
+                <button class="btn-primary-block" onclick="goToScreen(20)">MAKE OFFER</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. EQUIPMENT DETAILS -->
+        <div class="screen" id="screen-14">
+          <div style="height: 100%; display: flex; flex-direction: column;">
+            <div class="sub-header">
+              <button class="btn-back" onclick="goToScreen(9)"><i class="ph-bold ph-arrow-left"></i></button>
+              <h2>Equipment Details</h2>
+              <div class="header-icon"><i class="ph-bold ph-share-network"></i></div>
+            </div>
+            <img src="assets/farmer_onboarding.png" alt="Tractor" class="detail-hero-img">
+            <div class="detail-body">
+              <h2>John Deere Tractor</h2>
+              <p class="subtitle">45 HP • Diesel • 2024 model</p>
+              <div class="price-tag-large">₹900 / hour <span class="rating">⭐ 4.8 (120)</span></div>
+              <p style="font-size: 0.8rem; color: var(--text-sub); margin-bottom: 12px;">
+                Owner: Suresh Patel • Verified • 5 km away
+              </p>
+
+              <label style="font-size: 0.8rem; font-weight: 700;">Available dates</label>
+              <div class="filter-tabs" style="padding: 6px 0 16px;">
+                <button class="tab-chip active">18 May</button>
+                <button class="tab-chip">19 May</button>
+                <button class="tab-chip">20 May</button>
+                <button class="tab-chip">21 May</button>
+                <button class="tab-chip">22 May</button>
+              </div>
+
+              <button class="btn-primary-block" onclick="goToScreen(18)">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. LABOUR JOB DETAILS -->
+        <div class="screen" id="screen-15">
+          <div style="height: 100%; display: flex; flex-direction: column;">
+            <div class="sub-header">
+              <button class="btn-back" onclick="goToScreen(10)"><i class="ph-bold ph-arrow-left"></i></button>
+              <h2>Labour Job Details</h2>
+              <span class="badge-small" style="background:#fef2f2; color:#dc2626;">URGENT</span>
+            </div>
+            <div class="detail-body" style="margin-top:0;">
+              <h2>Harvesting Requirement</h2>
+              <p class="subtitle">Workers needed: <strong>15</strong></p>
+
+              <div class="metrics-grid">
+                <div class="metric-box"><label>Date</label><span>18 Aug • 7:00 AM</span></div>
+                <div class="metric-box"><label>Location</label><span>Indore, MP</span></div>
+                <div class="metric-box"><label>Budget</label><span>₹450 / worker</span></div>
+                <div class="metric-box"><label>Work duration</label><span>1 day</span></div>
+              </div>
+
+              <div class="role-card" style="margin: 12px 0;">
+                <div class="role-icon green"><i class="ph-fill ph-user-check"></i></div>
+                <div class="role-info">
+                  <h4>Sharma Farm Services</h4>
+                  <p>Suggested Contractor • ⭐ 4.7</p>
+                </div>
+              </div>
+
+              <div class="dual-actions">
+                <button class="btn-secondary-outline" onclick="goToScreen(20)">CHAT</button>
+                <button class="btn-primary-block" onclick="goToScreen(18)">ACCEPT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16. DISEASE RESULT -->
+        <div class="screen" id="screen-16">
+          <div style="height: 100%; display: flex; flex-direction: column;">
+            <div class="sub-header">
+              <button class="btn-back" onclick="goToScreen(11)"><i class="ph-bold ph-arrow-left"></i></button>
+              <h2>Disease Result</h2>
+              <span class="badge-small">Analysis Complete ✓</span>
+            </div>
+            <div class="upload-card" style="margin: 12px 16px;">
+              <img src="assets/leaf_disease_sample.png" alt="Leaf Result" style="width:100%; height:140px; object-fit:cover; border-radius:12px;">
+            </div>
+            <div class="detail-body" style="margin-top:0;">
+              <h2>Tomato Leaf</h2>
+              <p class="subtitle">Possible: <strong>Early Blight</strong> • Confidence <strong>92%</strong></p>
+              
+              <div class="metric-box" style="margin-bottom: 12px;">
+                <label>Symptoms</label>
+                <span>Dark spots • yellowing • leaf damage</span>
+              </div>
+
+              <div class="metric-box" style="margin-bottom: 16px;">
+                <label>Next Step</label>
+                <span>Consult local agriculture expert</span>
+              </div>
+
+              <button class="btn-primary-block" onclick="goToScreen(20)">CONSULT EXPERT</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17. ORDER TRACKING -->
+        <div class="screen" id="screen-17">
+          <div style="height: 100%; display: flex; flex-direction: column;">
+            <div class="sub-header">
+              <button class="btn-back" onclick="goToScreen(12)"><i class="ph-bold ph-arrow-left"></i></button>
+              <h2>Order #AL1024</h2>
+              <span class="badge-small" style="background:#dbeafe; color:#1d4ed8;">IN TRANSIT</span>
+            </div>
+            <div class="detail-body" style="margin-top:0;">
+              <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-sub);">Live pickup route</label>
+              <div style="height: 100px; background:#e2e8f0; border-radius:12px; margin:8px 0 16px; display:flex; align-items:center; justify-content:center; color:var(--text-sub);">
+                🗺️ Route Map Preview
+              </div>
+
+              <div class="timeline">
+                <div class="timeline-step completed">
+                  <h5>Pickup</h5>
+                  <p>10:30 AM</p>
+                </div>
+                <div class="timeline-step completed">
+                  <h5>Loaded</h5>
+                  <p>11:15 AM</p>
+                </div>
+                <div class="timeline-step active">
+                  <h5>In Transit</h5>
+                  <p>12:30 PM</p>
+                </div>
+                <div class="timeline-step">
+                  <h5>Delivered</h5>
+                  <p>Pending</p>
+                </div>
+              </div>
+
+              <div class="dual-actions">
+                <button class="btn-secondary-outline" onclick="showToast('Calling driver...')">CALL DRIVER</button>
+                <button class="btn-primary-block" onclick="showToast('Order details')">VIEW ORDER</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18. PAYMENT SUMMARY / CHECKOUT -->
+        <div class="screen" id="screen-18">
+          <div style="height: 100%; display: flex; flex-direction: column;">
+            <div class="sub-header">
+              <button class="btn-back" onclick="goToScreen(7)"><i class="ph-bold ph-arrow-left"></i></button>
+              <h2>Payment Summary</h2>
+              <div class="header-icon"><i class="ph-bold ph-lock"></i></div>
+            </div>
+            <div class="detail-body" style="margin-top:0;">
+              <div class="deal-card-body" style="margin-bottom: 16px;">
+                <div class="deal-item-row"><span>Waste value</span><strong>₹4,560</strong></div>
+                <div class="deal-item-row"><span>Pickup fee</span><strong>₹240</strong></div>
+                <div class="deal-item-row"><span>Platform fee</span><strong>₹91</strong></div>
+                <div class="deal-item-row" style="padding-top:8px; border-top:1px solid var(--border-color); font-size:1rem;">
+                  <span>Total</span><strong style="color:var(--primary);">₹4,891</strong>
+                </div>
+              </div>
+
+              <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-sub);">Payment method</label>
+              <div class="menu-item" style="margin: 8px 0 20px;">
+                <i class="ph-fill ph-qr-code menu-icon"></i>
+                <span>UPI •••• 2048</span>
+                <strong>UPI</strong>
+              </div>
+
+              <button class="btn-primary-block" onclick="acceptEscrowDeal()">PAY ₹4,891</button>
+              <p style="text-align:center; font-size:0.75rem; color:var(--text-muted); margin-top:8px;">🔒 Secure payment</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 19. NOTIFICATIONS SCREEN -->
+        <div class="screen" id="screen-19">
+          <div class="marketplace-container">
+            <div class="sub-header">
+              <button class="btn-back" onclick="goToScreen(7)"><i class="ph-bold ph-arrow-left"></i></button>
+              <h2>Notifications</h2>
+              <a href="#" onclick="showToast('All notifications marked read')" style="font-size:0.75rem; color:var(--primary); font-weight:700;">Mark all as read</a>
+            </div>
+
+            <div class="listings-list" style="margin-top: 12px;">
+              <div class="notification-item" onclick="goToScreen(20)">
+                <div class="noti-icon"><i class="ph-fill ph-handshake"></i></div>
+                <div class="noti-content">
+                  <h5>Waste buyer sent an offer</h5>
+                  <p>₹3.80/kg • 2 km away</p>
+                  <div class="noti-time">12m ago</div>
+                </div>
+              </div>
+
+              <div class="notification-item" onclick="goToScreen(17)">
+                <div class="noti-icon" style="background:#dbeafe; color:#1d4ed8;"><i class="ph-fill ph-truck"></i></div>
+                <div class="noti-content">
+                  <h5>Your order #AL1024 is in transit</h5>
+                  <div class="noti-time">1h ago</div>
+                </div>
+              </div>
+
+              <div class="notification-item" onclick="goToScreen(18)">
+                <div class="noti-icon"><i class="ph-fill ph-check-circle"></i></div>
+                <div class="noti-content">
+                  <h5>Payment of ₹4,891 received</h5>
+                  <div class="noti-time">1h ago</div>
+                </div>
+              </div>
+
+              <div class="notification-item" onclick="goToScreen(10)">
+                <div class="noti-icon" style="background:#f3e8ff; color:#7e22ce;"><i class="ph-fill ph-briefcase"></i></div>
+                <div class="noti-content">
+                  <h5>New labour job posted near you</h5>
+                  <div class="noti-time">2h ago</div>
+                </div>
+              </div>
+
+              <div class="notification-item" onclick="goToScreen(9)">
+                <div class="noti-icon" style="background:#ffedd5; color:#ea580c;"><i class="ph-fill ph-tractor"></i></div>
+                <div class="noti-content">
+                  <h5>Equipment booking confirmed</h5>
+                  <div class="noti-time">3h ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 20. CHAT SCREEN / ESCROW -->
+        <div class="screen" id="screen-20">
+          <div class="chat-container">
+            <div class="chat-header">
+              <button class="btn-back" onclick="goToScreen(7)"><i class="ph-bold ph-arrow-left"></i></button>
+              <div class="chat-user-info">
+                <h4>GreenPower Bio-Industries</h4>
+                <span class="online-status">🟢 Industry Buyer • Online</span>
+              </div>
+              <i class="ph-bold ph-phone" onclick="showToast('Calling buyer...')"></i>
+            </div>
+
+            <div class="escrow-banner">
+              🛡️ AGRI LINK Escrow Protected • 2% Mediator Bonus
+            </div>
+
+            <div class="chat-body" id="chatBody">
+              <div class="msg msg-system">Deal Session Started for 50 Quintals Rice Straw</div>
+              <div class="msg msg-received">
+                Hello Ramesh ji! We want to buy 50 Quintals Rice Straw from your Indore farm.
+                <div style="font-size:0.68rem; color:#64748b; margin-top:2px;">10:14 AM</div>
+              </div>
+              <div class="msg msg-sent">
+                Namaste! Yes, ready for pickup.
+                <div style="font-size:0.68rem; color:#e2e8f0; margin-top:2px;">10:15 AM</div>
+              </div>
+              <div class="msg msg-received">
+                Can you do ₹1,150 per Quintal?
+                <div style="font-size:0.68rem; color:#64748b; margin-top:2px;">10:16 AM</div>
+              </div>
+
+              <div class="chat-deal-card">
+                <div class="deal-card-header"><i class="ph-fill ph-handshake"></i> Official Deal Proposal</div>
+                <div class="deal-item-row"><span>Product:</span><strong>Rice Straw (50 Qtl)</strong></div>
+                <div class="deal-item-row"><span>Unit Price:</span><strong>₹1,150 / Qtl</strong></div>
+                <div class="deal-item-row"><span>Subtotal:</span><strong>₹57,500</strong></div>
+                <div class="deal-item-row" style="color:var(--primary);"><span>2% Platform Bonus:</span><strong>- ₹1,150</strong></div>
+                <div class="deal-item-row" style="font-size:0.95rem; font-weight:800; border-top:1px solid var(--border-color); padding-top:4px;">
+                  <span>Net Payout:</span><strong style="color:var(--primary);">₹56,350</strong>
+                </div>
+                <button class="btn-primary-block" style="margin-top:8px; padding:8px;" onclick="acceptEscrowDeal()">ACCEPT & LOCK DEAL</button>
+              </div>
+            </div>
+
+            <div class="chat-input-bar">
+              <input type="text" id="chatInput" placeholder="Type message..." onkeypress="handleChatKey(event)">
+              <button class="btn-send" onclick="sendChatMessage()"><i class="ph-bold ph-paper-plane-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- /app-viewport -->
+
+      <!-- BOTTOM NAVIGATION BAR (Screens 7-12, 19, 20) -->
+      <div class="phone-bottom-nav" id="bottomNav">
+        <div class="nav-item active" onclick="goToScreen(7)">
+          <i class="ph-fill ph-house"></i>
+          <span>Home</span>
+        </div>
+        <div class="nav-item" onclick="goToScreen(17)">
+          <i class="ph-fill ph-shopping-bag"></i>
+          <span>Orders</span>
+        </div>
+        <div class="nav-item" onclick="goToScreen(20)">
+          <i class="ph-fill ph-chats-circle"></i>
+          <span class="badge-dot-nav"></span>
+          <span>Chat</span>
+        </div>
+        <div class="nav-item" onclick="goToScreen(12)">
+          <i class="ph-fill ph-user"></i>
+          <span>Profile</span>
+        </div>
+      </div>
+
+    </div> <!-- /phone-frame -->
+  </div> <!-- /simulator-wrapper -->
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Notification</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+{
+  "info": {
+    "_postman_id": "agrilink-ai-backend-collection-v1",
+    "name": "AgriLink AI Backend APIs",
+    "description": "Complete Postman API Collection for testing AgriLink AI FastAPI Backend server",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8080/health",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "02. Auth - Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"full_name\": \"Ramesh Patel\",\n  \"email\": \"ramesh@agrilink.ai\",\n  \"phone\": \"+919876543210\",\n  \"password\": \"Kisan@12345\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/auth/register",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "03. Auth - Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"ramesh@agrilink.ai\",\n  \"password\": \"Kisan@12345\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/auth/login",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "04. Waste - Get Listings",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/waste?category=all",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "waste"],
+          "query": [
+            { "key": "category", "value": "all" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "05. Waste - Create Listing",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 5,\n  \"title\": \"Organic Mustard Straw Bales\",\n  \"category\": \"mustard\",\n  \"quantity\": \"12 Tons\",\n  \"price\": \"₹1,600 / Ton\",\n  \"location\": \"Ujjain, MP\",\n  \"farmer_name\": \"Kailash Choudhary\",\n  \"image_url\": \"assets/agri_waste_banner.png\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/waste",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "waste"]
+        }
+      }
+    },
+    {
+      "name": "06. Equipment - Get List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/equipment",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "equipment"]
+        }
+      }
+    },
+    {
+      "name": "07. Equipment - Book Rental",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"equipment_id\": 1,\n  \"days\": 3,\n  \"start_date\": \"2026-08-10\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/equipment/book",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "equipment", "book"]
+        }
+      }
+    },
+    {
+      "name": "08. Labour - Get Open Jobs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/labor",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "labor"]
+        }
+      }
+    },
+    {
+      "name": "09. Labour - Post Requirement",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Cotton Picking Workers Needed\",\n  \"workers_needed\": 8,\n  \"wage\": \"₹550 / Day\",\n  \"location\": \"Rajkot, Gujarat\",\n  \"crop_type\": \"Cotton\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/labor/job",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "labor", "job"]
+        }
+      }
+    },
+    {
+      "name": "10. AI Disease Check - Leaf Scan",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "crop_hint", "value": "paddy", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/disease-check/scan",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "disease-check", "scan"]
+        }
+      }
+    },
+    {
+      "name": "11. Chat - Get History",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/chat/messages",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "chat", "messages"]
+        }
+      }
+    },
+    {
+      "name": "12. Chat - Send Message",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sender\": \"Farmer Gurpreet\",\n  \"message\": \"I can deliver the paddy straw by 10 AM tomorrow.\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/chat/send",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "chat", "send"]
+        }
+      }
+    },
+    {
+      "name": "13. Wallet - Get Balance",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/wallet/balance",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "wallet", "balance"]
+        }
+      }
+    },
+    {
+      "name": "14. Wallet - Accept Escrow Deal",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 56350,\n  \"deal_id\": \"DEAL-9081\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8080/api/v1/wallet/escrow/accept",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8080",
+          "path": ["api", "v1", "wallet", "escrow", "accept"]
+        }
+      }
+    }
+  ]
+}

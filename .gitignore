@@ -1,0 +1,18 @@
+# Build and Cache
+.gradle/
+build/
+app/build/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Python Virtual Environment & DB
+backend/venv/
+backend/agrilink.db
+*.db
+
+# IDE & System
+.idea/
+.vscode/
+.DS_Store
+*.log

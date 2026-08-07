@@ -1,0 +1,1 @@
+"""AgriLink AI — core package"""
