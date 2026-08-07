@@ -6,10 +6,10 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import com.example.agrilink.fragments.DiseaseFragment;
-import com.example.agrilink.fragments.HomeFragment;
-import com.example.agrilink.fragments.MarketplaceFragment;
-import com.example.agrilink.fragments.ProfileFragment;
+import com.agrilink.app.fragments.DiseaseFragment;
+import com.agrilink.app.fragments.HomeFragment;
+import com.agrilink.app.fragments.MarketplaceFragment;
+import com.agrilink.app.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 

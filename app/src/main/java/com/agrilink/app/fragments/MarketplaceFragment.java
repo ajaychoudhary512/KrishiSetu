@@ -12,10 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.agrilink.app.ChatDealActivity;
-import com.agrilink.app.R;
-
-import com.example.agrilink.adapters.WasteAdapter;
-import com.example.agrilink.models.WasteItem;
+import com.example.agrilink.R;
+import com.agrilink.app.adapters.WasteAdapter;
+import com.agrilink.app.models.WasteItem;
 
 import java.util.ArrayList;
 import java.util.List;

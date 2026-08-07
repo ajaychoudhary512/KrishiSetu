@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.agrilink.app.R;
-
-import com.example.agrilink.adapters.LaborAdapter;
-import com.example.agrilink.models.LaborItem;
+import com.agrilink.app.adapters.LaborAdapter;
+import com.agrilink.app.models.LaborItem;
 
 import java.util.ArrayList;
 import java.util.List;

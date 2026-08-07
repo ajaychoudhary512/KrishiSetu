@@ -1,4 +1,4 @@
-package com.example.agrilink.adapters;
+package com.agrilink.app.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agrilink.R;
-import com.example.agrilink.models.LaborItem;
+import com.agrilink.app.models.LaborItem;
 
 import java.util.List;
 
