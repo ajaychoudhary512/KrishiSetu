@@ -56,8 +56,8 @@ public class RegisterActivity extends AppCompatActivity {
             formattedPhone = "+91" + formattedPhone;
         }
 
-        if (TextUtils.isEmpty(password) || password.length() < 8) {
-            Toast.makeText(this, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(password) || password.length() < 6) {
+            Toast.makeText(this, "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
             return;
         }
 
