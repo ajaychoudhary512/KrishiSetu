@@ -17,9 +17,11 @@ public class ChooseRoleActivity extends AppCompatActivity {
             finish();
         };
 
-        findViewById(R.id.cardFarmerRole).setOnClickListener(roleListener);
-        findViewById(R.id.cardBuyerRole).setOnClickListener(roleListener);
-        findViewById(R.id.cardEquipRole).setOnClickListener(roleListener);
-        findViewById(R.id.cardLaborRole).setOnClickListener(roleListener);
+        if (findViewById(R.id.roleFarmer) != null) findViewById(R.id.roleFarmer).setOnClickListener(roleListener);
+        if (findViewById(R.id.roleIndustry) != null) findViewById(R.id.roleIndustry).setOnClickListener(roleListener);
+        if (findViewById(R.id.roleEquipment) != null) findViewById(R.id.roleEquipment).setOnClickListener(roleListener);
+        if (findViewById(R.id.roleContractor) != null) findViewById(R.id.roleContractor).setOnClickListener(roleListener);
+        if (findViewById(R.id.roleLaborer) != null) findViewById(R.id.roleLaborer).setOnClickListener(roleListener);
+        if (findViewById(R.id.roleTransporter) != null) findViewById(R.id.roleTransporter).setOnClickListener(roleListener);
     }
 }
