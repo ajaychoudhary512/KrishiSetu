@@ -1,6 +1,3 @@
-"""
-AgriLink AI — Labour Hiring Endpoints
-"""
 from fastapi import APIRouter, status
 from pydantic import BaseModel
 

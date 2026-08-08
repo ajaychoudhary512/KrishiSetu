@@ -1,9 +1,3 @@
-"""
-AgriLink AI — OTP Code ORM Model
-
-Stores one-time passwords for phone verification and email verification.
-Each OTP expires after a configurable TTL and is invalidated after first use.
-"""
 import enum
 import uuid
 from datetime import datetime
@@ -14,18 +8,14 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.base import Base, TimestampMixin, UUIDMixin
 
-
 class OTPPurpose(str, enum.Enum):
     EMAIL_VERIFY = "email_verify"
     PHONE_VERIFY = "phone_verify"
     PASSWORD_RESET = "password_reset"
     LOGIN = "login"
 
-
 class OTPCode(UUIDMixin, TimestampMixin, Base):
-    """
-    One-time password record tied to a user and purpose.
-    """
+    
     __tablename__ = "otp_codes"
 
     user_id: Mapped[uuid.UUID] = mapped_column(

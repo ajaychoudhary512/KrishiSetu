@@ -1,20 +1,7 @@
-"""
-AgriLink AI — Standard JSON Response Utilities
-
-All API responses follow this envelope:
-    {
-        "success": bool,
-        "message": str,
-        "data": Any,
-        "errors": list,
-        "meta": dict | None   # pagination, etc.
-    }
-"""
 from typing import Any, Dict, List, Optional
 
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-
 
 def success_response(
     data: Any = None,
@@ -22,7 +9,7 @@ def success_response(
     status_code: int = 200,
     meta: Optional[Dict] = None,
 ) -> JSONResponse:
-    """Return a standard success JSON response."""
+    
     content = {
         "success": True,
         "message": message,
@@ -33,13 +20,12 @@ def success_response(
         content["meta"] = meta
     return JSONResponse(status_code=status_code, content=jsonable_encoder(content))
 
-
 def error_response(
     message: str = "An error occurred",
     status_code: int = 400,
     errors: Optional[List] = None,
 ) -> JSONResponse:
-    """Return a standard error JSON response."""
+    
     return JSONResponse(
         status_code=status_code,
         content=jsonable_encoder({
@@ -50,7 +36,6 @@ def error_response(
         }),
     )
 
-
 def paginated_response(
     data: List[Any],
     total: int,
@@ -58,7 +43,7 @@ def paginated_response(
     page_size: int,
     message: str = "Success",
 ) -> JSONResponse:
-    """Return a paginated success response with metadata."""
+    
     total_pages = (total + page_size - 1) // page_size
     return success_response(
         data=data,

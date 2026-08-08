@@ -1,9 +1,3 @@
-"""
-AgriLink AI — Abstract Storage Service (AWS S3 / Local)
-
-Provides a unified interface for file storage. Can be backed by
-AWS S3, local filesystem, or any other provider.
-"""
 import os
 import uuid
 from abc import ABC, abstractmethod
@@ -11,9 +5,8 @@ from typing import Optional
 
 from app.core.config import settings
 
-
 class StorageService(ABC):
-    """Abstract base class for file storage providers."""
+    
 
     @abstractmethod
     async def upload_file(
@@ -23,22 +16,21 @@ class StorageService(ABC):
         content_type: str,
         folder: str = "uploads",
     ) -> str:
-        """Upload a file and return its public URL."""
+        
         ...
 
     @abstractmethod
     async def delete_file(self, file_url: str) -> bool:
-        """Delete a file by its URL. Returns True on success."""
+        
         ...
 
     @abstractmethod
     async def get_presigned_url(self, file_key: str, expires_in: int = 3600) -> str:
-        """Get a presigned URL for private file access."""
+        
         ...
 
-
 class S3StorageService(StorageService):
-    """AWS S3 storage backend."""
+    
 
     def __init__(self):
         import boto3
@@ -57,7 +49,7 @@ class S3StorageService(StorageService):
         content_type: str,
         folder: str = "uploads",
     ) -> str:
-        """Upload file to S3 and return public URL."""
+        
         ext = filename.rsplit(".", 1)[-1] if "." in filename else "bin"
         key = f"{folder}/{uuid.uuid4()}.{ext}"
         self._client.put_object(
@@ -80,9 +72,8 @@ class S3StorageService(StorageService):
             ExpiresIn=expires_in,
         )
 
-
 class LocalStorageService(StorageService):
-    """Local filesystem storage backend (development use only)."""
+    
 
     def __init__(self, base_dir: str = "media"):
         self._base_dir = base_dir
@@ -113,12 +104,10 @@ class LocalStorageService(StorageService):
     async def get_presigned_url(self, file_key: str, expires_in: int = 3600) -> str:
         return f"/media/{file_key}"
 
-
 def get_storage_service() -> StorageService:
-    """Factory: return the configured storage service."""
+    
     if settings.AWS_ACCESS_KEY_ID and settings.ENVIRONMENT == "production":
         return S3StorageService()
     return LocalStorageService()
-
 
 storage_service: StorageService = get_storage_service()

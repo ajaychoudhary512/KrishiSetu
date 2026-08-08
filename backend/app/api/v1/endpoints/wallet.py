@@ -1,6 +1,3 @@
-"""
-AgriLink AI — Escrow & Wallet Endpoints
-"""
 from fastapi import APIRouter, status
 from pydantic import BaseModel
 

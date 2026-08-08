@@ -1,6 +1,3 @@
-"""
-AgriLink AI — Equipment Rental Endpoints
-"""
 from typing import Optional
 from fastapi import APIRouter, status
 from pydantic import BaseModel

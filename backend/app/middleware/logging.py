@@ -1,8 +1,3 @@
-"""
-AgriLink AI — Request/Response Logging Middleware
-
-Logs every HTTP request and response with timing information.
-"""
 import time
 
 from loguru import logger
@@ -10,9 +5,8 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
 
-
 class LoggingMiddleware(BaseHTTPMiddleware):
-    """Middleware that logs incoming requests and outgoing responses."""
+    
 
     async def dispatch(self, request: Request, call_next) -> Response:
         start_time = time.perf_counter()

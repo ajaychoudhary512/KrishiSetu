@@ -1,11 +1,3 @@
-"""
-AgriLink AI — User Profile API Endpoints
-
-GET    /users/me           → Get own profile
-PUT    /users/me           → Update own profile
-DELETE /users/me           → Soft-delete account
-POST   /users/me/avatar    → Upload profile avatar
-"""
 from fastapi import APIRouter, Depends, File, UploadFile, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -22,14 +14,12 @@ router = APIRouter(prefix="/users", tags=["Users"])
 ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
 MAX_AVATAR_SIZE = 5 * 1024 * 1024
 
-
 @router.get("/me", summary="Get my profile", response_description="Current user profile")
 async def get_me(current_user=Depends(get_current_user)):
     return success_response(
         data=UserOut.model_validate(current_user).model_dump(),
         message="Profile fetched successfully",
     )
-
 
 @router.put("/me", summary="Update my profile")
 async def update_me(
@@ -44,7 +34,6 @@ async def update_me(
         message="Profile updated successfully",
     )
 
-
 @router.delete("/me", status_code=status.HTTP_200_OK, summary="Delete my account")
 async def delete_me(
     db: AsyncSession = Depends(get_db),
@@ -53,7 +42,6 @@ async def delete_me(
     svc = UserService(db)
     await svc.delete_account(current_user)
     return success_response(message="Account deleted successfully")
-
 
 @router.post("/me/avatar", summary="Upload profile avatar")
 async def upload_avatar(

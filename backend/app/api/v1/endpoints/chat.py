@@ -1,6 +1,3 @@
-"""
-AgriLink AI — Real-time Chat & Escrow Messaging Endpoints
-"""
 from typing import List
 from fastapi import APIRouter, status
 from pydantic import BaseModel

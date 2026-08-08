@@ -1,9 +1,3 @@
-"""
-AgriLink AI — User Repository
-
-All database interactions for User records are centralized here.
-Uses async SQLAlchemy for non-blocking DB access.
-"""
 from typing import Optional
 from uuid import UUID
 
@@ -12,9 +6,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.user import User, UserRole
 
-
 class UserRepository:
-    """Data access layer for User model."""
+    
 
     def __init__(self, db: AsyncSession) -> None:
         self.db = db

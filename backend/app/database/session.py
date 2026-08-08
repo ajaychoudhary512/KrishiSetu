@@ -1,9 +1,3 @@
-"""
-AgriLink AI — Async SQLAlchemy Engine
-
-Creates an async engine and session factory configured from settings.
-Uses asyncpg driver for maximum async performance.
-"""
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from app.core.config import settings
@@ -26,17 +20,8 @@ AsyncSessionLocal = async_sessionmaker(
     autoflush=False,
 )
 
-
 async def get_db() -> AsyncSession:
-    """
-    Dependency that provides an async database session.
-    Automatically rolls back on exception and closes on exit.
-
-    Usage:
-        @router.get("/example")
-        async def example(db: AsyncSession = Depends(get_db)):
-            ...
-    """
+    
     async with AsyncSessionLocal() as session:
         try:
             yield session

@@ -1,9 +1,3 @@
-"""
-AgriLink AI — User ORM Model
-
-Defines the User table with role-based access control, phone/email
-authentication support, soft-delete, and profile fields.
-"""
 import enum
 import uuid
 
@@ -13,23 +7,16 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.database.base import AuditMixin, Base
 
-
 class UserRole(str, enum.Enum):
-    """Roles supported by the platform."""
+    
     FARMER = "farmer"
     INDUSTRY = "industry"
     LABOR = "labor"
     TRANSPORT = "transport"
     ADMIN = "admin"
 
-
 class User(AuditMixin, Base):
-    """
-    Platform user model.
-
-    Supports both email/password and phone/OTP login flows.
-    Role determines which marketplace features are accessible.
-    """
+    
     __tablename__ = "users"
 
     full_name: Mapped[str] = mapped_column(String(255), nullable=False)

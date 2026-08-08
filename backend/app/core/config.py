@@ -1,15 +1,8 @@
-"""
-AgriLink AI — Application Configuration
-
-All settings are loaded from environment variables (with .env file support).
-Uses Pydantic Settings for type-safe configuration.
-"""
 from functools import lru_cache
 from typing import List, Optional
 
 from pydantic import field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
-
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -60,7 +53,7 @@ class Settings(BaseSettings):
     GOOGLE_CLIENT_SECRET: Optional[str] = None
     GOOGLE_REDIRECT_URI: str = "http://localhost:8000/api/v1/auth/google/callback"
 
-    AI_PROVIDER: str = "mock"  # openai | gemini | claude | mock
+    AI_PROVIDER: str = "mock"
     OPENAI_API_KEY: Optional[str] = None
     OPENAI_MODEL: str = "gpt-4o-mini"
     GEMINI_API_KEY: Optional[str] = None
@@ -68,7 +61,7 @@ class Settings(BaseSettings):
     ANTHROPIC_API_KEY: Optional[str] = None
     ANTHROPIC_MODEL: str = "claude-3-haiku-20240307"
 
-    DISEASE_MODEL_PROVIDER: str = "mock"  # mock | tensorflow | pytorch | api
+    DISEASE_MODEL_PROVIDER: str = "mock"
     DISEASE_API_URL: Optional[str] = None
 
     RATE_LIMIT_DEFAULT: str = "100/minute"
@@ -105,11 +98,9 @@ class Settings(BaseSettings):
     def is_development(self) -> bool:
         return self.ENVIRONMENT == "development"
 
-
 @lru_cache
 def get_settings() -> Settings:
-    """Cached settings instance."""
+    
     return Settings()
-
 
 settings: Settings = get_settings()

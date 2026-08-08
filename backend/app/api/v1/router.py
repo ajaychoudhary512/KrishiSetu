@@ -1,9 +1,3 @@
-"""
-AgriLink AI — Main API v1 Router
-
-Mounts all feature routers under /api/v1.
-Add new feature routers here as the platform grows.
-"""
 from fastapi import APIRouter
 
 from app.api.v1.endpoints.auth import router as auth_router
@@ -25,4 +19,3 @@ api_router.include_router(labor_router)
 api_router.include_router(disease_router)
 api_router.include_router(chat_router)
 api_router.include_router(wallet_router)
-

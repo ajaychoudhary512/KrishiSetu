@@ -1,17 +1,11 @@
-"""
-AgriLink AI — Request ID Middleware
-
-Injects a unique X-Request-ID header into every request and response.
-"""
 import uuid
 
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import Response
 
-
 class RequestIDMiddleware(BaseHTTPMiddleware):
-    """Middleware that adds a unique X-Request-ID to every request."""
+    
 
     async def dispatch(self, request: Request, call_next) -> Response:
         request_id = request.headers.get("X-Request-ID") or str(uuid.uuid4())

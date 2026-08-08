@@ -1,14 +1,8 @@
-"""
-AgriLink AI — User Pydantic Schemas
-
-Defines request/response shapes for user profile operations.
-"""
 from typing import Optional
 from uuid import UUID
 from datetime import datetime
 
 from pydantic import BaseModel, EmailStr, Field
-
 
 class UserOut(BaseModel):
     id: UUID
@@ -28,7 +22,6 @@ class UserOut(BaseModel):
     updated_at: datetime
 
     model_config = {"from_attributes": True}
-
 
 class UserUpdateRequest(BaseModel):
     full_name: Optional[str] = Field(None, min_length=2, max_length=255)

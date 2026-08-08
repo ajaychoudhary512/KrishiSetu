@@ -1,6 +1,3 @@
-"""
-AgriLink AI — AI Crop Disease Detection Engine Endpoints
-"""
 from fastapi import APIRouter, File, UploadFile, status, Form
 from typing import Optional
 

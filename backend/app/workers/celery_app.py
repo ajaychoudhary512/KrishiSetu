@@ -1,9 +1,3 @@
-"""
-AgriLink AI — Celery Application
-
-Configures Celery with Redis as the broker and result backend.
-Workers handle email, SMS, AI inference, and image processing tasks.
-"""
 from celery import Celery
 
 from app.core.config import settings

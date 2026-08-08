@@ -1,9 +1,3 @@
-"""
-AgriLink AI — Custom Exceptions & Global Exception Handlers
-
-Defines a hierarchy of application-level exceptions and registers
-FastAPI handlers that return consistent JSON error responses.
-"""
 from typing import Any, List, Optional
 
 from fastapi import FastAPI, Request, status
@@ -13,9 +7,8 @@ from jose import JWTError
 from pydantic import ValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-
 class AppException(Exception):
-    """Base application exception."""
+    
 
     def __init__(
         self,
@@ -28,21 +21,17 @@ class AppException(Exception):
         self.errors = errors or []
         super().__init__(message)
 
-
 class AuthenticationError(AppException):
     def __init__(self, message: str = "Authentication failed"):
         super().__init__(message, status.HTTP_401_UNAUTHORIZED)
-
 
 class InvalidTokenError(AppException):
     def __init__(self, message: str = "Invalid or expired token"):
         super().__init__(message, status.HTTP_401_UNAUTHORIZED)
 
-
 class PermissionDeniedError(AppException):
     def __init__(self, message: str = "You do not have permission to perform this action"):
         super().__init__(message, status.HTTP_403_FORBIDDEN)
-
 
 class NotFoundError(AppException):
     def __init__(self, resource: str = "Resource", message: Optional[str] = None):
@@ -51,7 +40,6 @@ class NotFoundError(AppException):
             status.HTTP_404_NOT_FOUND,
         )
 
-
 class AlreadyExistsError(AppException):
     def __init__(self, resource: str = "Resource", message: Optional[str] = None):
         super().__init__(
@@ -59,26 +47,21 @@ class AlreadyExistsError(AppException):
             status.HTTP_409_CONFLICT,
         )
 
-
 class ValidationError_(AppException):
     def __init__(self, message: str = "Validation error", errors: Optional[List] = None):
         super().__init__(message, status.HTTP_422_UNPROCESSABLE_ENTITY, errors)
-
 
 class BadRequestError(AppException):
     def __init__(self, message: str = "Bad request"):
         super().__init__(message, status.HTTP_400_BAD_REQUEST)
 
-
 class RateLimitError(AppException):
     def __init__(self, message: str = "Rate limit exceeded"):
         super().__init__(message, status.HTTP_429_TOO_MANY_REQUESTS)
 
-
 class ServiceUnavailableError(AppException):
     def __init__(self, service: str = "Service"):
         super().__init__(f"{service} is currently unavailable", status.HTTP_503_SERVICE_UNAVAILABLE)
-
 
 def _error_response(
     status_code: int,
@@ -95,9 +78,8 @@ def _error_response(
         },
     )
 
-
 def register_exception_handlers(app: FastAPI) -> None:
-    """Register all custom exception handlers on the FastAPI app."""
+    
 
     @app.exception_handler(AppException)
     async def app_exception_handler(request: Request, exc: AppException):

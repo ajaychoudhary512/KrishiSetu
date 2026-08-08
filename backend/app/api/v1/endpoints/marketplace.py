@@ -1,6 +1,3 @@
-"""
-AgriLink AI — Agricultural Waste Marketplace Endpoints
-"""
 from typing import Optional, List
 from fastapi import APIRouter, Query, status
 from pydantic import BaseModel

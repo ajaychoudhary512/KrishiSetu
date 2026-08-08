@@ -1,10 +1,3 @@
-"""
-AgriLink AI — Auth Service
-
-Business logic for registration, login, token refresh, OTP flows,
-email verification, and password reset.
-Password hashing and JWT creation are delegated to core.security.
-"""
 from datetime import timedelta
 from typing import Optional
 from uuid import UUID
@@ -38,7 +31,6 @@ from app.schemas.auth import (
     TokenData,
 )
 
-
 class AuthService:
     def __init__(self, db: AsyncSession) -> None:
         self._db = db
@@ -46,7 +38,7 @@ class AuthService:
         self._otp_repo = OTPRepository(db)
 
     async def register(self, payload: RegisterRequest) -> User:
-        """Create a new user account and dispatch welcome/verification emails."""
+        
 
         if payload.email:
             existing = await self._user_repo.get_by_email(payload.email)
@@ -79,7 +71,7 @@ class AuthService:
         return user
 
     async def login(self, payload: LoginRequest) -> TokenData:
-        """Authenticate a user and return access + refresh tokens."""
+        
 
         user: Optional[User] = None
         if payload.email:
@@ -104,7 +96,7 @@ class AuthService:
         return self._build_token_response(user)
 
     async def refresh_tokens(self, refresh_token: str) -> TokenData:
-        """Issue new access + refresh tokens from a valid refresh token."""
+        
         try:
             payload = decode_token(refresh_token)
         except Exception:
@@ -132,7 +124,7 @@ class AuthService:
         await self._send_email_verification(user)
 
     async def verify_email(self, token: str) -> User:
-        """Verify the email verification JWT token."""
+        
         try:
             payload = decode_token(token)
         except Exception:
@@ -152,10 +144,10 @@ class AuthService:
         return user
 
     async def forgot_password(self, email: str) -> None:
-        """Send a password-reset link (silently if email not found, to avoid enumeration)."""
+        
         user = await self._user_repo.get_by_email(email)
         if not user:
-            return  # Silent — don't reveal if email exists
+            return
 
         token = create_access_token(
             subject=str(user.id),
@@ -169,7 +161,7 @@ class AuthService:
             logger.warning(f"[AUTH] Could not dispatch password reset email: {exc}")
 
     async def reset_password(self, payload: ResetPasswordRequest) -> None:
-        """Validate the reset token and update the password."""
+        
         try:
             data = decode_token(payload.token)
         except Exception:
@@ -189,7 +181,7 @@ class AuthService:
     async def change_password(
         self, user: User, current_password: str, new_password: str
     ) -> None:
-        """Change password for an authenticated user."""
+        
         if not user.hashed_password or not verify_password(current_password, user.hashed_password):
             raise AuthenticationError("Current password is incorrect")
         await self._user_repo.update(user, hashed_password=hash_password(new_password))

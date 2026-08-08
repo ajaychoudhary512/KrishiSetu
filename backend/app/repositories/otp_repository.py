@@ -1,8 +1,3 @@
-"""
-AgriLink AI — OTP Repository
-
-Manages creation, lookup, and invalidation of OTP codes.
-"""
 import secrets
 from datetime import datetime, timedelta, timezone
 from typing import Optional
@@ -15,19 +10,18 @@ from app.models.otp import OTPCode, OTPPurpose
 
 OTP_TTL_MINUTES = 10
 
-
 class OTPRepository:
-    """Data access layer for OTPCode model."""
+    
 
     def __init__(self, db: AsyncSession) -> None:
         self.db = db
 
     def _generate_code(self) -> str:
-        """Generate a 6-digit numeric OTP."""
+        
         return str(secrets.randbelow(900000) + 100000)
 
     async def create_otp(self, user_id: UUID, purpose: OTPPurpose) -> OTPCode:
-        """Invalidate any existing OTPs for this user/purpose and create a fresh one."""
+        
         await self.db.execute(
             update(OTPCode)
             .where(OTPCode.user_id == user_id, OTPCode.purpose == purpose, OTPCode.is_used.is_(False))
@@ -47,7 +41,7 @@ class OTPRepository:
     async def get_valid_otp(
         self, user_id: UUID, code: str, purpose: OTPPurpose
     ) -> Optional[OTPCode]:
-        """Return a valid, unexpired, unused OTP or None."""
+        
         now = datetime.now(timezone.utc)
         result = await self.db.execute(
             select(OTPCode).where(

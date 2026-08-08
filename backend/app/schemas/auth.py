@@ -1,26 +1,17 @@
-"""
-AgriLink AI — Auth Pydantic Schemas
-
-Request/Response schemas for all authentication endpoints.
-All passwords are validated for minimum strength.
-"""
 import re
 from typing import Optional
 from uuid import UUID
 
 from pydantic import BaseModel, EmailStr, Field, field_validator, model_validator
 
-
 PASSWORD_PATTERN = re.compile(
     r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_\-])[A-Za-z\d@$!%*?&_\-]{8,}$"
 )
-
 
 def _validate_password(v: str) -> str:
     if len(v) < 6:
         raise ValueError("Password must be at least 6 characters long")
     return v
-
 
 class RegisterRequest(BaseModel):
     full_name: str = Field(..., min_length=2, max_length=255, examples=["Ravi Kumar"])
@@ -47,7 +38,6 @@ class RegisterRequest(BaseModel):
             raise ValueError("Either email or phone is required")
         return self
 
-
 class LoginRequest(BaseModel):
     username: Optional[str] = Field(None, examples=["ravi@example.com"])
     email: Optional[str] = Field(None, examples=["ravi@example.com"])
@@ -65,37 +55,29 @@ class LoginRequest(BaseModel):
             raise ValueError("Either email, phone, or username is required")
         return self
 
-
-
 class TokenData(BaseModel):
     access_token: str
     refresh_token: str
     token_type: str = "bearer"
     expires_in: int
 
-
 class RefreshTokenRequest(BaseModel):
     refresh_token: str
-
 
 class SendOTPRequest(BaseModel):
     phone: str = Field(..., pattern=r"^\+?[1-9]\d{9,14}$")
     purpose: str = Field("login", examples=["login", "phone_verify"])
-
 
 class VerifyOTPRequest(BaseModel):
     phone: str
     code: str = Field(..., min_length=6, max_length=6)
     purpose: str = Field("login")
 
-
 class VerifyEmailRequest(BaseModel):
     token: str
 
-
 class ForgotPasswordRequest(BaseModel):
     email: EmailStr
-
 
 class ResetPasswordRequest(BaseModel):
     token: str
@@ -112,7 +94,6 @@ class ResetPasswordRequest(BaseModel):
         if self.new_password != self.confirm_password:
             raise ValueError("Passwords do not match")
         return self
-
 
 class ChangePasswordRequest(BaseModel):
     current_password: str
