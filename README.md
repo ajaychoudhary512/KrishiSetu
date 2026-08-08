@@ -1,88 +1,52 @@
-# 🌾 KrishiSetu (AgriLink AI) — Smart Agriculture Marketplace
+# 🌾 KrishiSetu — Smart Agriculture & Farm Resource Marketplace
 
-**KrishiSetu** is an all-in-one, AI-powered agricultural marketplace platform connecting farmers, buyers, equipment owners, and agricultural laborers. It features an agricultural waste marketplace, equipment rental & sales, labor hiring, AI computer vision crop disease detection, real-time negotiation chat, and secure wallet payments.
-
----
-
-## 📁 Repository Structure
-
-```text
-KrishiSetu/
-├── 🐍 backend/                 # FastAPI Python REST API Server
-│   ├── app/                    # Application source code (Controllers, Models, Services)
-│   ├── AgriLink_AI_Postman_Collection.json # Postman API Test Collection
-│   ├── start_backend.bat       # One-click Windows server launcher
-│   └── requirements.txt        # Python dependencies
-├── 🌐 frontend/                # Web Application UI (HTML5, Vanilla CSS, JS)
-│   ├── index.html              # Main interactive 20-screen Web Application
-│   ├── styles.css              # Custom styling & modern design tokens
-│   └── app.js                  # Frontend API integration & state management
-├── 📱 app/                     # Android Studio Application (Java)
-│   └── src/main/java/com/agrilink/app/ # Android Activities, Fragments, Adapters
-├── .gitignore                  # Production Git exclusion rules
-└── README.md                   # Master Documentation
-```
+**KrishiSetu** is an all-in-one AI-powered agricultural ecosystem designed to empower farmers, eliminate crop waste burning, streamline farm machinery rentals, connect agricultural labor, and enable direct buyer-seller negotiations.
 
 ---
 
-## 🚀 Getting Started
+## 🎯 The Problem
 
-### 1. Run the Backend API Server
+Modern agriculture in developing regions faces several critical challenges:
 
-Navigate to the `backend` directory and start the server:
-
-```cmd
-cd backend
-python -m uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload
-```
-
-*Or on Windows, double-click `backend/start_backend.bat`.*
-
-* **Swagger UI (Interactive API Docs)**: [http://127.0.0.1:8080/docs](http://127.0.0.1:8080/docs)
-* **ReDoc Documentation**: [http://127.0.0.1:8080/redoc](http://127.0.0.1:8080/redoc)
-* **Health Check**: [http://127.0.0.1:8080/health](http://127.0.0.1:8080/health)
+1. **Stubble Burning & Environmental Pollution**: Millions of tons of paddy and wheat straw are burned annually due to a lack of buyer access and logistical connectivity.
+2. **High Capital Costs for Machinery**: Smallholder farmers cannot afford expensive tractors, harvesters, and seeders.
+3. **Seasonal Agricultural Labor Shortage**: Finding verified, skilled farm workers during peak harvest times remains inefficient and fragmented.
+4. **Crop Health & Disease Losses**: Undetected crop diseases cause severe yield loss due to delayed treatment advice.
+5. **Middleman Exploitation**: Farmers lose profit margins to intermediaries when selling produce or buying inputs.
 
 ---
 
-### 2. Run the Web Frontend
+## 💡 The Solution & Project Vision
 
-Open `frontend/index.html` in any web browser, or serve it using Live Server in VS Code. All features and 20 screens will dynamically communicate with the live FastAPI backend.
+**KrishiSetu** bridges these gaps by providing a unified digital marketplace and AI assistant tailored for the agricultural community.
 
----
+### 🌟 Core Modules
 
-### 3. Run the Android Mobile App
+#### 🌾 1. Crop Waste Marketplace (Stubble-to-Wealth)
+- Direct marketplace for farmers to list organic crop residue, paddy straw, and wheat bales.
+- Bio-energy plants, paper mills, and livestock owners buy biomass directly from farmers.
+- Turns crop waste burning into an additional revenue stream for farming households.
 
-1. Launch **Android Studio**.
-2. Select **Open** and select the project directory.
-3. Build & Run on an Android Emulator or connected device.
+#### 🚜 2. Farm Equipment Rental & Sharing
+- Pay-per-use rental model for tractors, harvesters, rotavators, and sprayers.
+- Machinery owners monetize idle equipment, while small farmers gain access to modern automation at affordable rates.
 
----
+#### 👷 3. Agricultural Labor Matchmaking
+- On-demand hiring for seasonal labor (sowing, harvesting, weeding, cotton picking).
+- Transparent daily wage rates and local worker matching to eliminate harvest delays.
 
-## 🧪 API Endpoints Overview
+#### 🔬 4. AI-Powered Crop Disease Diagnosis
+- Instant leaf scan analysis using computer vision and machine learning models.
+- Provides immediate disease diagnosis and recommended treatment remedies to protect crop yields.
 
-| Category | Method | Endpoint | Description |
-|---|---|---|---|
-| **Health** | `GET` | `/health` | Server status check |
-| **Auth** | `POST` | `/api/v1/auth/register` | User registration |
-| **Auth** | `POST` | `/api/v1/auth/login` | User authentication & JWT token |
-| **Waste** | `GET` | `/api/v1/waste` | Browse agri-waste listings |
-| **Waste** | `POST` | `/api/v1/waste` | Post agri-waste listing |
-| **Equipment** | `GET` | `/api/v1/equipment` | Browse equipment rentals |
-| **Equipment** | `POST` | `/api/v1/equipment/book` | Book machinery rental |
-| **Labor** | `GET` | `/api/v1/labor` | List labor requirements |
-| **Labor** | `POST` | `/api/v1/labor/job` | Post labor job offer |
-| **AI Check** | `POST` | `/api/v1/disease-check/scan` | AI Crop disease diagnosis |
-| **Chat** | `GET` | `/api/v1/chat/messages` | Fetch deal chat history |
-| **Chat** | `POST` | `/api/v1/chat/send` | Send negotiation message |
-| **Wallet** | `GET` | `/api/v1/wallet/balance` | Get wallet balance |
-| **Wallet** | `POST` | `/api/v1/wallet/escrow/accept` | Lock funds in escrow |
-
-> **Postman Collection**: Import `backend/AgriLink_AI_Postman_Collection.json` into Postman for instant API testing.
+#### 💬 5. Direct Negotiation & Escrow Wallet
+- Built-in real-time chat for buyer-farmer price negotiations.
+- Secure escrow wallet mechanism ensuring fair and guaranteed payments upon delivery.
 
 ---
 
-## 🔒 Security & Privacy
+## 🌍 Impact & Sustainable Development Goals (SDGs)
 
-- Sensitive files (`.env`, `agrilink.db`, virtual environments) are excluded via `.gitignore`.
-- Production backend code has been cleaned of internal comments and docstrings.
-- Secure JWT authentication for protected API endpoints.
+- **SDG 13 (Climate Action)**: Prevents toxic stubble burning emissions by building a circular bio-waste economy.
+- **SDG 1 (No Poverty)**: Increases farmer income through crop waste sales and reduced equipment costs.
+- **SDG 8 (Decent Work & Economic Growth)**: Provides fair wages and reliable jobs for rural farm workers.
