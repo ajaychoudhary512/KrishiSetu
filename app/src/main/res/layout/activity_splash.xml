@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:padding="8dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo1" />
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
