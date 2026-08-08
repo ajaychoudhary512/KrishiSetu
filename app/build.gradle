@@ -34,7 +34,6 @@ android {
 androidComponents {
     beforeVariants(selector().all()) { variantBuilder ->
         variantBuilder.enableAndroidTest = false
-        variantBuilder.enableUnitTest = false
     }
 }
 
