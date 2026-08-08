@@ -32,7 +32,6 @@ class User(AuditMixin, Base):
     """
     __tablename__ = "users"
 
-    # ── Identity ──────────────────────────────────────────────────────────────
     full_name: Mapped[str] = mapped_column(String(255), nullable=False)
     email: Mapped[str | None] = mapped_column(
         String(320), unique=True, nullable=True, index=True
@@ -41,25 +40,21 @@ class User(AuditMixin, Base):
         String(20), unique=True, nullable=True, index=True
     )
 
-    # ── Auth ──────────────────────────────────────────────────────────────────
     hashed_password: Mapped[str | None] = mapped_column(Text, nullable=True)
     role: Mapped[UserRole] = mapped_column(
         Enum(UserRole, name="userrole"), nullable=False, default=UserRole.FARMER
     )
 
-    # ── Verification ──────────────────────────────────────────────────────────
     is_email_verified: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_phone_verified: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
 
-    # ── Profile ───────────────────────────────────────────────────────────────
     avatar_url: Mapped[str | None] = mapped_column(Text, nullable=True)
     bio: Mapped[str | None] = mapped_column(Text, nullable=True)
     city: Mapped[str | None] = mapped_column(String(100), nullable=True)
     state: Mapped[str | None] = mapped_column(String(100), nullable=True)
     pincode: Mapped[str | None] = mapped_column(String(10), nullable=True)
 
-    # ── OAuth ─────────────────────────────────────────────────────────────────
     google_id: Mapped[str | None] = mapped_column(String(255), unique=True, nullable=True)
 
     def __repr__(self) -> str:

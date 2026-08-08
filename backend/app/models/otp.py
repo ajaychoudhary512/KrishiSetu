@@ -41,7 +41,6 @@ class OTPCode(UUIDMixin, TimestampMixin, Base):
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     is_used: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
 
-    # Relationship
     user = relationship("User", backref="otp_codes", lazy="select")
 
     def __repr__(self) -> str:

@@ -10,7 +10,6 @@ from datetime import datetime
 from pydantic import BaseModel, EmailStr, Field
 
 
-# ── User output (safe — no password) ─────────────────────────────────────────
 class UserOut(BaseModel):
     id: UUID
     full_name: str
@@ -31,7 +30,6 @@ class UserOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ── Update profile ────────────────────────────────────────────────────────────
 class UserUpdateRequest(BaseModel):
     full_name: Optional[str] = Field(None, min_length=2, max_length=255)
     bio: Optional[str] = Field(None, max_length=500)

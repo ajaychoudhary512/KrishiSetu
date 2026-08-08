@@ -37,7 +37,6 @@ from app.utils.response import success_response
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 
-# ── Register ──────────────────────────────────────────────────────────────────
 @router.post(
     "/register",
     status_code=status.HTTP_201_CREATED,
@@ -54,7 +53,6 @@ async def register(payload: RegisterRequest, db: AsyncSession = Depends(get_db))
     )
 
 
-# ── Login ─────────────────────────────────────────────────────────────────────
 @router.post("/login", summary="Login with email/phone + password")
 async def login(payload: LoginRequest, db: AsyncSession = Depends(get_db)):
     svc = AuthService(db)
@@ -62,7 +60,6 @@ async def login(payload: LoginRequest, db: AsyncSession = Depends(get_db)):
     return success_response(data=tokens.model_dump(mode="json"), message="Login successful")
 
 
-# ── Refresh ───────────────────────────────────────────────────────────────────
 @router.post("/refresh", summary="Refresh access token")
 async def refresh(payload: RefreshTokenRequest, db: AsyncSession = Depends(get_db)):
     svc = AuthService(db)
@@ -70,7 +67,6 @@ async def refresh(payload: RefreshTokenRequest, db: AsyncSession = Depends(get_d
     return success_response(data=tokens.model_dump(mode="json"), message="Tokens refreshed")
 
 
-# ── Logout ────────────────────────────────────────────────────────────────────
 @router.post("/logout", summary="Logout (stateless — discard tokens client-side)")
 async def logout():
     """
@@ -81,7 +77,6 @@ async def logout():
     return success_response(message="Logged out successfully")
 
 
-# ── OTP ───────────────────────────────────────────────────────────────────────
 @router.post("/send-otp", summary="Send OTP to a registered phone number")
 async def send_otp(payload: SendOTPRequest, db: AsyncSession = Depends(get_db)):
     svc = AuthService(db)
@@ -98,7 +93,6 @@ async def verify_otp(payload: VerifyOTPRequest, db: AsyncSession = Depends(get_d
     return success_response(data=tokens.model_dump(mode="json"), message="OTP verified. Login successful.")
 
 
-# ── Email verification ────────────────────────────────────────────────────────
 @router.get("/verify-email", summary="Verify email via link token")
 async def verify_email(token: str, db: AsyncSession = Depends(get_db)):
     svc = AuthService(db)
@@ -119,7 +113,6 @@ async def resend_verification(
     return success_response(message="Verification email sent")
 
 
-# ── Password ──────────────────────────────────────────────────────────────────
 @router.post("/forgot-password", summary="Request a password reset link")
 async def forgot_password(
     payload: ForgotPasswordRequest, db: AsyncSession = Depends(get_db)

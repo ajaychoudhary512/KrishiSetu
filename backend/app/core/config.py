@@ -19,7 +19,6 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    # ── Application ───────────────────────────────────────────────────────────
     APP_NAME: str = "AgriLink AI"
     APP_VERSION: str = "1.0.0"
     ENVIRONMENT: str = "development"
@@ -27,28 +26,23 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "change-me-in-production-min-32-characters-long"
     ALLOWED_HOSTS: List[str] = ["*"]
 
-    # ── Database ──────────────────────────────────────────────────────────────
     DATABASE_URL: str = "postgresql+asyncpg://agrilink:agrilink_password@localhost:5432/agrilink_db"
 
-    # ── Redis ─────────────────────────────────────────────────────────────────
     REDIS_URL: str = "redis://localhost:6379/0"
     CELERY_BROKER_URL: str = "redis://localhost:6379/1"
     CELERY_RESULT_BACKEND: str = "redis://localhost:6379/2"
 
-    # ── JWT ───────────────────────────────────────────────────────────────────
     JWT_SECRET_KEY: str = "change-me-jwt-secret-in-production"
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     REFRESH_TOKEN_EXPIRE_DAYS: int = 30
 
-    # ── AWS S3 ────────────────────────────────────────────────────────────────
     AWS_ACCESS_KEY_ID: Optional[str] = None
     AWS_SECRET_ACCESS_KEY: Optional[str] = None
     AWS_REGION: str = "ap-south-1"
     AWS_S3_BUCKET: str = "agrilink-storage"
     AWS_S3_BASE_URL: str = "https://agrilink-storage.s3.ap-south-1.amazonaws.com"
 
-    # ── Email ─────────────────────────────────────────────────────────────────
     MAIL_USERNAME: Optional[str] = None
     MAIL_PASSWORD: Optional[str] = None
     MAIL_FROM: str = "noreply@agrilink.ai"
@@ -57,18 +51,15 @@ class Settings(BaseSettings):
     MAIL_TLS: bool = True
     MAIL_SSL: bool = False
 
-    # ── SMS ───────────────────────────────────────────────────────────────────
     SMS_PROVIDER: str = "mock"
     TWILIO_ACCOUNT_SID: Optional[str] = None
     TWILIO_AUTH_TOKEN: Optional[str] = None
     TWILIO_FROM_NUMBER: Optional[str] = None
 
-    # ── Google OAuth ──────────────────────────────────────────────────────────
     GOOGLE_CLIENT_ID: Optional[str] = None
     GOOGLE_CLIENT_SECRET: Optional[str] = None
     GOOGLE_REDIRECT_URI: str = "http://localhost:8000/api/v1/auth/google/callback"
 
-    # ── AI Providers ──────────────────────────────────────────────────────────
     AI_PROVIDER: str = "mock"  # openai | gemini | claude | mock
     OPENAI_API_KEY: Optional[str] = None
     OPENAI_MODEL: str = "gpt-4o-mini"
@@ -77,21 +68,16 @@ class Settings(BaseSettings):
     ANTHROPIC_API_KEY: Optional[str] = None
     ANTHROPIC_MODEL: str = "claude-3-haiku-20240307"
 
-    # ── Disease Detection ─────────────────────────────────────────────────────
     DISEASE_MODEL_PROVIDER: str = "mock"  # mock | tensorflow | pytorch | api
     DISEASE_API_URL: Optional[str] = None
 
-    # ── Rate Limiting ─────────────────────────────────────────────────────────
     RATE_LIMIT_DEFAULT: str = "100/minute"
     RATE_LIMIT_AUTH: str = "20/minute"
 
-    # ── CORS ──────────────────────────────────────────────────────────────────
     CORS_ORIGINS: List[str] = ["*"]
 
-    # ── Push Notifications ────────────────────────────────────────────────────
     FCM_SERVER_KEY: Optional[str] = None
 
-    # ── Pagination ────────────────────────────────────────────────────────────
     DEFAULT_PAGE_SIZE: int = 20
     MAX_PAGE_SIZE: int = 100
 

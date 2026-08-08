@@ -40,7 +40,6 @@ async def send_message(msg: ChatMessage):
     }
     CHAT_HISTORY.append(new_msg)
     
-    # Auto response from buyer/escrow agent
     reply = {
         "id": len(CHAT_HISTORY) + 1,
         "sender": "GreenBio Energy Ltd",

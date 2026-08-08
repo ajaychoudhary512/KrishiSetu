@@ -41,7 +41,6 @@ async def scan_disease(
     file: Optional[UploadFile] = File(None),
     crop_hint: Optional[str] = Form(None)
 ):
-    # Simulated AI Computer Vision Diagnosis Engine
     key = "paddy_blast"
     if crop_hint and "wheat" in crop_hint.lower():
         key = "wheat_rust"

@@ -57,7 +57,6 @@ async def get_current_user(
     Raises:
         AuthenticationError: If user is not found or is soft-deleted
     """
-    # Import here to avoid circular imports
     from app.repositories.user_repository import UserRepository
 
     repo = UserRepository(db)

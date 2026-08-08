@@ -15,7 +15,6 @@ def send_verification_email(self, email: str, full_name: str, token: str):
     try:
         verification_url = f"http://localhost:8000/api/v1/auth/verify-email?token={token}"
         logger.info(f"[EMAIL] Sending verification email to {email}: {verification_url}")
-        # TODO: integrate fastapi-mail / SendGrid / SES here
     except Exception as exc:
         logger.error(f"[EMAIL] Failed to send to {email}: {exc}")
         raise self.retry(exc=exc, countdown=60)

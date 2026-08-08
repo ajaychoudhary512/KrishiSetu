@@ -66,7 +66,7 @@ class UserRepository:
             is_phone_verified=is_phone_verified,
         )
         self.db.add(user)
-        await self.db.flush()  # get id without committing
+        await self.db.flush()
         await self.db.refresh(user)
         return user
 

@@ -121,5 +121,4 @@ def get_storage_service() -> StorageService:
     return LocalStorageService()
 
 
-# Singleton instance
 storage_service: StorageService = get_storage_service()

@@ -16,7 +16,6 @@ from app.middleware.logging import LoggingMiddleware
 from app.middleware.request_id import RequestIDMiddleware
 from app.api.v1.router import api_router
 
-# ── Prometheus metrics ───────────────────────────────────────────────────────
 from prometheus_fastapi_instrumentator import Instrumentator
 
 
@@ -24,7 +23,6 @@ from prometheus_fastapi_instrumentator import Instrumentator
 async def lifespan(app: FastAPI):
     """Application lifespan: startup → yield → shutdown."""
     from loguru import logger
-    # Startup — attempt DB table creation; warn and continue if DB unavailable
     try:
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
@@ -35,7 +33,6 @@ async def lifespan(app: FastAPI):
             "Running without DB — endpoints requiring DB will return 503."
         )
     yield
-    # Shutdown
     try:
         await engine.dispose()
     except Exception:
@@ -48,11 +45,9 @@ def create_application() -> FastAPI:
         title=settings.APP_NAME,
         version=settings.APP_VERSION,
         description="""
-## AgriLink AI — Backend API
 
 Production-ready REST API for an AI-powered agriculture marketplace.
 
-### Features
 - 🔐 JWT Authentication with Refresh Tokens
 - 🌾 Agricultural Waste Marketplace
 - 🚜 Equipment Rental & Selling
@@ -72,7 +67,6 @@ Production-ready REST API for an AI-powered agriculture marketplace.
         lifespan=lifespan,
     )
 
-    # ── Middleware ────────────────────────────────────────────────────────────
     application.add_middleware(RequestIDMiddleware)
     application.add_middleware(LoggingMiddleware)
     application.add_middleware(
@@ -87,16 +81,12 @@ Production-ready REST API for an AI-powered agriculture marketplace.
         allowed_hosts=settings.ALLOWED_HOSTS,
     )
 
-    # ── Exception handlers ────────────────────────────────────────────────────
     register_exception_handlers(application)
 
-    # ── API routes ────────────────────────────────────────────────────────────
     application.include_router(api_router, prefix="/api/v1")
 
-    # ── Prometheus ────────────────────────────────────────────────────────────
     Instrumentator().instrument(application).expose(application)
 
-    # ── Health check ──────────────────────────────────────────────────────────
     @application.get("/health", tags=["Health"])
     async def health_check():
         return JSONResponse({"status": "ok", "version": settings.APP_VERSION})

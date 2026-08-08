@@ -11,7 +11,6 @@ from jose import JWTError, jwt
 
 from app.core.config import settings
 
-# ── Password hashing ─────────────────────────────────────────────────────────
 def hash_password(password: str) -> str:
     """Hash a plain-text password using bcrypt."""
     pwd_bytes = password.encode("utf-8")
@@ -32,7 +31,6 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
         return False
 
 
-# ── JWT token management ─────────────────────────────────────────────────────
 def create_access_token(
     subject: str | Any,
     extra_claims: dict | None = None,

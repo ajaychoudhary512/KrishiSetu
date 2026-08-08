@@ -17,7 +17,6 @@ from app.api.v1.endpoints.wallet import router as wallet_router
 
 api_router = APIRouter()
 
-# ── Core authentication & user management ─────────────────────────────────────
 api_router.include_router(auth_router)
 api_router.include_router(users_router)
 api_router.include_router(marketplace_router)

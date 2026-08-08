@@ -14,7 +14,6 @@ from pydantic import ValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 
-# ── Base exception ────────────────────────────────────────────────────────────
 class AppException(Exception):
     """Base application exception."""
 
@@ -30,7 +29,6 @@ class AppException(Exception):
         super().__init__(message)
 
 
-# ── Auth exceptions ───────────────────────────────────────────────────────────
 class AuthenticationError(AppException):
     def __init__(self, message: str = "Authentication failed"):
         super().__init__(message, status.HTTP_401_UNAUTHORIZED)
@@ -46,7 +44,6 @@ class PermissionDeniedError(AppException):
         super().__init__(message, status.HTTP_403_FORBIDDEN)
 
 
-# ── Resource exceptions ───────────────────────────────────────────────────────
 class NotFoundError(AppException):
     def __init__(self, resource: str = "Resource", message: Optional[str] = None):
         super().__init__(
@@ -63,13 +60,11 @@ class AlreadyExistsError(AppException):
         )
 
 
-# ── Validation exceptions ─────────────────────────────────────────────────────
 class ValidationError_(AppException):
     def __init__(self, message: str = "Validation error", errors: Optional[List] = None):
         super().__init__(message, status.HTTP_422_UNPROCESSABLE_ENTITY, errors)
 
 
-# ── Business logic exceptions ─────────────────────────────────────────────────
 class BadRequestError(AppException):
     def __init__(self, message: str = "Bad request"):
         super().__init__(message, status.HTTP_400_BAD_REQUEST)
@@ -85,7 +80,6 @@ class ServiceUnavailableError(AppException):
         super().__init__(f"{service} is currently unavailable", status.HTTP_503_SERVICE_UNAVAILABLE)
 
 
-# ── Response builder helpers ──────────────────────────────────────────────────
 def _error_response(
     status_code: int,
     message: str,
@@ -102,7 +96,6 @@ def _error_response(
     )
 
 
-# ── Exception handlers ────────────────────────────────────────────────────────
 def register_exception_handlers(app: FastAPI) -> None:
     """Register all custom exception handlers on the FastAPI app."""
 
@@ -132,7 +125,6 @@ def register_exception_handlers(app: FastAPI) -> None:
 
     @app.exception_handler(Exception)
     async def generic_exception_handler(request: Request, exc: Exception):
-        # Never expose internal errors in production
         return _error_response(
             status.HTTP_500_INTERNAL_SERVER_ERROR,
             "An internal server error occurred",

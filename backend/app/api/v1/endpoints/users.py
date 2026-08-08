@@ -19,12 +19,10 @@ from app.utils.s3 import storage_service
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
-# Allowed avatar MIME types
 ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
-MAX_AVATAR_SIZE = 5 * 1024 * 1024  # 5 MB
+MAX_AVATAR_SIZE = 5 * 1024 * 1024
 
 
-# ── Profile ───────────────────────────────────────────────────────────────────
 @router.get("/me", summary="Get my profile", response_description="Current user profile")
 async def get_me(current_user=Depends(get_current_user)):
     return success_response(
@@ -57,7 +55,6 @@ async def delete_me(
     return success_response(message="Account deleted successfully")
 
 
-# ── Avatar ────────────────────────────────────────────────────────────────────
 @router.post("/me/avatar", summary="Upload profile avatar")
 async def upload_avatar(
     file: UploadFile = File(..., description="JPEG/PNG/WebP image, max 5MB"),
@@ -80,7 +77,6 @@ async def upload_avatar(
 
     svc = UserService(db)
     user = await svc.update_profile(current_user, UserUpdateRequest())
-    # Directly set avatar_url via repo
     from app.repositories.user_repository import UserRepository
     repo = UserRepository(db)
     user = await repo.update(current_user, avatar_url=url)

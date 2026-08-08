@@ -11,7 +11,6 @@ from uuid import UUID
 from pydantic import BaseModel, EmailStr, Field, field_validator, model_validator
 
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
 PASSWORD_PATTERN = re.compile(
     r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_\-])[A-Za-z\d@$!%*?&_\-]{8,}$"
 )
@@ -23,7 +22,6 @@ def _validate_password(v: str) -> str:
     return v
 
 
-# ── Register ──────────────────────────────────────────────────────────────────
 class RegisterRequest(BaseModel):
     full_name: str = Field(..., min_length=2, max_length=255, examples=["Ravi Kumar"])
     email: Optional[EmailStr] = Field(None, examples=["ravi@example.com"])
@@ -50,7 +48,6 @@ class RegisterRequest(BaseModel):
         return self
 
 
-# ── Login ─────────────────────────────────────────────────────────────────────
 class LoginRequest(BaseModel):
     username: Optional[str] = Field(None, examples=["ravi@example.com"])
     email: Optional[str] = Field(None, examples=["ravi@example.com"])
@@ -70,19 +67,17 @@ class LoginRequest(BaseModel):
 
 
 
-# ── Token responses ───────────────────────────────────────────────────────────
 class TokenData(BaseModel):
     access_token: str
     refresh_token: str
     token_type: str = "bearer"
-    expires_in: int  # seconds
+    expires_in: int
 
 
 class RefreshTokenRequest(BaseModel):
     refresh_token: str
 
 
-# ── OTP / verification ────────────────────────────────────────────────────────
 class SendOTPRequest(BaseModel):
     phone: str = Field(..., pattern=r"^\+?[1-9]\d{9,14}$")
     purpose: str = Field("login", examples=["login", "phone_verify"])
@@ -95,10 +90,9 @@ class VerifyOTPRequest(BaseModel):
 
 
 class VerifyEmailRequest(BaseModel):
-    token: str  # signed JWT used as email verification link token
+    token: str
 
 
-# ── Password reset ────────────────────────────────────────────────────────────
 class ForgotPasswordRequest(BaseModel):
     email: EmailStr
 

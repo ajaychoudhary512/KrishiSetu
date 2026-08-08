@@ -8,18 +8,16 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 
 from app.core.config import settings
 
-# ── Engine ────────────────────────────────────────────────────────────────────
 engine = create_async_engine(
     settings.DATABASE_URL,
     echo=settings.DEBUG,
     pool_size=10,
     max_overflow=20,
     pool_timeout=30,
-    pool_recycle=1800,  # Recycle connections every 30 minutes
-    pool_pre_ping=True,  # Test connections before using from pool
+    pool_recycle=1800,
+    pool_pre_ping=True,
 )
 
-# ── Session factory ───────────────────────────────────────────────────────────
 AsyncSessionLocal = async_sessionmaker(
     bind=engine,
     class_=AsyncSession,
@@ -29,7 +27,6 @@ AsyncSessionLocal = async_sessionmaker(
 )
 
 
-# ── FastAPI dependency ─────────────────────────────────────────────────────────
 async def get_db() -> AsyncSession:
     """
     Dependency that provides an async database session.

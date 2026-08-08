@@ -18,7 +18,6 @@ class WasteListing(BaseModel):
     image_url: str
     status: str = "Available"
 
-# Initial seed data for out-of-the-box functionality
 DEMO_LISTINGS = [
     {
         "id": 1,

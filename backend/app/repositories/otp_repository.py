@@ -28,7 +28,6 @@ class OTPRepository:
 
     async def create_otp(self, user_id: UUID, purpose: OTPPurpose) -> OTPCode:
         """Invalidate any existing OTPs for this user/purpose and create a fresh one."""
-        # Invalidate old OTPs
         await self.db.execute(
             update(OTPCode)
             .where(OTPCode.user_id == user_id, OTPCode.purpose == purpose, OTPCode.is_used.is_(False))

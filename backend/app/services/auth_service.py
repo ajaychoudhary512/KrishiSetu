@@ -45,11 +45,9 @@ class AuthService:
         self._user_repo = UserRepository(db)
         self._otp_repo = OTPRepository(db)
 
-    # ── Registration ──────────────────────────────────────────────────────────
     async def register(self, payload: RegisterRequest) -> User:
         """Create a new user account and dispatch welcome/verification emails."""
 
-        # Duplicate check
         if payload.email:
             existing = await self._user_repo.get_by_email(payload.email)
             if existing:
@@ -60,7 +58,6 @@ class AuthService:
             if existing:
                 raise AlreadyExistsError("Phone number")
 
-        # Validate role
         try:
             role = UserRole(payload.role)
         except ValueError:
@@ -74,7 +71,6 @@ class AuthService:
             role=role,
         )
 
-        # Dispatch async tasks (non-blocking)
         self._dispatch_welcome_email(user)
         if payload.email:
             await self._send_email_verification(user)
@@ -82,7 +78,6 @@ class AuthService:
         logger.info(f"[AUTH] New user registered: {user.id} role={role}")
         return user
 
-    # ── Login ─────────────────────────────────────────────────────────────────
     async def login(self, payload: LoginRequest) -> TokenData:
         """Authenticate a user and return access + refresh tokens."""
 
@@ -108,7 +103,6 @@ class AuthService:
 
         return self._build_token_response(user)
 
-    # ── Refresh Token ─────────────────────────────────────────────────────────
     async def refresh_tokens(self, refresh_token: str) -> TokenData:
         """Issue new access + refresh tokens from a valid refresh token."""
         try:
@@ -129,7 +123,6 @@ class AuthService:
 
         return self._build_token_response(user)
 
-    # ── Email verification ────────────────────────────────────────────────────
     async def send_email_verification(self, user_id: UUID) -> None:
         user = await self._user_repo.get_by_id(user_id)
         if not user or not user.email:
@@ -158,7 +151,6 @@ class AuthService:
 
         return user
 
-    # ── Password reset ────────────────────────────────────────────────────────
     async def forgot_password(self, email: str) -> None:
         """Send a password-reset link (silently if email not found, to avoid enumeration)."""
         user = await self._user_repo.get_by_email(email)
@@ -202,7 +194,6 @@ class AuthService:
             raise AuthenticationError("Current password is incorrect")
         await self._user_repo.update(user, hashed_password=hash_password(new_password))
 
-    # ── OTP ───────────────────────────────────────────────────────────────────
     async def send_otp(self, phone: str, purpose: OTPPurpose) -> None:
         user = await self._user_repo.get_by_phone(phone)
         if not user:
@@ -230,7 +221,6 @@ class AuthService:
 
         return self._build_token_response(user)
 
-    # ── Internals ─────────────────────────────────────────────────────────────
     def _build_token_response(self, user: User) -> TokenData:
         extra = {"role": user.role.value if hasattr(user.role, "value") else str(user.role), "email": user.email}
         access_token = create_access_token(subject=str(user.id), extra_claims=extra)

@@ -18,7 +18,6 @@ class LoggingMiddleware(BaseHTTPMiddleware):
         start_time = time.perf_counter()
         request_id = getattr(request.state, "request_id", "unknown")
 
-        # Log request
         logger.info(
             f"→ {request.method} {request.url.path} | "
             f"client={request.client.host if request.client else 'unknown'} | "

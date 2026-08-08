@@ -1,0 +1,19 @@
+# Backend Secrets
+.env
+*.env
+!.env.example
+
+# Python Cache & Virtual Environment
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Database & Storage
+*.db
+*.sqlite
+*.sqlite3
+agrilink.db
+media/*
+!media/.gitkeep
+*.log
