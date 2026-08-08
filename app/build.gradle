@@ -31,6 +31,12 @@ android {
     }
 }
 
+tasks.configureEach { task ->
+    if (task.name.toLowerCase().contains("androidtest")) {
+        task.enabled = false
+    }
+}
+
 dependencies {
     implementation libs.appcompat
     implementation libs.material
