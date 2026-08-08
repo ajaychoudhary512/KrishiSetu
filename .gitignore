@@ -1,18 +1,43 @@
-# Build and Cache
+# Environment & Secrets (NEVER COMMIT REAL .env)
+.env
+*.env
+!.env.example
+.env.local
+.env.*.local
+
+# Python Virtual Environments & Caches
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+backend/venv/
+backend/.venv/
+venv/
+.venv/
+ENV/
+env/
+
+# Databases & SQLite
+*.db
+*.sqlite
+*.sqlite3
+backend/*.db
+
+# Media & Uploads
+backend/media/*
+!backend/media/.gitkeep
+
+# Android & Gradle Build Artifacts
 .gradle/
 build/
 app/build/
-**/__pycache__/
-*.pyc
-*.pyo
+*.apk
+*.aar
 
-# Python Virtual Environment & DB
-backend/venv/
-backend/agrilink.db
-*.db
-
-# IDE & System
+# IDE & OS Files
 .idea/
 .vscode/
 .DS_Store
+Thumbs.db
 *.log
+*.tmp
