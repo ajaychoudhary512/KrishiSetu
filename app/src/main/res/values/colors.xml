@@ -6,12 +6,12 @@
     <color name="accent_green">#22C55E</color>
     <color name="accent_light">#E6F4EA</color>
     
-    <color name="bg_app">#F8FAFC</color>
+    <color name="bg_app">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
-    <color name="text_dark">#0F172A</color>
-    <color name="text_muted">#334155</color>
+    <color name="text_dark">#000000</color>
+    <color name="text_muted">#1E293B</color>
     <color name="text_black">#000000</color>
-    <color name="border_color">#CBD5E1</color>
+    <color name="border_color">#475569</color>
     
     <color name="header_green">#0E5C2F</color>
     <color name="header_green_end">#15803D</color>
