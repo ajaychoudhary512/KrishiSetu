@@ -66,9 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                                 token = data != null ? data.optString("access_token") : root.optString("access_token");
                             }
 
-                            // Save JWT Token
+                            // Save JWT Token and User Info
                             SharedPreferences prefs = getSharedPreferences("agrilink_prefs", Context.MODE_PRIVATE);
-                            prefs.edit().putString("access_token", token).apply();
+                            prefs.edit()
+                                .putString("access_token", token)
+                                .putString("user_phone", identifier)
+                                .apply();
 
                             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));

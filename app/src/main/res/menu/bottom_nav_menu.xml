@@ -11,7 +11,7 @@
     <item
         android:id="@+id/nav_deals"
         android:icon="@android:drawable/ic_menu_send"
-        android:title="Deals/Chat" />
+        android:title="Chat" />
     <item
         android:id="@+id/nav_profile"
         android:icon="@android:drawable/ic_menu_myplaces"

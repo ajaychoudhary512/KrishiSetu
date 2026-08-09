@@ -25,7 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
             app:strokeColor="@color/primary_green"
             app:strokeWidth="1.5dp">
 
@@ -40,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Upload Leaf Photo"
-                    android:textColor="@color/primary_dark"
+                    android:textColor="@color/text_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -134,8 +136,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="12dp"
-            app:cardElevation="1dp">
+            app:cardElevation="2dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -181,8 +184,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="12dp"
-            app:cardElevation="1dp">
+            app:cardElevation="2dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"

@@ -69,6 +69,9 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        final String finalPhone = formattedPhone;
+        final String finalFullName = fullName;
+
         try {
             JSONObject jsonBody = new JSONObject();
             jsonBody.put("full_name", fullName);
@@ -85,6 +88,12 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(String response, int statusCode) {
                     if (statusCode >= 200 && statusCode < 300) {
+                        android.content.SharedPreferences prefs = getSharedPreferences("agrilink_prefs", MODE_PRIVATE);
+                        prefs.edit()
+                            .putString("user_name", finalFullName)
+                            .putString("user_phone", finalPhone)
+                            .apply();
+
                         Toast.makeText(RegisterActivity.this, "Account Created Successfully! Please verify OTP.", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(RegisterActivity.this, OtpVerificationActivity.class));
                         finish();
