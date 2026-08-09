@@ -41,9 +41,10 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvHomeGreeting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hello, Ramesh!"
+                        android:text="Hello, Farmer!"
                         android:textColor="@color/white"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -92,12 +93,13 @@
                     </RelativeLayout>
 
                     <TextView
+                        android:id="@+id/tvHomeAvatarInitials"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="10dp"
                         android:background="@color/accent_green"
                         android:gravity="center"
-                        android:text="RP"
+                        android:text="AG"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -176,8 +178,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/mint_bg"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
                 app:strokeColor="#BBF7D0"
                 app:strokeWidth="1dp">
 
@@ -216,8 +219,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="3dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/soft_blue_bg"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
                 app:strokeColor="#BFDBFE"
                 app:strokeWidth="1dp">
 
@@ -256,8 +260,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/soft_orange_bg"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
                 app:strokeColor="#FED7AA"
                 app:strokeWidth="1dp">
 
@@ -316,8 +321,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -339,7 +345,7 @@
                         android:gravity="center"
                         android:text="Waste\nMarket"
                         android:textColor="@color/text_dark"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -350,8 +356,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -373,7 +380,7 @@
                         android:gravity="center"
                         android:text="Equipment"
                         android:textColor="@color/text_dark"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -384,8 +391,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -407,7 +415,7 @@
                         android:gravity="center"
                         android:text="Hire\nLabour"
                         android:textColor="@color/text_dark"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -418,8 +426,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -441,7 +450,7 @@
                         android:gravity="center"
                         android:text="Disease\nScan"
                         android:textColor="@color/text_dark"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -470,8 +479,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -493,7 +503,7 @@
                         android:gravity="center"
                         android:text="Crop\nSchemes"
                         android:textColor="@color/text_dark"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -503,8 +513,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -526,7 +537,7 @@
                         android:gravity="center"
                         android:text="Transport"
                         android:textColor="@color/text_dark"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -536,8 +547,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -559,7 +571,7 @@
                         android:gravity="center"
                         android:text="Weather"
                         android:textColor="@color/text_dark"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -569,8 +581,9 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -592,7 +605,7 @@
                         android:gravity="center"
                         android:text="Insurance"
                         android:textColor="@color/text_dark"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
