@@ -37,8 +37,8 @@ public class ApiClient {
                 URL url = new URL(BASE_URL + endpoint);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
-                conn.setConnectTimeout(8000);
-                conn.setReadTimeout(8000);
+                conn.setConnectTimeout(30000);
+                conn.setReadTimeout(30000);
 
                 int responseCode = conn.getResponseCode();
                 InputStream is = (responseCode >= 200 && responseCode < 300) ? conn.getInputStream() : conn.getErrorStream();
@@ -61,8 +61,8 @@ public class ApiClient {
                 conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
                 conn.setRequestProperty("Accept", "application/json");
                 conn.setDoOutput(true);
-                conn.setConnectTimeout(8000);
-                conn.setReadTimeout(8000);
+                conn.setConnectTimeout(30000);
+                conn.setReadTimeout(30000);
 
                 try (OutputStream os = conn.getOutputStream()) {
                     byte[] input = jsonBody.getBytes(StandardCharsets.UTF_8);
