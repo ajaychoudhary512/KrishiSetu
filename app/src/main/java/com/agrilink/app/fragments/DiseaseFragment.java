@@ -21,13 +21,18 @@ public class DiseaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_disease, container, false);
 
-        view.findViewById(R.id.btnScanNow).setOnClickListener(v -> {
+        View.OnClickListener scanListener = v -> {
             Toast.makeText(getContext(), "🔍 AI Scanning Leaf Photo: Result -> Tomato Early Blight (92% Confidence)", Toast.LENGTH_LONG).show();
-        });
+        };
 
-        view.findViewById(R.id.cardAgriBot).setOnClickListener(v -> {
-            startActivity(new Intent(getContext(), ChatDealActivity.class));
-        });
+        if (view.findViewById(R.id.btnScanNow) != null) view.findViewById(R.id.btnScanNow).setOnClickListener(scanListener);
+        if (view.findViewById(R.id.btnUploadImage) != null) view.findViewById(R.id.btnUploadImage).setOnClickListener(scanListener);
+
+        if (view.findViewById(R.id.cardAgriBot) != null) {
+            view.findViewById(R.id.cardAgriBot).setOnClickListener(v -> {
+                startActivity(new Intent(getContext(), ChatDealActivity.class));
+            });
+        }
 
         return view;
     }

@@ -21,8 +21,8 @@ import java.util.concurrent.Executors;
 public class ApiClient {
 
     private static final String TAG = "ApiClient";
-    // 10.32.73.166 for physical Android phone on Wi-Fi (use 10.0.2.2 for Android Studio Emulator)
-    public static final String BASE_URL = "http://10.32.73.166:8080/api/v1";
+    // Render Production Endpoint (krishisetu-backend-d73j)
+    public static final String BASE_URL = "https://krishisetu-backend-d73j.onrender.com/api/v1";
     private static final ExecutorService executor = Executors.newFixedThreadPool(4);
     private static final Handler mainHandler = new Handler(Looper.getMainLooper());
 

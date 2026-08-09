@@ -60,8 +60,7 @@
                 android:id="@+id/etFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Ramesh Kumar" />
+                android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Mobile Number -->
@@ -81,8 +80,7 @@
                 android:id="@+id/etMobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:text="9876543210" />
+                android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Email -->
@@ -101,8 +99,7 @@
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:text="ramesh.farmer@gmail.com" />
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password -->
@@ -122,8 +119,7 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:text="Password123" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
@@ -131,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:checked="true"
+            android:checked="false"
             android:text="I agree to Terms &amp; Conditions"
             android:textColor="@color/text_dark"
             android:textSize="13sp" />

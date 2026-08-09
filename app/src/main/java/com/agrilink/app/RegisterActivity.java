@@ -3,6 +3,7 @@ package com.agrilink.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etMobile;
     private EditText etEmail;
     private EditText etPassword;
+    private CheckBox cbTerms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
         etMobile = findViewById(R.id.etMobile);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
+        cbTerms = findViewById(R.id.cbTerms);
 
         // Register Submit
         findViewById(R.id.btnRegister).setOnClickListener(v -> performRegistration());
@@ -61,6 +64,11 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        if (cbTerms != null && !cbTerms.isChecked()) {
+            Toast.makeText(this, "Please agree to Terms & Conditions to register", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         try {
             JSONObject jsonBody = new JSONObject();
             jsonBody.put("full_name", fullName);
@@ -76,14 +84,18 @@ public class RegisterActivity extends AppCompatActivity {
             ApiClient.post("/auth/register", jsonBody.toString(), new ApiClient.ApiCallback() {
                 @Override
                 public void onSuccess(String response, int statusCode) {
+                    if (statusCode >= 200 && statusCode < 300) {
+                        Toast.makeText(RegisterActivity.this, "Account Created Successfully! Please verify OTP.", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(RegisterActivity.this, OtpVerificationActivity.class));
+                        finish();
+                        return;
+                    }
+
+                    // Parse error details safely
+                    String errorMsg = "Registration failed (Code " + statusCode + ")";
                     try {
-                        JSONObject root = new JSONObject(response);
-                        if (statusCode == 201 || statusCode == 200) {
-                            Toast.makeText(RegisterActivity.this, "Account Created Successfully! Please verify OTP.", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(RegisterActivity.this, OtpVerificationActivity.class));
-                            finish();
-                        } else {
-                            String errorMsg = "Registration failed";
+                        if (!TextUtils.isEmpty(response)) {
+                            JSONObject root = new JSONObject(response);
                             if (root.has("detail")) {
                                 Object detail = root.get("detail");
                                 if (detail instanceof JSONArray) {
@@ -98,11 +110,13 @@ public class RegisterActivity extends AppCompatActivity {
                             } else if (root.has("message")) {
                                 errorMsg = root.optString("message");
                             }
-                            Toast.makeText(RegisterActivity.this, "Error: " + errorMsg, Toast.LENGTH_LONG).show();
                         }
                     } catch (Exception e) {
-                        Toast.makeText(RegisterActivity.this, "Response parsing error", Toast.LENGTH_SHORT).show();
+                        if (!TextUtils.isEmpty(response)) {
+                            errorMsg = response;
+                        }
                     }
+                    Toast.makeText(RegisterActivity.this, "Error: " + errorMsg, Toast.LENGTH_LONG).show();
                 }
 
                 @Override

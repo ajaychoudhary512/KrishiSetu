@@ -57,11 +57,14 @@ public class LoginActivity extends AppCompatActivity {
             ApiClient.post("/auth/login", jsonBody.toString(), new ApiClient.ApiCallback() {
                 @Override
                 public void onSuccess(String response, int statusCode) {
-                    try {
-                        JSONObject root = new JSONObject(response);
-                        if (statusCode >= 200 && statusCode < 300) {
-                            JSONObject data = root.optJSONObject("data");
-                            String token = data != null ? data.optString("access_token") : root.optString("access_token");
+                    if (statusCode >= 200 && statusCode < 300) {
+                        try {
+                            String token = "";
+                            if (!TextUtils.isEmpty(response)) {
+                                JSONObject root = new JSONObject(response);
+                                JSONObject data = root.optJSONObject("data");
+                                token = data != null ? data.optString("access_token") : root.optString("access_token");
+                            }
 
                             // Save JWT Token
                             SharedPreferences prefs = getSharedPreferences("agrilink_prefs", Context.MODE_PRIVATE);
@@ -70,13 +73,27 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
-                        } else {
-                            String errorMsg = root.optString("detail", root.optString("message", "Login failed"));
-                            Toast.makeText(LoginActivity.this, "Error: " + errorMsg, Toast.LENGTH_LONG).show();
+                        } catch (Exception e) {
+                            Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
+                        }
+                        return;
+                    }
+
+                    // Parse error message safely
+                    String errorMsg = "Login failed (Code " + statusCode + ")";
+                    try {
+                        if (!TextUtils.isEmpty(response)) {
+                            JSONObject root = new JSONObject(response);
+                            errorMsg = root.optString("detail", root.optString("message", errorMsg));
                         }
                     } catch (Exception e) {
-                        Toast.makeText(LoginActivity.this, "Response parsing error", Toast.LENGTH_SHORT).show();
+                        if (!TextUtils.isEmpty(response)) {
+                            errorMsg = response;
+                        }
                     }
+                    Toast.makeText(LoginActivity.this, "Error: " + errorMsg, Toast.LENGTH_LONG).show();
                 }
 
                 @Override
