@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "change-me-in-production-min-32-characters-long"
     ALLOWED_HOSTS: List[str] = ["*"]
 
-    DATABASE_URL: str = "postgresql+asyncpg://agrilink:agrilink_password@localhost:5432/agrilink_db"
+    DATABASE_URL: str = "sqlite+aiosqlite:///./agrilink.db"
 
     REDIS_URL: str = "redis://localhost:6379/0"
     CELERY_BROKER_URL: str = "redis://localhost:6379/1"

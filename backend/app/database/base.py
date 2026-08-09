@@ -2,16 +2,13 @@ import uuid
 from datetime import datetime, timezone
 from typing import Optional
 
-from sqlalchemy import DateTime, func, text
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import DateTime, func, text, Uuid
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 class Base(DeclarativeBase):
-    
     pass
 
 class TimestampMixin:
-    
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
@@ -27,7 +24,6 @@ class TimestampMixin:
     )
 
 class SoftDeleteMixin:
-    
 
     deleted_at: Mapped[Optional[datetime]] = mapped_column(
         DateTime(timezone=True),
@@ -41,17 +37,14 @@ class SoftDeleteMixin:
         return self.deleted_at is not None
 
     def soft_delete(self) -> None:
-        
         self.deleted_at = datetime.now(timezone.utc)
 
 class UUIDMixin:
-    
 
     id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
+        Uuid(as_uuid=True),
         primary_key=True,
         default=uuid.uuid4,
-        server_default=text("gen_random_uuid()"),
     )
 
 class AuditMixin(UUIDMixin, TimestampMixin, SoftDeleteMixin):
