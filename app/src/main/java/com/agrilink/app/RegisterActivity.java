@@ -17,6 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etMobile;
     private EditText etEmail;
     private EditText etPassword;
+    private android.widget.AutoCompleteTextView actvRole;
     private CheckBox cbTerms;
 
     @Override
@@ -29,6 +30,14 @@ public class RegisterActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         cbTerms = findViewById(R.id.cbTerms);
+        actvRole = findViewById(R.id.actvRole);
+
+        if (actvRole != null) {
+            String[] roles = getResources().getStringArray(R.array.roles_array);
+            android.widget.ArrayAdapter<String> adapter = new android.widget.ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, roles);
+            actvRole.setAdapter(adapter);
+            actvRole.setText(roles[0], false);
+        }
 
         // Register Submit
         findViewById(R.id.btnRegister).setOnClickListener(v -> performRegistration());
@@ -42,6 +51,17 @@ public class RegisterActivity extends AppCompatActivity {
         String mobile = etMobile != null ? etMobile.getText().toString().trim() : "";
         String email = etEmail != null ? etEmail.getText().toString().trim() : "";
         String password = etPassword != null ? etPassword.getText().toString().trim() : "";
+        String selectedRole = actvRole != null ? actvRole.getText().toString().trim() : "Farmer";
+
+        // Map display role to backend API role string ("farmer", "industry", "transport", "labor")
+        String apiRole = "farmer";
+        if (selectedRole.toLowerCase().contains("industry") || selectedRole.toLowerCase().contains("buyer")) {
+            apiRole = "industry";
+        } else if (selectedRole.toLowerCase().contains("equipment") || selectedRole.toLowerCase().contains("transport")) {
+            apiRole = "transport";
+        } else if (selectedRole.toLowerCase().contains("labour") || selectedRole.toLowerCase().contains("labor")) {
+            apiRole = "labor";
+        }
 
         if (TextUtils.isEmpty(fullName) || fullName.length() < 2) {
             Toast.makeText(this, "Please enter a valid full name (at least 2 characters)", Toast.LENGTH_SHORT).show();
@@ -71,6 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         final String finalPhone = formattedPhone;
         final String finalFullName = fullName;
+        final String finalRole = selectedRole;
 
         try {
             JSONObject jsonBody = new JSONObject();
@@ -80,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
                 jsonBody.put("email", email);
             }
             jsonBody.put("password", password);
-            jsonBody.put("role", "farmer");
+            jsonBody.put("role", apiRole);
 
             Toast.makeText(this, "Creating account...", Toast.LENGTH_SHORT).show();
 
@@ -92,6 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
                         prefs.edit()
                             .putString("user_name", finalFullName)
                             .putString("user_phone", finalPhone)
+                            .putString("user_role", finalRole)
                             .apply();
 
                         Toast.makeText(RegisterActivity.this, "Account Created Successfully! Please verify OTP.", Toast.LENGTH_LONG).show();

@@ -34,6 +34,7 @@
         <activity android:name=".ChooseRoleActivity" android:theme="@style/Theme.AgriLink.NoActionBar"/>
         <activity android:name=".MainActivity" android:theme="@style/Theme.AgriLink.NoActionBar"/>
         <activity android:name=".ChatDealActivity" android:theme="@style/Theme.AgriLink.NoActionBar"/>
+        <activity android:name=".CreateListingActivity" android:theme="@style/Theme.AgriLink.NoActionBar"/>
 
     </application>
 

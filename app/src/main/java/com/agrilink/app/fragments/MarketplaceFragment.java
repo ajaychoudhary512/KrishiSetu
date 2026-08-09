@@ -38,6 +38,13 @@ public class MarketplaceFragment extends Fragment {
         });
         rv.setAdapter(adapter);
 
+        View btnPostListing = view.findViewById(R.id.btnPostListing);
+        if (btnPostListing != null) {
+            btnPostListing.setOnClickListener(v -> {
+                startActivity(new Intent(getContext(), com.agrilink.app.CreateListingActivity.class));
+            });
+        }
+
         return view;
     }
 }

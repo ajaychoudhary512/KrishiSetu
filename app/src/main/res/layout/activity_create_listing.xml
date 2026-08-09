@@ -3,54 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bg_app"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="20dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Header Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginBottom="16dp">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_crop"
-                app:tint="@color/primary_green" />
+                android:id="@+id/btnBackCreate"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="@color/text_dark" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Create Account"
+                android:layout_centerInParent="true"
+                android:text="Post New Listing"
                 android:textColor="@color/text_dark"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
+        </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Register to get started"
-                android:textColor="@color/text_muted"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <!-- Select Role Dropdown -->
+        <!-- Category Dropdown -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Select Your Role"
+            android:layout_marginTop="8dp"
+            android:hint="Category"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -58,7 +51,7 @@
             app:boxStrokeColor="@color/primary_green">
 
             <AutoCompleteTextView
-                android:id="@+id/actvRole"
+                android:id="@+id/actvCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
@@ -67,13 +60,13 @@
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Full Name -->
+        <!-- Item Title -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Full Name"
+            android:hint="Listing Title (e.g. Wheat Straw Bales)"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -81,47 +74,47 @@
             app:boxStrokeColor="@color/primary_green">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFullName"
+                android:id="@+id/etListingTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="textCapWords"
                 android:textColor="@color/text_dark"
                 android:textColorHint="@color/text_muted"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Mobile Number -->
+        <!-- Price -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Mobile Number"
+            android:hint="Price (in ₹)"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
             app:boxStrokeColor="@color/primary_green"
-            app:prefixText="+91 "
+            app:prefixText="₹ "
             app:prefixTextColor="@color/text_dark">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMobile"
+                android:id="@+id/etPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:inputType="numberDecimal"
                 android:textColor="@color/text_dark"
                 android:textColorHint="@color/text_muted"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Email -->
+        <!-- Quantity -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Email (Optional)"
+            android:hint="Quantity &amp; Unit (e.g. 50 Quintals)"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -129,72 +122,76 @@
             app:boxStrokeColor="@color/primary_green">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
+                android:id="@+id/etQuantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:textColor="@color/text_dark"
                 android:textColorHint="@color/text_muted"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Password -->
+        <!-- Location -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Password"
+            android:hint="Location / City (e.g. Indore, MP)"
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary_green"
-            app:passwordToggleEnabled="true">
+            app:boxStrokeColor="@color/primary_green">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
+                android:id="@+id/etLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="textCapWords"
                 android:textColor="@color/text_dark"
                 android:textColorHint="@color/text_muted"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/cbTerms"
-            android:layout_width="wrap_content"
+        <!-- Description -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:checked="false"
-            android:text="I agree to Terms &amp; Conditions"
-            android:textColor="@color/text_dark"
-            android:textSize="13sp" />
+            android:hint="Description &amp; Quality Details"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/primary_green">
 
-        <!-- Register Button -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:textColor="@color/text_dark"
+                android:textColorHint="@color/text_muted"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Submit Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnSubmitListing"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:layout_marginTop="16dp"
-            android:text="REGISTER"
+            android:layout_marginTop="24dp"
+            android:text="POST LISTING TO MARKETPLACE"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold"
             app:backgroundTint="@color/primary_green"
-            app:cornerRadius="12dp" />
-
-        <TextView
-            android:id="@+id/tvLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="24dp"
-            android:text="Already have an account? Login"
-            android:textColor="@color/primary_green"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            app:cornerRadius="12dp"
+            app:elevation="3dp" />
 
     </LinearLayout>
 

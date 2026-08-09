@@ -34,6 +34,12 @@ public class ProfileFragment extends Fragment {
                     tvUserName.setText("AgriLink Member");
                 }
             }
+
+            String userRole = prefs.getString("user_role", "Farmer");
+            android.widget.TextView tvUserRole = view.findViewById(R.id.tvUserRole);
+            if (tvUserRole != null) {
+                tvUserRole.setText(userRole + " • Verified ✓");
+            }
         }
 
         if (view.findViewById(R.id.btnWithdraw) != null) {
