@@ -9,9 +9,15 @@
         <item name="colorSecondary">@color/accent_green</item>
         <item name="colorSecondaryVariant">@color/primary_light</item>
         <item name="colorOnSecondary">@color/text_dark</item>
-        <!-- Status bar color. -->
+        <!-- Status bar & Background. -->
         <item name="android:statusBarColor">@color/primary_dark</item>
         <item name="android:windowBackground">@color/bg_app</item>
+        <!-- High-contrast global text colors -->
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textColorPrimary">@color/text_dark</item>
+        <item name="android:textColorSecondary">@color/text_muted</item>
+        <item name="android:textColorHint">@color/text_muted</item>
+        <item name="editTextColor">@color/text_dark</item>
     </style>
 
     <style name="Theme.AgriLink.NoActionBar">

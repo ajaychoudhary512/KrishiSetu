@@ -59,13 +59,16 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
             app:boxStrokeColor="@color/primary_green"
-            app:prefixText="+91 ">
+            app:prefixText="+91 "
+            app:prefixTextColor="@color/text_dark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etMobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
+                android:textColor="@color/text_dark"
+                android:textColorHint="@color/text_muted"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,6 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textColor="@color/text_dark"
+                android:textColorHint="@color/text_muted"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
