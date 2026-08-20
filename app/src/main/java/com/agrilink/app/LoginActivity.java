@@ -60,16 +60,28 @@ public class LoginActivity extends AppCompatActivity {
                     if (statusCode >= 200 && statusCode < 300) {
                         try {
                             String token = "";
+                            String fullName = "";
                             if (!TextUtils.isEmpty(response)) {
                                 JSONObject root = new JSONObject(response);
                                 JSONObject data = root.optJSONObject("data");
-                                token = data != null ? data.optString("access_token") : root.optString("access_token");
+                                if (data != null) {
+                                    token = data.optString("access_token");
+                                    fullName = data.optString("full_name", "");
+                                } else {
+                                    token = root.optString("access_token");
+                                    fullName = root.optString("full_name", "");
+                                }
+                            }
+
+                            if (TextUtils.isEmpty(fullName)) {
+                                fullName = cleanDisplayNameFromEmail(identifier);
                             }
 
                             // Save JWT Token and User Info
                             SharedPreferences prefs = getSharedPreferences("agrilink_prefs", Context.MODE_PRIVATE);
                             prefs.edit()
                                 .putString("access_token", token)
+                                .putString("user_name", fullName)
                                 .putString("user_phone", identifier)
                                 .apply();
 
@@ -107,5 +119,22 @@ public class LoginActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, "Failed to prepare request", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private String cleanDisplayNameFromEmail(String input) {
+        if (TextUtils.isEmpty(input)) return "Farmer";
+        if (input.contains("@")) {
+            String namePart = input.split("@")[0];
+            namePart = namePart.replaceAll("[._-]", " ");
+            String[] words = namePart.trim().split("\\s+");
+            StringBuilder sb = new StringBuilder();
+            for (String w : words) {
+                if (w.length() > 0) {
+                    sb.append(Character.toUpperCase(w.charAt(0))).append(w.substring(1).toLowerCase()).append(" ");
+                }
+            }
+            return sb.toString().trim();
+        }
+        return input;
     }
 }

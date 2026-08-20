@@ -27,12 +27,8 @@ public class HomeFragment extends Fragment {
             android.widget.TextView tvHomeGreeting = view.findViewById(R.id.tvHomeGreeting);
             android.widget.TextView tvHomeAvatarInitials = view.findViewById(R.id.tvHomeAvatarInitials);
 
-            String nameToDisplay = "Farmer";
-            if (!android.text.TextUtils.isEmpty(userName)) {
-                nameToDisplay = userName;
-            } else if (!android.text.TextUtils.isEmpty(userPhone)) {
-                nameToDisplay = userPhone;
-            }
+            String rawName = !android.text.TextUtils.isEmpty(userName) ? userName : userPhone;
+            String nameToDisplay = getCleanDisplayName(rawName);
 
             if (tvHomeGreeting != null) {
                 tvHomeGreeting.setText("Hello, " + nameToDisplay + "!");
@@ -80,5 +76,22 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private String getCleanDisplayName(String input) {
+        if (android.text.TextUtils.isEmpty(input)) return "Farmer";
+        if (input.contains("@")) {
+            String namePart = input.split("@")[0];
+            namePart = namePart.replaceAll("[._-]", " ");
+            String[] words = namePart.trim().split("\\s+");
+            StringBuilder sb = new StringBuilder();
+            for (String w : words) {
+                if (w.length() > 0) {
+                    sb.append(Character.toUpperCase(w.charAt(0))).append(w.substring(1).toLowerCase()).append(" ");
+                }
+            }
+            return sb.toString().trim();
+        }
+        return input;
     }
 }

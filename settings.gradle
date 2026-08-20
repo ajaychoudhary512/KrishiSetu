@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = "AgriLink"
+rootProject.name = "KrishiSetu"
 include ':app'

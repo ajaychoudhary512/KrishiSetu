@@ -26,13 +26,8 @@ public class ProfileFragment extends Fragment {
 
             android.widget.TextView tvUserName = view.findViewById(R.id.tvUserName);
             if (tvUserName != null) {
-                if (!android.text.TextUtils.isEmpty(userName)) {
-                    tvUserName.setText(userName);
-                } else if (!android.text.TextUtils.isEmpty(userPhone)) {
-                    tvUserName.setText("User (" + userPhone + ")");
-                } else {
-                    tvUserName.setText("AgriLink Member");
-                }
+                String rawName = !android.text.TextUtils.isEmpty(userName) ? userName : userPhone;
+                tvUserName.setText(getCleanDisplayName(rawName));
             }
 
             String userRole = prefs.getString("user_role", "Farmer");
@@ -40,6 +35,36 @@ public class ProfileFragment extends Fragment {
             if (tvUserRole != null) {
                 tvUserRole.setText(userRole + " • Verified ✓");
             }
+        }
+
+        // Theme Toggle Click Listener
+        View rlThemeToggle = view.findViewById(R.id.rlThemeToggle);
+        android.widget.TextView tvCurrentTheme = view.findViewById(R.id.tvCurrentTheme);
+        if (rlThemeToggle != null) {
+            rlThemeToggle.setOnClickListener(v -> {
+                if (getActivity() == null) return;
+                android.content.SharedPreferences prefs = getActivity().getSharedPreferences("agrilink_prefs", android.content.Context.MODE_PRIVATE);
+                boolean isDark = prefs.getBoolean("is_dark_mode", false);
+                boolean newDark = !isDark;
+                prefs.edit().putBoolean("is_dark_mode", newDark).apply();
+
+                if (newDark) {
+                    androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES);
+                    if (tvCurrentTheme != null) tvCurrentTheme.setText("Dark 🌙 ›");
+                    Toast.makeText(getContext(), "🌙 Switched to High-Contrast Dark Mode", Toast.LENGTH_SHORT).show();
+                } else {
+                    androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO);
+                    if (tvCurrentTheme != null) tvCurrentTheme.setText("Light ☀️ ›");
+                    Toast.makeText(getContext(), "☀️ Switched to Outdoor Light Mode", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        // Language Switcher Click Listener
+        View rlLanguageToggle = view.findViewById(R.id.rlLanguageToggle);
+        android.widget.TextView tvCurrentLanguage = view.findViewById(R.id.tvCurrentLanguage);
+        if (rlLanguageToggle != null) {
+            rlLanguageToggle.setOnClickListener(v -> showLanguageSelectionDialog(tvCurrentLanguage));
         }
 
         if (view.findViewById(R.id.btnWithdraw) != null) {
@@ -61,5 +86,48 @@ public class ProfileFragment extends Fragment {
         }
 
         return view;
+    }
+
+    private String getCleanDisplayName(String input) {
+        if (android.text.TextUtils.isEmpty(input)) return "AgriLink Member";
+        if (input.contains("@")) {
+            String namePart = input.split("@")[0];
+            namePart = namePart.replaceAll("[._-]", " ");
+            String[] words = namePart.trim().split("\\s+");
+            StringBuilder sb = new StringBuilder();
+            for (String w : words) {
+                if (w.length() > 0) {
+                    sb.append(Character.toUpperCase(w.charAt(0))).append(w.substring(1).toLowerCase()).append(" ");
+                }
+            }
+            return sb.toString().trim();
+        }
+        return input;
+    }
+
+    private void showLanguageSelectionDialog(android.widget.TextView tvCurrentLanguage) {
+        String[] languages = {"🇬🇧 English (Default)", "🇮🇳 हिंदी (Hindi)"};
+        new androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                .setTitle("🌐 Select App Language / भाषा चुनें")
+                .setItems(languages, (dialog, which) -> {
+                    String selectedLang = which == 1 ? "hi" : "en";
+                    if (getActivity() != null) {
+                        android.content.SharedPreferences prefs = getActivity().getSharedPreferences("agrilink_prefs", android.content.Context.MODE_PRIVATE);
+                        prefs.edit().putString("app_lang", selectedLang).apply();
+
+                        java.util.Locale locale = new java.util.Locale(selectedLang);
+                        java.util.Locale.setDefault(locale);
+                        android.content.res.Configuration config = new android.content.res.Configuration();
+                        config.setLocale(locale);
+                        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+
+                        if (tvCurrentLanguage != null) {
+                            tvCurrentLanguage.setText(which == 1 ? "हिंदी 🇮🇳 ›" : "English 🇬🇧 ›");
+                        }
+                        Toast.makeText(getContext(), which == 1 ? "🇮🇳 भाषा बदलकर 'हिंदी' कर दी गई है!" : "🇬🇧 Language set to English!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancel / रद्द करें", (d, w) -> d.dismiss())
+                .show();
     }
 }

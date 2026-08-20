@@ -14,15 +14,33 @@ android {
         versionName "1.0"
     }
 
+    signingConfigs {
+        release {
+            storeFile file("agrilink_release.jks")
+            storePassword "agrilink2026secret"
+            keyAlias "agrilink_key"
+            keyPassword "agrilink2026secret"
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+    aaptOptions {
+        cruncherEnabled = false
     }
     packaging {
         resources {

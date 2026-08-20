@@ -1,6 +1,4 @@
-from typing import Optional
-from fastapi import APIRouter, status
-from pydantic import BaseModel
+from fastapi import APIRouter, status, Query
 
 router = APIRouter(prefix="/equipment", tags=["Equipment Rental"])
 
@@ -14,8 +12,9 @@ DEMO_EQUIPMENT = [
         "id": 1,
         "name": "John Deere 5050D Tractor (50 HP)",
         "category": "Tractors",
+        "source_type": "farmer",
         "rate": "₹800 / Hr",
-        "owner": "Sukhdev Farmer Producer Co.",
+        "owner": "Sukhdev Farmer Co.",
         "location": "Ambala, Haryana",
         "rating": 4.9,
         "image_url": "assets/agri_waste_banner.png",
@@ -25,8 +24,9 @@ DEMO_EQUIPMENT = [
         "id": 2,
         "name": "Kubota Combined Paddy Harvester",
         "category": "Harvesters",
+        "source_type": "farmer",
         "rate": "₹2,500 / Hr",
-        "owner": "Punjab Agri Rentals",
+        "owner": "Punjab Agri Rentals (Farmer)",
         "location": "Patiala, Punjab",
         "rating": 4.8,
         "image_url": "assets/agri_waste_banner.png",
@@ -34,20 +34,24 @@ DEMO_EQUIPMENT = [
     },
     {
         "id": 3,
-        "name": "Automatic Rotavator & Seed Drill",
-        "category": "Seeders",
-        "rate": "₹600 / Hr",
-        "owner": "Kisan Seva Kendra",
-        "location": "Hisar, Haryana",
-        "rating": 4.7,
+        "name": "Heavy Duty Industrial Biomass Baler",
+        "category": "Industrial Heavy",
+        "source_type": "industry",
+        "rate": "₹3,500 / Day",
+        "owner": "IndoBio Energy Fleet (Industry)",
+        "location": "Pithampur, MP",
+        "rating": 4.9,
         "image_url": "assets/agri_waste_banner.png",
         "available": True
     }
 ]
 
 @router.get("", summary="Get available machinery and equipment")
-async def get_equipment_list():
-    return {"status": "success", "data": DEMO_EQUIPMENT}
+async def get_equipment_list(source_type: Optional[str] = Query(None)):
+    results = DEMO_EQUIPMENT
+    if source_type and source_type.lower() != "all":
+        results = [item for item in results if item.get("source_type", "farmer").lower() == source_type.lower()]
+    return {"status": "success", "data": results}
 
 @router.post("/book", status_code=status.HTTP_200_OK, summary="Book equipment rental")
 async def book_equipment(booking: EquipmentBooking):

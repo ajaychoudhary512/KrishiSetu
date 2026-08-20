@@ -12,7 +12,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    APP_NAME: str = "AgriLink AI"
+    APP_NAME: str = "KrishiSetu AI"
     APP_VERSION: str = "1.0.0"
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
@@ -45,9 +45,16 @@ class Settings(BaseSettings):
     MAIL_SSL: bool = False
 
     SMS_PROVIDER: str = "mock"
+    FAST2SMS_API_KEY: Optional[str] = None
     TWILIO_ACCOUNT_SID: Optional[str] = None
     TWILIO_AUTH_TOKEN: Optional[str] = None
     TWILIO_FROM_NUMBER: Optional[str] = None
+
+    RAZORPAY_KEY_ID: str = "rzp_test_agrilink_demo_key"
+    RAZORPAY_KEY_SECRET: str = "razorpay_secret_demo_key_12345"
+    RAZORPAY_WEBHOOK_SECRET: str = "whsec_agrilink_demo_secret"
+    RAZORPAY_ROUTE_ENABLED: bool = True
+    PLATFORM_COMMISSION_PERCENTAGE: float = 2.5
 
     GOOGLE_CLIENT_ID: Optional[str] = None
     GOOGLE_CLIENT_SECRET: Optional[str] = None

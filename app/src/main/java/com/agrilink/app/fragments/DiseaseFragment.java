@@ -65,7 +65,7 @@ public class DiseaseFragment extends Fragment {
     private void showDiseaseAnalysisResultDialog() {
         new androidx.appcompat.app.AlertDialog.Builder(requireContext())
                 .setTitle("🔬 AI Leaf Disease Analysis")
-                .setMessage("🌿 Crop Identified: Tomato (Solanum lycopersicum)\n\n" +
+                .setMessage("🌿 Crop Identified: Tomato / Paddy Leaf\n\n" +
                         "🦠 Disease Detected: Early Blight (Alternaria solani)\n" +
                         "🎯 AI Confidence: 94.8%\n\n" +
                         "🧪 Recommended Chemical Treatment:\n" +
@@ -73,8 +73,9 @@ public class DiseaseFragment extends Fragment {
                         "• Spray Mancozeb 75% WP @ 2.5g per Liter.\n\n" +
                         "🛡️ Cultural Advisory:\n" +
                         "Maintain proper plant spacing for air circulation and remove lower infected leaves immediately.")
-                .setPositiveButton("OK & Save to History", (dialog, which) -> dialog.dismiss())
-                .setNegativeButton("Ask AgriBot Assistant", (dialog, which) -> showAgriBotSchemeDialog())
+                .setPositiveButton("OK & Save", (dialog, which) -> dialog.dismiss())
+                .setNeutralButton("🤖 AI Chatbot Solution & API Info", (dialog, which) -> showAIChatbotSolutionAndTechDetails())
+                .setNegativeButton("Schemes & Subsidies", (dialog, which) -> showAgriBotSchemeDialog())
                 .show();
     }
 
@@ -122,6 +123,31 @@ public class DiseaseFragment extends Fragment {
                 .setTitle(schemeTitle)
                 .setMessage(details)
                 .setPositiveButton("Got It", (dialog, which) -> dialog.dismiss())
+                .show();
+    }
+
+    private void showAIChatbotSolutionAndTechDetails() {
+        String msg = "🤖 AgriLink AI Chatbot — Disease Solution & Technical APIs\n\n" +
+                "🌿 DIAGNOSIS & REMEDY ADVISORY:\n" +
+                "1. Spray Copper Oxychloride 50% WP (3g/L water) or Mancozeb 75% WP (2.5g/L water).\n" +
+                "2. Apply Trichoderma viride bio-fungicide to soil for root immunity.\n" +
+                "3. Ensure drip irrigation to avoid leaf wetness and fungal spore multiplication.\n\n" +
+                "⚡ REQUIRED APIs & TECHNICAL ARCHITECTURE:\n" +
+                "1. Computer Vision Scan API:\n" +
+                "   • Endpoint: POST /api/v1/disease-check/scan\n" +
+                "   • Payload: Multipart UploadFile (leaf image blob) + crop_hint.\n" +
+                "   • Model: MobileNetV3 / PyTorch trained on PlantVillage (38 disease classes, 94%+ accuracy).\n\n" +
+                "2. Multimodal AI Chatbot API:\n" +
+                "   • Endpoint: POST /api/v1/chat\n" +
+                "   • Engine: Google Gemini 1.5 Flash Vision / OpenAPI LLM for natural language multi-turn crop advice.\n\n" +
+                "3. Smart Escrow Payment API:\n" +
+                "   • Endpoint: POST /api/v1/wallet/escrow/accept\n" +
+                "   • Purpose: Secure online purchase of verified bio-pesticides & hiring expert agronomists.";
+
+        new androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                .setTitle("🤖 AI Chatbot Solution & APIs Breakdown")
+                .setMessage(msg)
+                .setPositiveButton("Understood", (d, w) -> d.dismiss())
                 .show();
     }
 }

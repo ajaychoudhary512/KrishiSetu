@@ -28,10 +28,12 @@ public class LaborFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
         List<LaborItem> list = new ArrayList<>();
-        list.add(new LaborItem("Harvesting Workers", "Indore, MP", "₹500", "15 workers", "18 Aug", "Harvesting", true));
-        list.add(new LaborItem("Planting Workers", "Dewas, MP", "₹450", "20 workers", "20 Aug", "Planting", false));
-        list.add(new LaborItem("Spraying Workers", "Ujjain, MP", "₹500", "10 workers", "21 Aug", "Spraying", true));
-        list.add(new LaborItem("Irrigation Workers", "Bhopal, MP", "₹400", "8 workers", "22 Aug", "Irrigation", false));
+        // Farmer Farm Labour Requirements
+        list.add(new LaborItem("🌾 Harvesting Workers (Farm)", "Indore, MP", "₹550/Day", "15 workers", "Immediate", "Harvesting", true));
+        list.add(new LaborItem("🌾 Paddy Planting Team", "Dewas, MP", "₹500/Day", "20 workers", "Tomorrow", "Planting", false));
+        // Industry & Factory Labour / Operator Hiring
+        list.add(new LaborItem("🏭 Stubble Pellet Machine Operators", "Pithampur SEZ", "₹750/Day", "8 workers", "Shift A", "Factory", true));
+        list.add(new LaborItem("🏭 Biomass Loading & Unloading Crew", "Ujjain Agro Hub", "₹650/Day", "12 workers", "Regular", "Loading", true));
 
         LaborAdapter adapter = new LaborAdapter(list);
         rv.setAdapter(adapter);

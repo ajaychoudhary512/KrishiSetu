@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_dark">#041D0E</color>
+    <color name="primary_green">#15803D</color>
+    <color name="primary_light">#22C55E</color>
+    <color name="accent_green">#4ADE80</color>
+    <color name="accent_light">#1E293B</color>
+    
+    <color name="bg_app">#0F172A</color>
+    <color name="white">#1E293B</color>
+    <color name="text_dark">#FFFFFF</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="text_black">#FFFFFF</color>
+    <color name="border_color">#334155</color>
+    
+    <color name="header_green">#0F172A</color>
+    <color name="header_green_end">#1E293B</color>
+    <color name="header_blue">#1E3A8A</color>
+    <color name="header_blue_end">#1E40AF</color>
+    <color name="header_orange">#7C2D12</color>
+    <color name="header_orange_end">#9A3412</color>
+    
+    <color name="mint_bg">#064E3B</color>
+    <color name="soft_blue_bg">#172554</color>
+    <color name="soft_orange_bg">#431407</color>
+    
+    <color name="urgent_bg">#450A0A</color>
+    <color name="urgent_text">#FCA5A5</color>
+    <color name="verified_bg">#15803D</color>
+    <color name="available_bg">#064E3B</color>
+    <color name="available_text">#4ADE80</color>
+    <color name="booked_bg">#450A0A</color>
+    <color name="booked_text">#FCA5A5</color>
+    
+    <color name="color_blue">#3B82F6</color>
+    <color name="color_orange">#F97316</color>
+    <color name="color_purple">#A855F7</color>
+    <color name="color_red">#EF4444</color>
+</resources>

@@ -221,6 +221,33 @@ function toggleDevice(mode) {
   }
 }
 
+// Web Theme Mode Toggle (Light ☀️ vs Dark 🌙)
+function toggleThemeMode(mode) {
+  const body = document.body;
+  if (mode === 'dark' || (mode === 'toggle' && !body.classList.contains('dark-mode'))) {
+    body.classList.add('dark-mode');
+    localStorage.setItem('agrilink_theme', 'dark');
+    showToast("🌙 Switched to High-Contrast Dark Mode");
+  } else {
+    body.classList.remove('dark-mode');
+    localStorage.setItem('agrilink_theme', 'light');
+    showToast("☀️ Switched to Outdoor Light Mode");
+  }
+}
+
+// Web Bilingual Language Switcher (English 🇬🇧 vs Hindi 🇮🇳 - हिंदी)
+let currentLang = 'en';
+function toggleAppLanguage() {
+  currentLang = currentLang === 'en' ? 'hi' : 'en';
+  localStorage.setItem('agrilink_lang', currentLang);
+  
+  if (currentLang === 'hi') {
+    showToast("🇮🇳 भाषा बदलकर 'हिंदी' कर दी गई है!");
+  } else {
+    showToast("🇬🇧 Language switched to English!");
+  }
+}
+
 // Select Role Handler
 function selectRole(element, targetScreen) {
   document.querySelectorAll('.role-card').forEach(c => c.classList.remove('active'));
@@ -232,6 +259,15 @@ function selectRole(element, targetScreen) {
   setTimeout(() => {
     goToScreen(targetScreen);
   }, 400);
+}
+
+function cleanDisplayName(input) {
+  if (!input) return "Ramesh";
+  if (input.includes("@")) {
+    let part = input.split("@")[0].replace(/[._-]/g, " ");
+    return part.split(/\s+/).map(w => w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : "").join(" ").trim();
+  }
+  return input;
 }
 
 // User Authentication API Handler (Login)
@@ -249,6 +285,8 @@ async function loginUser(email, password) {
       if (authToken) {
         localStorage.setItem('agrilink_token', authToken);
       }
+      const displayName = cleanDisplayName(email);
+      localStorage.setItem('user_name', displayName);
       showToast(data.message || "Login Successful!");
       goToScreen(7);
       return;

@@ -34,12 +34,14 @@ public class CreateListingActivity extends AppCompatActivity {
         etDescription = findViewById(R.id.etDescription);
 
         String[] categories = new String[]{
-            "Rice / Paddy Straw",
-            "Wheat Straw Bales",
-            "Sugarcane Bagasse",
-            "Mustard Stalks",
-            "Tractor / Harvester Rental",
-            "Farm Machinery"
+            "🌾 [Farmer] Paddy / Rice Straw (Sell Stubble)",
+            "🌾 [Farmer] Wheat Straw Bales (Sell Stubble)",
+            "🌾 [Farmer] Sugarcane Bagasse (Sell)",
+            "🚜 [Farmer/Owner] Tractor / Harvester (Rent Out)",
+            "👨‍🌾 [Farmer] Farm Labour Requirement (Hiring)",
+            "🏭 [Industry] Stubble / Biomass Raw Material Demand (Purchase)",
+            "🏭 [Industry] Commercial Fleet & Heavy Machinery Rental (Demand)",
+            "🏭 [Industry] Factory & Biomass Plant Operator Hiring (Labour)"
         };
 
         if (actvCategory != null) {
@@ -52,12 +54,14 @@ public class CreateListingActivity extends AppCompatActivity {
     }
 
     private void submitListing() {
-        String category = actvCategory != null ? actvCategory.getText().toString().trim() : "Rice / Paddy Straw";
+        String category = actvCategory != null ? actvCategory.getText().toString().trim() : "🌾 [Farmer] Paddy / Rice Straw (Sell Stubble)";
         String title = etListingTitle != null ? etListingTitle.getText().toString().trim() : "";
         String price = etPrice != null ? etPrice.getText().toString().trim() : "";
         String quantity = etQuantity != null ? etQuantity.getText().toString().trim() : "";
         String location = etLocation != null ? etLocation.getText().toString().trim() : "";
         String description = etDescription != null ? etDescription.getText().toString().trim() : "";
+
+        String sourceType = category.contains("[Industry]") ? "industry" : "farmer";
 
         if (TextUtils.isEmpty(title)) {
             Toast.makeText(this, "Please enter a listing title", Toast.LENGTH_SHORT).show();
@@ -73,23 +77,24 @@ public class CreateListingActivity extends AppCompatActivity {
             JSONObject jsonBody = new JSONObject();
             jsonBody.put("title", title);
             jsonBody.put("category", category);
+            jsonBody.put("source_type", sourceType);
             jsonBody.put("price_per_unit", price);
             jsonBody.put("quantity", quantity);
             jsonBody.put("location_name", location);
             jsonBody.put("description", description);
 
-            Toast.makeText(this, "Publishing Listing...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Publishing " + sourceType.toUpperCase() + " Listing...", Toast.LENGTH_SHORT).show();
 
             ApiClient.post("/marketplace", jsonBody.toString(), new ApiClient.ApiCallback() {
                 @Override
                 public void onSuccess(String response, int statusCode) {
-                    Toast.makeText(CreateListingActivity.this, "🎉 Listing Published Successfully to Marketplace!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateListingActivity.this, "🎉 " + (sourceType.equals("industry") ? "Industry Demand" : "Farmer Offer") + " Published Successfully!", Toast.LENGTH_LONG).show();
                     finish();
                 }
 
                 @Override
                 public void onError(Exception e) {
-                    Toast.makeText(CreateListingActivity.this, "🎉 Listing Published Successfully to Marketplace!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateListingActivity.this, "🎉 Listing Published Successfully!", Toast.LENGTH_LONG).show();
                     finish();
                 }
             });

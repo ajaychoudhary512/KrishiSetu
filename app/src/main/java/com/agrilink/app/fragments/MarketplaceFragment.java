@@ -30,8 +30,12 @@ public class MarketplaceFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
         List<WasteItem> items = new ArrayList<>();
-        items.add(new WasteItem("Rice Straw", "Crop Residue", "₹100/quintal", "Indore, MP • 12 km", "Ramesh Patel", true, R.drawable.rice_straw));
-        items.add(new WasteItem("Wheat Straw", "Crop Residue", "₹130/quintal", "Dewas, MP • 12 km", "Suresh Kumar", true, R.drawable.wheat_straw));
+        // Farmer Stubble / Waste Offers (Supply)
+        items.add(new WasteItem("🌾 Rice Straw (50 Qtl)", "Farmer Stubble Offer", "₹100/quintal", "Indore, MP • 12 km", "Ramesh Patel (Farmer)", true, R.drawable.rice_straw));
+        items.add(new WasteItem("🌾 Wheat Straw Bales (30 Qtl)", "Farmer Stubble Offer", "₹130/quintal", "Dewas, MP • 12 km", "Suresh Kumar (Farmer)", true, R.drawable.wheat_straw));
+        // Industry Material Requirements (Demand)
+        items.add(new WasteItem("🏭 Paddy Straw Bulk Demand (100 Tons)", "Industry Bio-Fuel Demand", "₹1,800/ton", "Pithampur SEZ • 25 km", "GreenBio Energy Ltd (Industry)", true, R.drawable.rice_straw));
+        items.add(new WasteItem("🏭 Sugarcane Bagasse Purchase (50 Tons)", "Industry Paper Mill Demand", "₹2,200/ton", "Ujjain Agro Park • 35 km", "Apex Bio-Pellets Pvt Ltd (Industry)", true, R.drawable.wheat_straw));
 
         WasteAdapter adapter = new WasteAdapter(items, item -> {
             startActivity(new Intent(getContext(), ChatDealActivity.class));
