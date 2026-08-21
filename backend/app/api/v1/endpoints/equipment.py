@@ -1,4 +1,6 @@
+from typing import Optional
 from fastapi import APIRouter, status, Query
+from pydantic import BaseModel
 
 router = APIRouter(prefix="/equipment", tags=["Equipment Rental"])
 
