@@ -55,7 +55,7 @@
         android:background="@color/accent_light"
         android:gravity="center"
         android:padding="8dp"
-        android:text="🛡️ AgriLink Escrow Protected • 2% Platform Mediator Fee"
+        android:text="🛡️ KrishiSetu Escrow Protected • 2% Platform Mediator Fee"
         android:textColor="@color/primary_dark"
         android:textSize="12sp"
         android:textStyle="bold" />
@@ -110,7 +110,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="AgriLink Fee (2%): -₹1,150"
+                    android:text="KrishiSetu Fee (2%): -₹1,150"
                     android:textColor="@color/primary_green"
                     android:textSize="12sp" />
 

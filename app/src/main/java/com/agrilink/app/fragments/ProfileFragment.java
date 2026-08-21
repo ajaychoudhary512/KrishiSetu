@@ -89,7 +89,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private String getCleanDisplayName(String input) {
-        if (android.text.TextUtils.isEmpty(input)) return "AgriLink Member";
+        if (android.text.TextUtils.isEmpty(input)) return "KrishiSetu Member";
         if (input.contains("@")) {
             String namePart = input.split("@")[0];
             namePart = namePart.replaceAll("[._-]", " ");
