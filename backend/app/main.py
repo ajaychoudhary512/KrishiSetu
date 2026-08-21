@@ -24,10 +24,13 @@ async def lifespan(app: FastAPI):
             await conn.run_sync(Base.metadata.create_all)
         logger.info("Database tables created/verified successfully.")
     except Exception as exc:
-        logger.warning(
-            f"Could not connect to database on startup: {exc}. "
-            "Running without DB — endpoints requiring DB will return 503."
-        )
+        if "already exists" in str(exc).lower():
+            logger.info("Database tables verified successfully (already exists).")
+        else:
+            logger.warning(
+                f"Could not connect to database on startup: {exc}. "
+                "Running without DB — endpoints requiring DB will return 503."
+            )
     yield
     try:
         await engine.dispose()
