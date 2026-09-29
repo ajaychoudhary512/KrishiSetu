@@ -105,7 +105,8 @@ async def verify_razorpay_payment(req: RazorpayVerifyRequest):
     ).hexdigest()
     
     # Verify signature or fallback for test credentials
-    if generated_signature == req.razorpay_signature or "demo" in settings.RAZORPAY_KEY_SECRET:
+    is_valid = (generated_signature == req.razorpay_signature) or ("demo" in settings.RAZORPAY_KEY_SECRET)
+    if is_valid:
         # Calculate 2.5% commission
         total_payment = 5000.00
         commission = total_payment * 0.025
@@ -116,6 +117,15 @@ async def verify_razorpay_payment(req: RazorpayVerifyRequest):
             "amount": f"+₹{commission:,.2f}",
             "status": "Secured & Verified"
         })
+        return {
+            "status": "success",
+            "message": "Payment signature verified successfully",
+            "payment_id": req.razorpay_payment_id
+        }
+    return {
+        "status": "failed",
+        "message": "Invalid payment signature"
+    }
 class RazorpayRouteSplitRequest(BaseModel):
     total_deal_amount: float
     farmer_account_id: Optional[str] = "acc_farmer_demo_987"

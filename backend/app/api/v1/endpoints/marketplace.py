@@ -10,11 +10,24 @@ class WasteListing(BaseModel):
     category: str
     source_type: str = "farmer"  # "farmer" or "industry"
     quantity: str
-    price: str
-    location: str
+    price: Optional[str] = None
+    price_per_unit: Optional[str] = None
+    location: Optional[str] = None
+    location_name: Optional[str] = None
+    description: Optional[str] = None
     farmer_name: str = "Agri User"
     image_url: str = "assets/agri_waste_banner.png"
     status: str = "Available"
+
+    def model_post_init(self, __context) -> None:
+        if not self.price and self.price_per_unit:
+            self.price = self.price_per_unit
+        elif not self.price:
+            self.price = "₹0"
+        if not self.location and self.location_name:
+            self.location = self.location_name
+        elif not self.location:
+            self.location = "India"
 
 DEMO_LISTINGS = [
     {
@@ -85,3 +98,7 @@ async def create_waste_listing(listing: WasteListing):
     new_item["id"] = len(DEMO_LISTINGS) + 1
     DEMO_LISTINGS.insert(0, new_item)
     return {"status": "success", "message": f"{new_item['source_type'].capitalize()} listing created successfully", "data": new_item}
+
+alias_router = APIRouter(prefix="/marketplace", tags=["Waste Marketplace"])
+alias_router.add_api_route("", get_waste_listings, methods=["GET"], summary="Get marketplace listings (alias)")
+alias_router.add_api_route("", create_waste_listing, methods=["POST"], status_code=status.HTTP_201_CREATED, summary="Post new marketplace listing (alias)")

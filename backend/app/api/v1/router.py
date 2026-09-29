@@ -2,7 +2,7 @@ from fastapi import APIRouter
 
 from app.api.v1.endpoints.auth import router as auth_router
 from app.api.v1.endpoints.users import router as users_router
-from app.api.v1.endpoints.marketplace import router as marketplace_router
+from app.api.v1.endpoints.marketplace import router as marketplace_router, alias_router as marketplace_alias_router
 from app.api.v1.endpoints.equipment import router as equipment_router
 from app.api.v1.endpoints.labor import router as labor_router
 from app.api.v1.endpoints.disease_detection import router as disease_router
@@ -14,6 +14,7 @@ api_router = APIRouter()
 api_router.include_router(auth_router)
 api_router.include_router(users_router)
 api_router.include_router(marketplace_router)
+api_router.include_router(marketplace_alias_router)
 api_router.include_router(equipment_router)
 api_router.include_router(labor_router)
 api_router.include_router(disease_router)

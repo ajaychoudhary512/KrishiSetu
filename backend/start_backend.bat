@@ -5,7 +5,11 @@ echo Base URL: http://127.0.0.1:8080/api/v1
 echo Swagger Docs: http://127.0.0.1:8080/docs
 echo Health Check: http://127.0.0.1:8080/health
 echo ===================================================
-cd /d "%~dp0backend"
+if exist "%~dp0app\main.py" (
+    cd /d "%~dp0"
+) else if exist "%~dp0backend\app\main.py" (
+    cd /d "%~dp0backend"
+)
 
 set PYTHON_CMD=python
 if exist "C:\Users\AJAY CHOUDHARY\AppData\Local\Python\pythoncore-3.14-64\python.exe" (
