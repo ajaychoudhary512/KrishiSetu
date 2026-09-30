@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
             }
 
             if (tvHomeAvatarInitials != null) {
-                String initials = "AG";
+                String initials = "KS";
                 if (!android.text.TextUtils.isEmpty(nameToDisplay)) {
                     String[] parts = nameToDisplay.trim().split("\\s+");
                     if (parts.length >= 2 && parts[0].length() > 0 && parts[1].length() > 0) {
@@ -75,7 +75,75 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        View.OnClickListener walletListener = v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).loadFragment(new ProfileFragment());
+            }
+        };
+        if (view.findViewById(R.id.cardHomeWallet) != null) {
+            view.findViewById(R.id.cardHomeWallet).setOnClickListener(walletListener);
+        }
+
+        if (view.findViewById(R.id.cardTransport) != null) {
+            view.findViewById(R.id.cardTransport).setOnClickListener(v -> {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).loadFragment(new EquipmentFragment());
+                }
+            });
+        }
+
+        if (view.findViewById(R.id.cardSchemes) != null) {
+            view.findViewById(R.id.cardSchemes).setOnClickListener(v -> {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).loadFragment(new DiseaseFragment());
+                }
+            });
+        }
+
+        if (view.findViewById(R.id.cardHomeAgribot) != null) {
+            view.findViewById(R.id.cardHomeAgribot).setOnClickListener(v -> {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).loadFragment(new DiseaseFragment());
+                }
+            });
+        }
+
+        if (view.findViewById(R.id.cardWeather) != null) {
+            view.findViewById(R.id.cardWeather).setOnClickListener(v -> showWeatherAdvisoryDialog());
+        }
+
+        if (view.findViewById(R.id.btnNotifications) != null) {
+            view.findViewById(R.id.btnNotifications).setOnClickListener(v -> showNotificationsDialog());
+        }
+
         return view;
+    }
+
+    private void showWeatherAdvisoryDialog() {
+        if (getContext() == null) return;
+        new androidx.appcompat.app.AlertDialog.Builder(getContext())
+                .setTitle("🌤️ KRISHISETU Weather Advisory")
+                .setMessage("📍 Current Location: Indore, MP\n\n" +
+                        "🌡️ Temperature: 28°C • Mostly Sunny\n" +
+                        "💧 Humidity: 62% • Wind: 11 km/h NE\n\n" +
+                        "🌾 Farming Recommendation:\n" +
+                        "Optimal conditions for wheat stubble baling and storage. Ensure dried straw is covered before weekend moisture.")
+                .setPositiveButton("Got It", (d, w) -> d.dismiss())
+                .show();
+    }
+
+    private void showNotificationsDialog() {
+        if (getContext() == null) return;
+        String[] notifications = {
+            "⚡ Escrow Payment: ₹54,941.25 queued for delivery verification.",
+            "🚜 Equipment: Rental request for Kubota Harvester approved.",
+            "🌾 Market: High demand for Paddy Straw in Pithampur SEZ."
+        };
+        new androidx.appcompat.app.AlertDialog.Builder(getContext())
+                .setTitle("🔔 KRISHISETU Notifications")
+                .setItems(notifications, (d, w) -> d.dismiss())
+                .setPositiveButton("Close", (d, w) -> d.dismiss())
+                .show();
     }
 
     private String getCleanDisplayName(String input) {

@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="14dp"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="@color/light_surface"
     app:cardCornerRadius="18dp"
-    app:cardElevation="3dp"
-    app:strokeColor="@color/border_color"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/border_light"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -22,15 +22,18 @@
 
             <TextView
                 android:id="@+id/tvLaborCategory"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@id/tvUrgentBadge"
-                android:ellipsize="end"
+                android:layout_marginEnd="8dp"
+                android:singleLine="true"
                 android:maxLines="1"
+                android:ellipsize="end"
                 android:text="Harvesting Workers"
-                android:textColor="@color/text_dark"
-                android:textSize="17sp"
+                android:textColor="@color/text_main"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
 
             <TextView
@@ -38,11 +41,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:background="@color/urgent_bg"
+                android:background="@drawable/bg_sage_badge"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="3dp"
-                android:text="Urgent"
-                android:textColor="@color/urgent_text"
+                android:text="⚡ Immediate"
+                android:textColor="@color/primary_forest"
                 android:textSize="11sp"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -57,8 +60,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/tvWage"
+                android:layout_marginEnd="8dp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:text="📍 Indore, MP"
-                android:textColor="@color/text_muted"
+                android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
 
             <TextView
@@ -66,9 +74,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="₹500"
-                android:textColor="@color/color_orange"
-                android:textSize="18sp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="₹550/Day"
+                android:textColor="@color/primary_forest"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -77,7 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#F8FAFC"
+            android:background="@drawable/bg_sage_badge"
             android:orientation="horizontal"
             android:padding="8dp">
 
@@ -86,8 +98,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:text="🧑 15 workers"
-                android:textColor="#475569"
+                android:textColor="@color/text_main"
                 android:textSize="12sp" />
 
             <TextView
@@ -95,8 +110,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="📅 18 Aug"
-                android:textColor="#475569"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="📅 Immediate"
+                android:textColor="@color/text_main"
                 android:textSize="12sp" />
 
             <TextView
@@ -104,8 +122,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:text="🔧 Harvesting"
-                android:textColor="#475569"
+                android:textColor="@color/text_main"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -120,29 +141,30 @@
                 android:id="@+id/btnViewDetails"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="0dp"
-                android:layout_height="42dp"
+                android:layout_height="44dp"
                 android:layout_marginEnd="6dp"
                 android:layout_weight="1"
                 android:text="View Details"
-                android:textColor="@color/color_orange"
+                android:textColor="@color/primary_forest"
                 android:textSize="13sp"
-                android:textStyle="bold"
-                app:cornerRadius="10dp"
-                app:strokeColor="@color/color_orange"
+                android:fontFamily="sans-serif-medium"
+                app:cornerRadius="12dp"
+                app:strokeColor="@color/border_light"
                 app:strokeWidth="1.5dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHireNow"
                 android:layout_width="0dp"
-                android:layout_height="42dp"
+                android:layout_height="44dp"
                 android:layout_marginStart="6dp"
                 android:layout_weight="1"
                 android:text="Hire Now"
                 android:textColor="@color/white"
                 android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold"
-                app:backgroundTint="@color/color_orange"
-                app:cornerRadius="10dp" />
+                app:backgroundTint="@color/primary_forest"
+                app:cornerRadius="12dp" />
         </LinearLayout>
 
     </LinearLayout>

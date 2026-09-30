@@ -3,241 +3,578 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app">
+    android:background="@color/warm_cream"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Disease Detection"
-            android:textColor="@color/primary_dark"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <!-- Upload Card -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardUploadLeaf"
+        <!-- Nature Luxe Forest Green Header -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:strokeColor="@color/primary_green"
-            app:strokeWidth="1.5dp">
+            android:background="@drawable/bg_green_header"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="36dp"
+            android:paddingBottom="24dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:text="Crop Health &amp; AI Diagnosis"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Upload Leaf Photo"
-                    android:textColor="@color/text_dark"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Identify crop pests, blight &amp; get instant chemical remedies"
+                android:textColor="@color/light_sage_surface"
+                android:textSize="13sp" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Take a clear photo of the affected leaf"
-                    android:textColor="@color/text_muted"
-                    android:textSize="13sp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnUploadImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Upload Image"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/primary_green"
-                    app:cornerRadius="12dp"
-                    app:icon="@android:drawable/ic_menu_camera"
-                    app:iconGravity="textStart" />
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- AI Assistant Banner Card -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardAgriBot"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/primary_green"
-            app:cardCornerRadius="14dp"
-            app:cardElevation="2dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <LinearLayout
+            <!-- Upload Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUploadLeaf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="16dp">
+                app:cardBackgroundColor="@color/light_surface"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        app:cardCornerRadius="32dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/light_sage_surface"
+                        app:strokeColor="@color/primary_forest"
+                        app:strokeWidth="1.5dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="16dp"
+                            android:src="@android:drawable/ic_menu_camera"
+                            app:tint="@color/primary_forest" />
+                    </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🤖 AgriBot AI Assistant"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
+                        android:layout_marginTop="12dp"
+                        android:text="Capture or Upload Leaf Photo"
+                        android:textColor="@color/text_main"
+                        android:textSize="17sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="Hold camera steady over the infected leaf in natural sunlight"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <!-- Upload Action Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUploadImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Upload or Take Photo"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/primary_forest"
+                        app:cornerRadius="12dp"
+                        app:icon="@android:drawable/ic_menu_camera"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/white" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Scanning & Analyzing Progress State -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layoutScanningProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/light_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/soft_sage"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ProgressBar
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:indeterminateTint="@color/primary_forest" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="🔬 TFLite Model Analyzing Leaf Image..."
+                        android:textColor="@color/primary_forest"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Preprocessing 384x384 tensor &amp; executing on-device inference"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- TFLite AI Disease Prediction Result Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAnalysisResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/light_surface"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/primary_forest"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Header with Badge -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="🔬 AI DIAGNOSIS RESULT"
+                            android:textColor="@color/primary_forest"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.04" />
+
+                        <TextView
+                            android:id="@+id/tvResultStatusBadge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_sage_badge"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="ON-DEVICE TFLITE"
+                            android:textColor="@color/primary_forest"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Classified Leaf Image Preview -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border_light"
+                        app:strokeWidth="1dp">
+
+                        <ImageView
+                            android:id="@+id/ivResultLeaf"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/leaf_disease_sample" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Predicted Disease Name -->
+                    <TextView
+                        android:id="@+id/tvResultDiseaseTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Tomato — Early Blight"
+                        android:textColor="@color/text_main"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="bold" />
+
+                    <!-- Crop Category -->
+                    <TextView
+                        android:id="@+id/tvResultCropName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Ask about PM-Kisan, Subsidies &amp; Crop Advice"
-                        android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:text="Crop: Tomato"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <!-- Confidence Score & Progress Bar -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Confidence Score"
+                            android:textColor="@color/text_main"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvResultConfidence"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="94.8%"
+                            android:textColor="@color/primary_forest"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/pbResultConfidence"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="6dp"
+                        android:max="100"
+                        android:progress="95"
+                        android:progressTint="@color/primary_forest" />
+
+                    <!-- Remedy & Treatment Box -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_remedy_box"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💡 Recommended Advisory &amp; Treatment:"
+                            android:textColor="@color/primary_forest"
+                            android:textSize="12sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvResultRemedy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Spray Mancozeb 75% WP @ 2.5g/L or Copper Oxychloride 50% WP @ 3g/L. Prune infected foliage."
+                            android:textColor="@color/text_main"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="2dp" />
+                    </LinearLayout>
+
+                    <!-- Buttons in Result Card -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnViewFullAdvisory"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:text="Full Advisory"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/primary_forest"
+                            app:cornerRadius="10dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnRescan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="8dp"
+                            android:text="Scan Another"
+                            android:textColor="@color/primary_forest"
+                            android:textSize="12sp"
+                            android:fontFamily="sans-serif-medium"
+                            app:backgroundTint="@color/light_sage_surface"
+                            app:cornerRadius="10dp"
+                            app:strokeColor="@color/border_light"
+                            app:strokeWidth="1dp" />
+                    </LinearLayout>
+
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@android:drawable/ic_menu_send"
-                    app:tint="@color/white" />
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Recent Detections Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="Recent Detections"
-            android:textColor="@color/text_dark"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <!-- Detection Item 1 -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
-
-            <RelativeLayout
+            <!-- KrishiSetu AgriBot AI Assistant Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAgriBot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp">
-
-                <ImageView
-                    android:id="@+id/imgDet1"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@color/bg_app"
-                    android:src="@android:drawable/ic_menu_crop" />
+                android:layout_marginTop="14dp"
+                app:cardBackgroundColor="@color/light_sage_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="12dp"
-                    android:layout_toEndOf="@id/imgDet1"
-                    android:orientation="vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🤖 KrishiSetu AgriBot AI"
+                            android:textColor="@color/primary_forest"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Ask about PM-Kisan, Subsidies, Mandi Rates &amp; Crop Care"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tomato - Early Blight"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Accuracy: 92%"
-                        android:textColor="@color/color_red"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:text="›"
+                        android:textColor="@color/primary_forest"
+                        android:textSize="22sp" />
                 </LinearLayout>
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Detection Item 2 -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
+            </com.google.android.material.card.MaterialCardView>
 
-            <RelativeLayout
+            <!-- Recent Detections Section Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="RECENT DETECTIONS &amp; HISTORY"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05" />
+
+            <!-- Detection Item 1 -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp">
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/light_surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp">
 
-                <ImageView
-                    android:id="@+id/imgDet2"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@color/bg_app"
-                    android:src="@android:drawable/ic_menu_crop" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="12dp"
-                    android:layout_toEndOf="@id/imgDet2"
-                    android:orientation="vertical">
+                    android:padding="12dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardImg1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/light_sage_surface">
+
+                        <ImageView
+                            android:id="@+id/imgDet1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:src="@android:drawable/ic_menu_crop"
+                            app:tint="@color/primary_forest" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Chili - Leaf Curl"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@id/cardImg1"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:text="Tomato — Early Blight"
+                            android:textColor="@color/text_main"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:text="AI Confidence: 94.8% • Copper Spray Advised"
+                            android:textColor="@color/harvest_orange"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Detection Item 2 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/light_surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="1dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardImg2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/light_sage_surface">
+
+                        <ImageView
+                            android:id="@+id/imgDet2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:src="@android:drawable/ic_menu_crop"
+                            app:tint="@color/primary_forest" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Accuracy: 89%"
-                        android:textColor="@color/color_orange"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </RelativeLayout>
-        </com.google.android.material.card.MaterialCardView>
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@id/cardImg2"
+                        android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnScanNow"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="SCAN NOW"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/primary_green"
-            app:cornerRadius="12dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:text="Chili — Leaf Curl Virus"
+                            android:textColor="@color/text_main"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold" />
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:text="AI Confidence: 89.2% • Neem Oil Spray Advised"
+                            android:textColor="@color/harvest_orange"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Bottom Scan Action -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnScanNow"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="START DIAGNOSIS SCAN"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary_forest"
+                app:cornerRadius="12dp"
+                app:elevation="2dp" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

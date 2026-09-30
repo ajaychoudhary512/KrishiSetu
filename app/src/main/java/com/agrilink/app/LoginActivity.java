@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,30 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.tvRegister).setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
+
+        // Forgot Password Action
+        View tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        if (tvForgotPassword != null) {
+            tvForgotPassword.setOnClickListener(v -> showForgotPasswordDialog());
+        }
+    }
+
+    private void showForgotPasswordDialog() {
+        android.widget.EditText input = new android.widget.EditText(this);
+        input.setHint("Enter registered email or mobile");
+        input.setInputType(android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Reset Password")
+                .setMessage("Enter your mobile or email to receive password reset instructions.")
+                .setView(input)
+                .setPositiveButton("Send Reset Link", (d, w) -> {
+                    String val = input.getText().toString().trim();
+                    if (!android.text.TextUtils.isEmpty(val)) {
+                        Toast.makeText(this, "Password reset instructions sent to " + val, Toast.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton("Cancel", (d, w) -> d.dismiss())
+                .show();
     }
 
     private void performLogin() {

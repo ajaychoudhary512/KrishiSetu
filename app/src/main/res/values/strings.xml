@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">KrishiSetu</string>
-    <string name="tagline">Connecting Farms, Industries &amp; Labourers</string>
+    <string name="app_name">KRISHISETU</string>
+    <string name="brand_name">KRISHISETU</string>
+    <string name="tagline">Grow More. Waste Less. Connect Better.</string>
     <string name="welcome_back">Welcome Back!</string>
-    <string name="login_to_continue">Login to Continue</string>
+    <string name="login_to_continue">Login to continue to KRISHISETU</string>
     <string name="create_account">Create Account</string>
     <string name="verify_otp">Verify OTP</string>
     <string name="choose_your_role">Choose Your Role</string>
@@ -13,8 +14,10 @@
     <string name="language_selected">Language Selected: English</string>
     <string-array name="roles_array">
         <item>Farmer</item>
-        <item>Industry / Buyer</item>
-        <item>Equipment Provider</item>
-        <item>Labourer</item>
+        <item>Industry Buyer</item>
+        <item>Equipment Owner</item>
+        <item>Contractor / Thekedar</item>
+        <item>Labour / Worker</item>
+        <item>Transporter</item>
     </string-array>
 </resources>

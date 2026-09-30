@@ -55,11 +55,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Map display role to backend API role string ("farmer", "industry", "transport", "labor")
         String apiRole = "farmer";
-        if (selectedRole.toLowerCase().contains("industry") || selectedRole.toLowerCase().contains("buyer")) {
+        String lowerRole = selectedRole.toLowerCase();
+        if (lowerRole.contains("industry") || lowerRole.contains("buyer")) {
             apiRole = "industry";
-        } else if (selectedRole.toLowerCase().contains("equipment") || selectedRole.toLowerCase().contains("transport")) {
+        } else if (lowerRole.contains("equipment") || lowerRole.contains("transport") || lowerRole.contains("owner")) {
             apiRole = "transport";
-        } else if (selectedRole.toLowerCase().contains("labour") || selectedRole.toLowerCase().contains("labor")) {
+        } else if (lowerRole.contains("labour") || lowerRole.contains("labor") || lowerRole.contains("contractor") || lowerRole.contains("thekedar") || lowerRole.contains("worker")) {
             apiRole = "labor";
         }
 
@@ -113,11 +114,14 @@ public class RegisterActivity extends AppCompatActivity {
                         prefs.edit()
                             .putString("user_name", finalFullName)
                             .putString("user_phone", finalPhone)
+                            .putString("user_email", email)
                             .putString("user_role", finalRole)
                             .apply();
 
-                        Toast.makeText(RegisterActivity.this, "Account Created Successfully! Please verify OTP.", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(RegisterActivity.this, OtpVerificationActivity.class));
+                        Toast.makeText(RegisterActivity.this, "🎉 Welcome to KRISHISETU! Account Created Successfully.", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                         finish();
                         return;
                     }

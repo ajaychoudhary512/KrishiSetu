@@ -1,39 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_dark">#041D0E</color>
-    <color name="primary_green">#15803D</color>
-    <color name="primary_light">#22C55E</color>
-    <color name="accent_green">#4ADE80</color>
-    <color name="accent_light">#1E293B</color>
-    
-    <color name="bg_app">#0F172A</color>
-    <color name="white">#1E293B</color>
-    <color name="text_dark">#FFFFFF</color>
-    <color name="text_muted">#94A3B8</color>
+    <!-- =================================================== -->
+    <!-- KRISHISETU — Nature Luxe Dark Palette               -->
+    <!-- =================================================== -->
+    <color name="primary_forest">#A7BE8B</color>        <!-- Dark Primary (Soft Sage) -->
+    <color name="secondary_green">#C4D7B2</color>       <!-- Dark Secondary -->
+    <color name="soft_sage">#A7BE8B</color>             <!-- Soft Sage -->
+    <color name="light_sage_surface">#293B30</color>    <!-- Dark Elevated Surface -->
+    <color name="warm_cream">#17241D</color>            <!-- Dark Background -->
+    <color name="light_surface">#1F3026</color>         <!-- Dark Surface -->
+    <color name="harvest_orange">#E9A76B</color>        <!-- Dark Accent (Harvest Gold) -->
+    <color name="text_main">#F3F5EF</color>             <!-- Dark Main Text -->
+    <color name="text_secondary">#B3C1B5</color>        <!-- Dark Secondary Text -->
+    <color name="border_light">#35463A</color>          <!-- Dark Border -->
+
+    <!-- Status & Semantic Colors -->
+    <color name="status_urgent_bg">#450A0A</color>
+    <color name="status_urgent_text">#FCA5A5</color>
+    <color name="status_verified_bg">#294736</color>
+    <color name="status_available_bg">#293B30</color>
+    <color name="status_available_text">#A7BE8B</color>
+    <color name="status_booked_bg">#450A0A</color>
+    <color name="status_booked_text">#FCA5A5</color>
+
+    <!-- Backward Compatibility Aliases for Existing Layouts in Dark Mode -->
+    <color name="primary_dark">#121D17</color>
+    <color name="primary_green">#A7BE8B</color>
+    <color name="primary_light">#C4D7B2</color>
+    <color name="accent_green">#C4D7B2</color>
+    <color name="accent_light">#293B30</color>
+
+    <color name="bg_app">#17241D</color>
+    <color name="white">#1F3026</color>
+    <color name="text_dark">#F3F5EF</color>
+    <color name="text_muted">#B3C1B5</color>
     <color name="text_black">#FFFFFF</color>
-    <color name="border_color">#334155</color>
-    
-    <color name="header_green">#0F172A</color>
-    <color name="header_green_end">#1E293B</color>
-    <color name="header_blue">#1E3A8A</color>
-    <color name="header_blue_end">#1E40AF</color>
-    <color name="header_orange">#7C2D12</color>
-    <color name="header_orange_end">#9A3412</color>
-    
-    <color name="mint_bg">#064E3B</color>
-    <color name="soft_blue_bg">#172554</color>
-    <color name="soft_orange_bg">#431407</color>
-    
+    <color name="border_color">#35463A</color>
+
+    <color name="header_green">#1F3026</color>
+    <color name="header_green_end">#293B30</color>
+    <color name="header_blue">#1F3026</color>
+    <color name="header_blue_end">#293B30</color>
+    <color name="header_orange">#3F2615</color>
+    <color name="header_orange_end">#5A371E</color>
+
+    <color name="mint_bg">#293B30</color>
+    <color name="soft_blue_bg">#293B30</color>
+    <color name="soft_orange_bg">#342217</color>
+
     <color name="urgent_bg">#450A0A</color>
     <color name="urgent_text">#FCA5A5</color>
-    <color name="verified_bg">#15803D</color>
-    <color name="available_bg">#064E3B</color>
-    <color name="available_text">#4ADE80</color>
+    <color name="verified_bg">#294736</color>
+    <color name="available_bg">#293B30</color>
+    <color name="available_text">#A7BE8B</color>
     <color name="booked_bg">#450A0A</color>
     <color name="booked_text">#FCA5A5</color>
-    
-    <color name="color_blue">#3B82F6</color>
-    <color name="color_orange">#F97316</color>
-    <color name="color_purple">#A855F7</color>
-    <color name="color_red">#EF4444</color>
+
+    <color name="color_blue">#60A5FA</color>
+    <color name="color_orange">#E9A76B</color>
+    <color name="color_purple">#B388FF</color>
+    <color name="color_red">#F87171</color>
 </resources>

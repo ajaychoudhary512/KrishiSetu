@@ -1,28 +1,84 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme: Nature Luxe -->
     <style name="Theme.AgriLink" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary_green</item>
+        <!-- Primary Forest Green -->
+        <item name="colorPrimary">@color/primary_forest</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/accent_green</item>
-        <item name="colorSecondaryVariant">@color/primary_light</item>
-        <item name="colorOnSecondary">@color/text_dark</item>
-        <!-- Status bar & Background. -->
-        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/light_surface</item>
+
+        <!-- Secondary Green / Soft Sage -->
+        <item name="colorSecondary">@color/secondary_green</item>
+        <item name="colorSecondaryVariant">@color/soft_sage</item>
+        <item name="colorOnSecondary">@color/light_surface</item>
+
+        <!-- Accent Harvest Orange -->
+        <item name="colorTertiary">@color/harvest_orange</item>
+        <item name="colorOnTertiary">@color/light_surface</item>
+
+        <!-- Surfaces and Backgrounds -->
         <item name="android:windowBackground">@color/bg_app</item>
-        <!-- High-contrast global text colors (21:1 outdoor sunlight ratio) -->
+        <item name="colorSurface">@color/light_surface</item>
+        <item name="colorOnSurface">@color/text_main</item>
+
+        <!-- Status bar & Navigation bar -->
+        <item name="android:statusBarColor">@color/primary_forest</item>
+        <item name="android:navigationBarColor">@color/bg_app</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Typography & Text colors -->
         <item name="android:textColor">@color/text_dark</item>
         <item name="android:textColorPrimary">@color/text_dark</item>
         <item name="android:textColorSecondary">@color/text_muted</item>
         <item name="android:textColorHint">@color/text_muted</item>
         <item name="editTextColor">@color/text_dark</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+
+        <!-- Bottom Navigation Style -->
+        <item name="bottomNavigationStyle">@style/Widget.KrishiSetu.BottomNav</item>
     </style>
 
     <style name="Theme.AgriLink.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Bottom Navigation Styling -->
+    <style name="Widget.KrishiSetu.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/light_surface</item>
+        <item name="itemIconTint">@color/nav_item_selector</item>
+        <item name="itemTextColor">@color/nav_item_selector</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.KrishiSetu.BottomNavIndicator</item>
+        <item name="elevation">8dp</item>
+    </style>
+
+    <style name="Widget.KrishiSetu.BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/light_sage_surface</item>
+    </style>
+
+    <!-- Primary Button Style -->
+    <style name="Widget.KrishiSetu.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/primary_forest</item>
+        <item name="android:textColor">@color/light_surface</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
+        <item name="android:minHeight">@dimen/min_touch_target</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Accent Button Style -->
+    <style name="Widget.KrishiSetu.Button.Accent" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/harvest_orange</item>
+        <item name="android:textColor">@color/light_surface</item>
+        <item name="cornerRadius">@dimen/radius_medium</item>
+        <item name="android:minHeight">@dimen/min_touch_target</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Nature Luxe Card Style -->
+    <style name="Widget.KrishiSetu.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/light_surface</item>
+        <item name="cardCornerRadius">@dimen/radius_card</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeColor">@color/border_light</item>
+        <item name="strokeWidth">1dp</item>
     </style>
 </resources>

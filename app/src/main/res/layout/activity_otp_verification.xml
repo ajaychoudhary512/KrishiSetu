@@ -3,36 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bg_app"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:paddingHorizontal="24dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="24dp">
 
+        <!-- Top Header Icon -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:src="@android:drawable/ic_lock_lock"
-                app:tint="@color/primary_green" />
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:cardBackgroundColor="@color/light_sage_surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_lock_lock"
+                    app:tint="@color/primary_forest"
+                    android:contentDescription="Security Icon" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Verify OTP"
-                android:textColor="@color/text_dark"
-                android:textSize="24sp"
+                android:textColor="@color/text_main"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -40,135 +55,144 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:gravity="center"
-                android:text="Enter the 6-digit code sent to your registered mobile number"
-                android:textColor="@color/text_muted"
-                android:textSize="14sp" />
+                android:text="Enter the 6-digit verification code sent to your registered mobile number"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
         </LinearLayout>
 
-        <!-- OTP Input Boxes Row -->
-        <LinearLayout
+        <!-- Form Card Container -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginTop="28dp"
+            app:cardBackgroundColor="@color/light_surface"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/border_light"
+            app:strokeWidth="1dp">
 
-            <EditText
-                android:id="@+id/otp1"
-                android:layout_width="44dp"
-                android:layout_height="50dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/shape_otp_box"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <EditText
-                android:id="@+id/otp2"
-                android:layout_width="44dp"
-                android:layout_height="50dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/shape_otp_box"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <!-- OTP Input Boxes Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/otp3"
-                android:layout_width="44dp"
-                android:layout_height="50dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/shape_otp_box"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/otp1"
+                        android:layout_width="44dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_otp_box"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/otp4"
-                android:layout_width="44dp"
-                android:layout_height="50dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/shape_otp_box"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/otp2"
+                        android:layout_width="44dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_otp_box"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/otp5"
-                android:layout_width="44dp"
-                android:layout_height="50dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/shape_otp_box"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/otp3"
+                        android:layout_width="44dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_otp_box"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/otp6"
-                android:layout_width="44dp"
-                android:layout_height="50dp"
-                android:layout_margin="3dp"
-                android:background="@drawable/shape_otp_box"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="1"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                    <EditText
+                        android:id="@+id/otp4"
+                        android:layout_width="44dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_otp_box"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="Resend OTP in 00:25"
-            android:textColor="@color/primary_green"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/otp5"
+                        android:layout_width="44dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_otp_box"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnVerify"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginTop="24dp"
-            android:text="VERIFY &amp; CONTINUE"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/primary_green"
-            app:cornerRadius="12dp" />
+                    <EditText
+                        android:id="@+id/otp6"
+                        android:layout_width="44dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/shape_otp_box"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+                <!-- Resend Timer -->
+                <TextView
+                    android:id="@+id/tvResendOtp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:minHeight="48dp"
+                    android:gravity="center"
+                    android:text="Resend OTP in 00:25"
+                    android:textColor="@color/primary_forest"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:alpha="0.8"
-                android:src="@android:drawable/ic_lock_lock"
-                app:tint="@color/accent_light" />
-        </LinearLayout>
+                <!-- Verify Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnVerify"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="16dp"
+                    android:text="VERIFY &amp; CONTINUE"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/primary_forest"
+                    app:cornerRadius="12dp"
+                    app:elevation="2dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app">
+    android:background="@color/warm_cream"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,75 +12,131 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Header -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                app:cardCornerRadius="36dp"
-                app:strokeColor="@color/primary_green"
-                app:strokeWidth="2dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@android:drawable/ic_menu_myplaces"
-                    app:tint="@color/primary_green" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/tvUserName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="KrishiSetu Farmer"
-                android:textColor="@color/text_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvUserRole"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Farmer • Verified ✓"
-                android:textColor="@color/primary_green"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- Wallet Card -->
+        <!-- Top Header & User Identity Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
-            app:cardBackgroundColor="@color/primary_dark"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/light_surface"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/border_light"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- User Avatar -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:cardCornerRadius="40dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/light_sage_surface"
+                    app:strokeColor="@color/primary_forest"
+                    app:strokeWidth="2dp">
+
+                    <ImageView
+                        android:id="@+id/ivUserAvatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_farmer"
+                        app:tint="@color/primary_forest" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- User Name (Strictly Single-Line) -->
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="KrishiSetu Farmer"
+                    android:textColor="@color/text_main"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold" />
+
+                <!-- User Email / Contact (Strictly Single-Line) -->
+                <TextView
+                    android:id="@+id/tvUserEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="farmer@krishisetu.in"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <!-- Role Badge -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_sage_badge"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp">
+
+                    <TextView
+                        android:id="@+id/tvUserRole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="Farmer • Verified ✓"
+                        android:textColor="@color/primary_forest"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Nature Luxe Forest Green Wallet Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/primary_forest"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="18dp">
+                android:padding="20dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_toStartOf="@+id/btnWithdraw"
+                    android:layout_marginEnd="12dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="KrishiSetu Wallet"
-                        android:textColor="@color/accent_light"
-                        android:textSize="12sp" />
+                        android:text="KRISHISETU ESCROW WALLET"
+                        android:textColor="@color/soft_sage"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.06" />
 
                     <TextView
                         android:id="@+id/tvWalletBalance"
@@ -88,88 +145,84 @@
                         android:layout_marginTop="4dp"
                         android:text="₹4,250.00"
                         android:textColor="@color/white"
-                        android:textSize="24sp"
+                        android:textSize="26sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="⚡ Includes ₹450 Escrow Bonus"
-                        android:textColor="@color/accent_green"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="4dp"
+                        android:text="⚡ 100% Escrow Protected by KrishiSetu"
+                        android:textColor="@color/light_sage_surface"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnWithdraw"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="44dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:text="Withdraw"
-                    android:textColor="@color/primary_dark"
+                    android:textColor="@color/primary_forest"
                     android:textSize="13sp"
                     android:textStyle="bold"
-                    app:backgroundTint="@color/accent_green"
-                    app:cornerRadius="10dp" />
+                    app:backgroundTint="@color/soft_sage"
+                    app:cornerRadius="12dp" />
 
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Menu List Cards -->
+        <!-- Section Title: Account & Orders -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="8dp"
+            android:text="ACTIVITY &amp; MANAGEMENT"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+
+        <!-- Account Cards Container -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/light_surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:strokeColor="@color/border_light"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="4dp">
-
-                <!-- My Profile -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:paddingHorizontal="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="👤  My Profile"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:text="›"
-                        android:textColor="@color/text_muted"
-                        android:textSize="20sp" />
-                </RelativeLayout>
+                android:orientation="vertical">
 
                 <!-- My Orders -->
                 <RelativeLayout
+                    android:id="@+id/rlMyOrders"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingHorizontal="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="📦  My Orders"
-                        android:textColor="@color/text_dark"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="📦  My Orders &amp; Bookings"
+                        android:textColor="@color/text_main"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -177,24 +230,36 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:text="›"
-                        android:textColor="@color/text_muted"
+                        android:textColor="@color/text_secondary"
                         android:textSize="20sp" />
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light" />
 
                 <!-- My Listings -->
                 <RelativeLayout
+                    android:id="@+id/rlMyListings"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingHorizontal="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="📋  My Listings"
-                        android:textColor="@color/text_dark"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="📋  My Published Listings"
+                        android:textColor="@color/text_main"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -202,24 +267,36 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:text="›"
-                        android:textColor="@color/text_muted"
+                        android:textColor="@color/text_secondary"
                         android:textSize="20sp" />
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light" />
 
                 <!-- Messages -->
                 <RelativeLayout
+                    android:id="@+id/rlMessages"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingHorizontal="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="💬  Messages"
-                        android:textColor="@color/text_dark"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="💬  Messages &amp; Deals"
+                        android:textColor="@color/text_main"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -227,25 +304,62 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:text="›"
-                        android:textColor="@color/text_muted"
+                        android:textColor="@color/text_secondary"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
-                <!-- Theme Mode Toggle -->
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Section Title: App Settings -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="8dp"
+            android:text="PREFERENCES &amp; SETTINGS"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
+
+        <!-- Settings Cards Container -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/light_surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:strokeColor="@color/border_light"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Theme Mode Selector (Light / Dark / System Default) -->
                 <RelativeLayout
                     android:id="@+id/rlThemeToggle"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingHorizontal="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="🌙  App Theme (Light / Dark)"
-                        android:textColor="@color/text_dark"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="🎨  Theme Mode"
+                        android:textColor="@color/text_main"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:id="@+id/tvCurrentTheme"
@@ -253,27 +367,38 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="Light ☀️ ›"
-                        android:textColor="@color/primary_green"
-                        android:textSize="14sp"
+                        android:text="System Default ⚙️ ›"
+                        android:textColor="@color/primary_forest"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light" />
 
                 <!-- Language Switcher -->
                 <RelativeLayout
                     android:id="@+id/rlLanguageToggle"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingHorizontal="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
                         android:text="🌐  Language (भाषा)"
-                        android:textColor="@color/text_dark"
+                        android:textColor="@color/text_main"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:id="@+id/tvCurrentLanguage"
@@ -282,50 +407,37 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:text="English 🇮🇳 ›"
-                        android:textColor="@color/primary_green"
-                        android:textSize="14sp"
+                        android:textColor="@color/primary_forest"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
-                <!-- Settings -->
-                <RelativeLayout
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:paddingHorizontal="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="⚙️  Settings"
-                        android:textColor="@color/text_dark"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:text="›"
-                        android:textColor="@color/text_muted"
-                        android:textSize="20sp" />
-                </RelativeLayout>
+                    android:layout_height="1dp"
+                    android:background="@color/border_light" />
 
                 <!-- Help & Support -->
                 <RelativeLayout
+                    android:id="@+id/rlHelpSupport"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingHorizontal="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="❓  Help &amp; Support"
-                        android:textColor="@color/text_dark"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="❓  Help &amp; Kisan Support"
+                        android:textColor="@color/text_main"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -333,25 +445,36 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:text="›"
-                        android:textColor="@color/text_muted"
+                        android:textColor="@color/text_secondary"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
-                <!-- Logout -->
-                <RelativeLayout
-                    android:id="@+id/rlLogout"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="1dp"
+                    android:background="@color/border_light" />
+
+                <!-- Privacy & Terms -->
+                <RelativeLayout
+                    android:id="@+id/rlTermsPrivacy"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingHorizontal="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="🚪  Logout"
-                        android:textColor="@color/color_red"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="🔒  Privacy &amp; Terms"
+                        android:textColor="@color/text_main"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -359,13 +482,105 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:text="›"
-                        android:textColor="@color/color_red"
+                        android:textColor="@color/text_secondary"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
+        <!-- Brand About Card with krishisetu.png logo -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/light_surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:strokeColor="@color/border_light"
+            app:strokeWidth="1dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- krishisetu.png Logo -->
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/krishisetu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="KRISHISETU"
+                    android:textColor="@color/primary_forest"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.08" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Grow More. Waste Less. Connect Better."
+                    android:textColor="@color/harvest_orange"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Version 1.0.0 (Production Release)"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Logout Action Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rlLogout"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/light_surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:strokeColor="@color/color_red"
+            app:strokeWidth="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="🚪  Log Out of KrishiSetu"
+                    android:textColor="@color/color_red"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="›"
+                    android:textColor="@color/color_red"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
 </ScrollView>

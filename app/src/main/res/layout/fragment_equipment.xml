@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app"
+    android:background="@color/warm_cream"
     android:orientation="vertical">
 
-    <!-- Royal Blue Header Banner -->
+    <!-- Nature Luxe Forest Green Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_blue_header"
+        android:background="@drawable/bg_green_header"
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
-        android:paddingTop="44dp"
+        android:paddingTop="36dp"
         android:paddingBottom="20dp">
 
         <TextView
@@ -22,8 +22,18 @@
             android:text="Equipment Rental"
             android:textColor="@color/white"
             android:textSize="22sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Verified Tractors, Harvesters &amp; Implements"
+            android:textColor="@color/light_sage_surface"
+            android:textSize="12sp" />
+
+        <!-- Search Bar -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -45,11 +55,13 @@
                 android:layout_height="match_parent"
                 android:layout_toEndOf="@id/icSearchEquip"
                 android:background="@android:color/transparent"
-                android:hint="Search equipment..."
+                android:hint="Search tractors, harvesters, rotavators..."
                 android:inputType="text"
                 android:paddingStart="10dp"
+                android:singleLine="true"
+                android:maxLines="1"
                 android:textColor="@color/white"
-                android:textColorHint="#BFFFFFFF"
+                android:textColorHint="#CCFFFFFF"
                 android:textSize="14sp" />
         </RelativeLayout>
     </LinearLayout>
@@ -59,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp"
+        android:paddingVertical="10dp"
         android:scrollbars="none">
 
         <com.google.android.material.chip.ChipGroup
@@ -72,25 +84,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="All" />
+                android:text="All Machinery" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tractor" />
+                android:text="🚜 Tractors" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Implements" />
+                android:text="⚙️ Implements" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Harvesting" />
+                android:text="🌾 Harvesters" />
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 

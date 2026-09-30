@@ -3,61 +3,95 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app">
+    android:background="@color/warm_cream">
 
     <!-- Top Header -->
     <LinearLayout
         android:id="@+id/chatHeader"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
+        android:layout_height="64dp"
+        android:background="@color/light_surface"
+        android:elevation="2dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="16dp">
 
         <ImageView
             android:id="@+id/btnBackChat"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
             android:src="@android:drawable/ic_menu_revert"
-            android:tint="@color/text_dark" />
+            app:tint="@color/primary_forest" />
+
+        <!-- Contact Avatar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/light_sage_surface"
+            app:strokeColor="@color/border_light"
+            app:strokeWidth="1dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="🏭"
+                android:textSize="18sp" />
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:text="GreenPower Bio-Industries"
-                android:textColor="@color/text_dark"
+                android:textColor="@color/text_main"
                 android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🟢 Industry Buyer • Online"
-                android:textColor="@color/accent_green"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="🟢 Verified Industry Buyer • Online"
+                android:textColor="@color/primary_forest"
                 android:textSize="11sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Escrow Banner -->
+    <!-- Escrow Protection Banner -->
     <TextView
         android:id="@+id/escrowBanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/chatHeader"
-        android:background="@color/accent_light"
+        android:background="@color/light_sage_surface"
         android:gravity="center"
-        android:padding="8dp"
-        android:text="🛡️ KrishiSetu Escrow Protected • 2% Platform Mediator Fee"
-        android:textColor="@color/primary_dark"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="16dp"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="🛡️ KRISHISETU Escrow Protected • 100% Payout Guarantee"
+        android:textColor="@color/primary_forest"
         android:textSize="12sp"
+        android:fontFamily="sans-serif-medium"
         android:textStyle="bold" />
 
     <!-- Chat Messages RecyclerView -->
@@ -76,9 +110,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/chatInputBar"
         android:layout_margin="12dp"
+        app:cardBackgroundColor="@color/light_surface"
         app:cardCornerRadius="16dp"
-        app:strokeColor="@color/accent_green"
-        app:strokeWidth="2dp">
+        app:cardElevation="3dp"
+        app:strokeColor="@color/primary_forest"
+        app:strokeWidth="1.5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -89,17 +125,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🤝 Official Escrow Deal Proposal"
-                android:textColor="@color/primary_green"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="🤝 Official KRISHISETU Escrow Proposal"
+                android:textColor="@color/primary_forest"
                 android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:text="50 Quintals Rice Straw @ ₹1,150/Quintal"
-                android:textColor="@color/text_dark"
+                android:textColor="@color/text_main"
                 android:textSize="13sp" />
 
             <RelativeLayout
@@ -110,29 +153,39 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KrishiSetu Fee (2%): -₹1,150"
-                    android:textColor="@color/primary_green"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Platform Fee (2%): -₹1,150"
+                    android:textColor="@color/text_secondary"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="Net Payout: ₹56,350"
-                    android:textColor="@color/primary_dark"
+                    android:textColor="@color/primary_forest"
                     android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
                     android:textStyle="bold" />
             </RelativeLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAcceptEscrow"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="46dp"
                 android:layout_marginTop="12dp"
                 android:text="Accept Deal &amp; Lock in Escrow"
-                android:backgroundTint="@color/accent_green"
-                android:textColor="@color/primary_dark"
-                android:textStyle="bold" />
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary_forest"
+                app:cornerRadius="12dp" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
@@ -141,31 +194,37 @@
     <LinearLayout
         android:id="@+id/chatInputBar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
+        android:background="@color/light_surface"
+        android:elevation="4dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="12dp">
+        android:paddingHorizontal="14dp">
 
         <EditText
             android:id="@+id/etChatMessage"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="44dp"
             android:layout_weight="1"
-            android:background="@color/bg_app"
-            android:hint="Type message..."
+            android:background="@drawable/bg_sage_badge"
+            android:hint="Type message to buyer..."
             android:paddingHorizontal="16dp"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:textColor="@color/text_main"
+            android:textColorHint="@color/text_secondary"
             android:textSize="14sp" />
 
         <ImageButton
             android:id="@+id/btnSendMessage"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:background="@color/primary_green"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_sage_badge"
+            android:backgroundTint="@color/primary_forest"
             android:src="@android:drawable/ic_menu_send"
-            android:tint="@color/white" />
+            app:tint="@color/white" />
     </LinearLayout>
 
 </RelativeLayout>

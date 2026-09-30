@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app"
+    android:background="@color/warm_cream"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="16dp">
 
         <!-- Header Bar -->
         <RelativeLayout
@@ -20,179 +20,228 @@
 
             <ImageView
                 android:id="@+id/btnBackCreate"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
                 android:src="@android:drawable/ic_menu_revert"
-                app:tint="@color/text_dark" />
+                app:tint="@color/primary_forest" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Post New Listing"
-                android:textColor="@color/text_dark"
+                android:textColor="@color/text_main"
                 android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <!-- Category Dropdown -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        <!-- Form Card Container -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Category"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary_green">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/light_surface"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/border_light"
+            app:strokeWidth="1dp">
 
-            <AutoCompleteTextView
-                android:id="@+id/actvCategory"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:textColor="@color/text_dark"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="vertical"
+                android:padding="18dp">
 
-        <!-- Item Title -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Listing Title (e.g. Wheat Straw Bales)"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary_green">
+                <!-- Badge -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_sage_badge"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etListingTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:textColor="@color/text_dark"
-                android:textColorHint="@color/text_muted"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🌱 Publish directly to verified farmers and industry buyers across India on KrishiSetu."
+                        android:textColor="@color/primary_forest"
+                        android:textSize="12sp"
+                        android:lineSpacingExtra="2dp" />
+                </LinearLayout>
 
-        <!-- Price -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Price (in ₹)"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary_green"
-            app:prefixText="₹ "
-            app:prefixTextColor="@color/text_dark">
+                <!-- Category Dropdown -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Listing Category"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_forest"
+                    app:hintTextColor="@color/primary_forest">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:textColor="@color/text_dark"
-                android:textColorHint="@color/text_muted"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <AutoCompleteTextView
+                        android:id="@+id/actvCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="@color/text_main"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Quantity -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Quantity &amp; Unit (e.g. 50 Quintals)"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary_green">
+                <!-- Item Title -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="Listing Title (e.g. Wheat Straw Bales)"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_forest"
+                    app:hintTextColor="@color/primary_forest">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etQuantity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textColor="@color/text_dark"
-                android:textColorHint="@color/text_muted"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etListingTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Location -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Location / City (e.g. Indore, MP)"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary_green">
+                <!-- Price -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="Price (in ₹)"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_forest"
+                    app:hintTextColor="@color/primary_forest"
+                    app:prefixText="₹ "
+                    app:prefixTextColor="@color/primary_forest">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:textColor="@color/text_dark"
-                android:textColorHint="@color/text_muted"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Description -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Description &amp; Quality Details"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxStrokeColor="@color/primary_green">
+                <!-- Quantity -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="Quantity &amp; Unit (e.g. 50 Quintals)"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_forest"
+                    app:hintTextColor="@color/primary_forest">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top|start"
-                android:inputType="textMultiLine"
-                android:lines="3"
-                android:textColor="@color/text_dark"
-                android:textColorHint="@color/text_muted"
-                android:textSize="15sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etQuantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Submit Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSubmitListing"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginTop="24dp"
-            android:text="POST LISTING TO MARKETPLACE"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/primary_green"
-            app:cornerRadius="12dp"
-            app:elevation="3dp" />
+                <!-- Location -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="Location / Mandi (e.g. Indore, MP)"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_forest"
+                    app:hintTextColor="@color/primary_forest">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:textColor="@color/text_main"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Description -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="Description &amp; Crop Quality"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_forest"
+                    app:hintTextColor="@color/primary_forest">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine"
+                        android:lines="3"
+                        android:textColor="@color/text_main"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Submit Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmitListing"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="20dp"
+                    android:text="PUBLISH TO KRISHISETU"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/primary_forest"
+                    app:cornerRadius="12dp"
+                    app:elevation="2dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
-
 </ScrollView>

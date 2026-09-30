@@ -25,10 +25,10 @@ public class AgriFirebaseMessagingService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
-                    "AgriLink Orders & Escrow Deals",
+                    "KRISHISETU Orders & Escrow Deals",
                     NotificationManager.IMPORTANCE_HIGH
             );
-            channel.setDescription("Real-time notifications for stubble purchases, equipment rentals, and escrow locks.");
+            channel.setDescription("Real-time notifications for stubble purchases, equipment rentals, and escrow locks on KrishiSetu.");
             if (notificationManager != null) {
                 notificationManager.createNotificationChannel(channel);
             }

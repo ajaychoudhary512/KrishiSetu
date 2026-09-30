@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app">
+    android:background="@color/warm_cream">
 
     <!-- Fragment Container -->
     <FrameLayout
@@ -16,14 +16,13 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="64dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        app:elevation="12dp"
-        app:itemActiveIndicatorStyle="@null"
-        app:itemIconSize="24dp"
+        android:background="@color/light_surface"
+        app:elevation="8dp"
+        app:itemActiveIndicatorStyle="@style/Widget.KrishiSetu.BottomNavIndicator"
+        app:itemIconSize="22dp"
         app:itemIconTint="@color/selector_bottom_nav"
-        app:itemRippleColor="@color/accent_light"
         app:itemTextColor="@color/selector_bottom_nav"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu" />

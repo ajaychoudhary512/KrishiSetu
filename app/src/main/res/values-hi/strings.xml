@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">कृषिसेतु (KrishiSetu)</string>
-    <string name="tagline">किसान, उद्योग और श्रम को जोड़ने वाला मंच</string>
+    <string name="app_name">कृषिसेतु (KRISHISETU)</string>
+    <string name="brand_name">कृषिसेतु</string>
+    <string name="tagline">अधिक उपजाएं • कम गंवाएं • बेहतर जुड़ें</string>
     <string name="welcome_back">वापसी पर स्वागत है!</string>
-    <string name="login_to_continue">आगे बढ़ने के लिए लॉगिन करें</string>
+    <string name="login_to_continue">कृषिसेतु में आगे बढ़ने के लिए लॉगिन करें</string>
     <string name="create_account">नया खाता बनाएं</string>
     <string name="verify_otp">ओटीपी सत्यापित करें</string>
     <string name="choose_your_role">अपनी भूमिका चुनें</string>
@@ -13,8 +14,10 @@
     <string name="language_selected">भाषा चुनी गई: हिंदी</string>
     <string-array name="roles_array">
         <item>किसान (Farmer)</item>
-        <item>उद्योग / खरीददार (Industry / Buyer)</item>
-        <item>उपकरण एवं ट्रेक्टर मालिक (Equipment Owner)</item>
-        <item>कृषि एवं फैक्टरी मजदूर (Labourer)</item>
+        <item>उद्योग खरीदार (Industry Buyer)</item>
+        <item>उपकरण मालिक (Equipment Owner)</item>
+        <item>ठेकेदार (Contractor / Thekedar)</item>
+        <item>श्रमिक / मजदूर (Labour / Worker)</item>
+        <item>ट्रांसपोर्टर (Transporter)</item>
     </string-array>
 </resources>

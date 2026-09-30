@@ -41,14 +41,14 @@ public class ChatDealActivity extends AppCompatActivity {
                 "• 👨‍🌾 Direct Payout to Farmer: ₹54,941.25 (97.5%)\n" +
                 "  └ Transferred directly to Farmer's Bank / UPI.\n\n" +
                 "• ⚡ Platform Service Commission: ₹1,408.75 (2.5%)\n" +
-                "  └ Sent directly to AgriLink Platform Account.\n\n" +
+                "  └ Sent directly to KRISHISETU Platform Reserve.\n\n" +
                 "🔒 Escrow Safety: Buyer funds remain protected until delivery OTP verification.";
 
         new androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("⚡ Lock Escrow & Process Payout Split")
                 .setMessage(msg)
                 .setPositiveButton("Confirm & Lock Escrow", (dialog, which) -> {
-                    Toast.makeText(ChatDealActivity.this, "🎉 Deal Locked! ₹54,941.25 queued for Farmer and ₹1,408.75 platform fee secured!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ChatDealActivity.this, "🎉 Deal Locked! ₹54,941.25 queued for Farmer and ₹1,408.75 KRISHISETU escrow secured!", Toast.LENGTH_LONG).show();
                     dialog.dismiss();
                 })
                 .setNegativeButton("Cancel", (d, w) -> d.dismiss())
