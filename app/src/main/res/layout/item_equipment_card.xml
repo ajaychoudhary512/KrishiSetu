@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    app:cardBackgroundColor="@color/light_surface"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="16dp"
     app:cardElevation="2dp"
     app:strokeColor="@color/border_light"
@@ -13,115 +13,177 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="12dp">
+        android:orientation="vertical"
+        android:padding="14dp">
 
-        <!-- Left Image Thumbnail -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="100dp"
-            android:layout_height="88dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@color/border_light"
-            app:strokeWidth="1dp">
-
-            <ImageView
-                android:id="@+id/imgEquip"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/tractor_45hp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Right Content Details -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="12dp"
-            android:orientation="vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!-- Left Image Thumbnail -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="96dp"
+                android:layout_height="88dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp">
 
-                <TextView
-                    android:id="@+id/tvEquipTitle"
+                <ImageView
+                    android:id="@+id/imgEquip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tractor_45hp"
+                    android:contentDescription="Equipment Photo" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Right Content Details -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="14dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvEquipTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@id/tvRating"
+                        android:layout_marginEnd="6dp"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="Tractor (45 HP)"
+                        android:textColor="@color/text_main"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="★ 4.8"
+                        android:textColor="@color/harvest_orange"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!-- Location -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_toStartOf="@id/tvRating"
-                    android:layout_marginEnd="6dp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:text="Tractor (45 HP)"
-                    android:textColor="@color/text_main"
-                    android:textSize="15sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tvRating"
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_location_pin"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="Indore, MP"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Price & Status Badge -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="★ 4.8"
-                    android:textColor="@color/harvest_orange"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+                    android:layout_marginTop="6dp">
 
-            <TextView
-                android:id="@+id/tvLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:text="📍 Indore, MP"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/tvEquipPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@id/tvStatusBadge"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="8dp"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:text="₹1200/Day"
+                        android:textColor="@color/primary_green"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="bold" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                    <TextView
+                        android:id="@+id/tvStatusBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_sage_badge"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"
+                        android:text="@string/available"
+                        android:textColor="@color/primary_green"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textStyle="bold" />
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/tvEquipPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_toStartOf="@id/tvStatusBadge"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="8dp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:text="₹1200/Day"
-                    android:textColor="@color/primary_forest"
-                    android:textSize="15sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textStyle="bold" />
+            </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvStatusBadge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/bg_sage_badge"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="4dp"
-                    android:text="Available"
-                    android:textColor="@color/primary_forest"
-                    android:textSize="11sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+        </LinearLayout>
 
+        <!-- Actions Row: View Details & Book/Rent -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewDetails"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:text="@string/view_details"
+                android:textColor="@color/primary_green"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium"
+                app:cornerRadius="10dp"
+                app:strokeColor="@color/border_light" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookRent"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:text="@string/book_rent"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary_green"
+                app:cornerRadius="10dp" />
         </LinearLayout>
 
     </LinearLayout>

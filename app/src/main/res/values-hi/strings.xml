@@ -1,17 +1,162 @@
 <resources>
+    <!-- Brand Identity -->
     <string name="app_name">कृषिसेतु (KRISHISETU)</string>
-    <string name="brand_name">कृषिसेतु</string>
-    <string name="tagline">अधिक उपजाएं • कम गंवाएं • बेहतर जुड़ें</string>
+    <string name="brand_name">KRISHISETU</string>
+    <string name="tagline">उपज बढ़ाएं। अपशिष्ट घटाएं। बेहतर जुड़ें।</string>
+    <string name="splash_categories">अपशिष्ट • उपकरण • श्रम • फसल स्वास्थ्य</string>
+    <string name="get_started">शुरू करें</string>
+    <string name="version_info">संस्करण 1.0.0 (उत्पादन रिलीज़)</string>
+
+    <!-- Navigation -->
+    <string name="home">होम</string>
+    <string name="market">बाज़ार</string>
+    <string name="chat">चैट</string>
+    <string name="profile">प्रोफ़ाइल</string>
+    <string name="deals">सौदे और चैट</string>
+
+    <!-- Authentication - Login -->
     <string name="welcome_back">वापसी पर स्वागत है!</string>
-    <string name="login_to_continue">कृषिसेतु में आगे बढ़ने के लिए लॉगिन करें</string>
+    <string name="login_to_continue">जारी रखने के लिए लॉगिन करें</string>
+    <string name="mobile_or_email">मोबाइल नंबर या ईमेल</string>
+    <string name="password">पासवर्ड</string>
+    <string name="remember_me">मुझे याद रखें</string>
+    <string name="forgot_password">पासवर्ड भूल गए?</string>
+    <string name="login">लॉगिन करें</string>
+    <string name="continue_with_google">Google से जारी रखें</string>
+    <string name="continue_with_phone">फ़ोन से जारी रखें</string>
+    <string name="dont_have_account">खाता नहीं है? रजिस्टर करें</string>
+
+    <!-- Authentication - Register -->
     <string name="create_account">नया खाता बनाएं</string>
+    <string name="join_network">भारत के स्मार्ट कृषि नेटवर्क से जुड़ें</string>
+    <string name="select_role">अपनी भूमिका चुनें</string>
+    <string name="full_name">पूरा नाम</string>
+    <string name="mobile_number">मोबाइल नंबर</string>
+    <string name="email_optional">ईमेल पता (वैकल्पिक)</string>
+    <string name="password_hint">पासवर्ड (न्यूनतम 8 अक्षर)</string>
+    <string name="terms_agreement">मैं KRISHISETU की शर्तों और गोपनीयता नीति से सहमत हूँ</string>
+    <string name="create_krishisetu_account">KRISHISETU खाता बनाएं</string>
+    <string name="already_have_account">पहले से खाता है? लॉगिन करें</string>
     <string name="verify_otp">ओटीपी सत्यापित करें</string>
     <string name="choose_your_role">अपनी भूमिका चुनें</string>
-    <string name="home">मुख्य पृष्ठ</string>
-    <string name="market">कृषि बाज़ार</string>
-    <string name="deals">सौदा / चैट</string>
-    <string name="profile">प्रोफ़ाइल</string>
+
+    <!-- Home Screen -->
+    <string name="greeting_farmer">नमस्ते, %1$s!</string>
+    <string name="default_farmer">किसान</string>
+    <string name="location_default">इंदौर, मध्य प्रदेश</string>
+    <string name="wallet_escrow_title">कृषिसेतु वॉलेट और एस्क्रो</string>
+    <string name="wallet_default_balance">₹4,250.00</string>
+    <string name="wallet_escrow_subtext">₹56,350 एस्क्रो सौदों में सुरक्षित</string>
+    <string name="view_wallet">वॉलेट देखें →</string>
+    <string name="main_services">मुख्य सेवाएं</string>
+    <string name="additional_services">अन्य सेवाएं</string>
+
+    <!-- Services -->
+    <string name="service_waste_market">कृषि अपशिष्ट बाज़ार</string>
+    <string name="service_waste_market_desc">पराली खरीदें और बेचें</string>
+    <string name="service_equipment">कृषि उपकरण किराया</string>
+    <string name="service_equipment_desc">खेती के उपकरण किराए पर लें</string>
+    <string name="service_labour">मज़दूर किराए पर लें</string>
+    <string name="service_labour_desc">सत्यापित श्रमिक और टीमें</string>
+    <string name="service_crop_health">फसल स्वास्थ्य AI</string>
+    <string name="service_crop_health_desc">तत्काल पत्ती रोग जांच</string>
+    <string name="service_transport">परिवहन</string>
+    <string name="service_schemes">सरकारी योजनाएं</string>
+    <string name="service_weather">मौसम</string>
+    <string name="service_agribot">एग्रीबॉट</string>
+
+    <!-- Waste Marketplace -->
+    <string name="waste_marketplace">कृषि अपशिष्ट बाज़ार</string>
+    <string name="connect_stubble_buyers">पराली विक्रेताओं और खरीदारों को जोड़ें</string>
+    <string name="search_waste_hint">अपशिष्ट, पराली या बायोमास खोजें...</string>
+    <string name="filter_all">सभी</string>
+    <string name="filter_crop_residue">फसल अवशेष</string>
+    <string name="filter_industry_demand">उद्योग मांग</string>
+    <string name="filter_bagasse">खोई (बगास)</string>
+    <string name="post_listing">+ लिस्टिंग पोस्ट करें</string>
+    <string name="no_listings_found">कोई लिस्टिंग नहीं मिली।</string>
+    <string name="adjust_filter_hint">अपनी खोज या श्रेणी फ़िल्टर बदलकर देखें</string>
+    <string name="verified_badge">✓ सत्यापित</string>
+    <string name="verified_buyer">🟢 सत्यापित खरीदार • ऑनलाइन</string>
+
+    <!-- Crop Health & AI -->
+    <string name="crop_health_title">फसल स्वास्थ्य और AI निदान</string>
+    <string name="crop_health_subtitle">फसल की बीमारी और कीट पहचानें और उचित जानकारी प्राप्त करें।</string>
+    <string name="capture_upload_leaf">पत्ती की फोटो लें या अपलोड करें</string>
+    <string name="camera_guide">कैमरे को धूप में संक्रमित पत्ती के ऊपर सीधा रखें</string>
+    <string name="take_photo">फोटो लें</string>
+    <string name="upload_photo">अपलोड करें</string>
+    <string name="start_diagnosis_scan">निदान जांच शुरू करें</string>
+    <string name="analyzing_leaf">TFLite मॉडल पत्ती की जांच कर रहा है...</string>
+    <string name="ai_diagnosis_result">AI निदान परिणाम</string>
+    <string name="confidence_score">विश्वसनीयता स्कोर</string>
+    <string name="recommended_guidance">अनुशंसित उपचार व सलाह:</string>
+    <string name="disclaimer_agronomic">नोट: रासायनिक छिड़काव से पहले प्रमाणित कृषि सुरक्षा मानकों का पालन करें।</string>
+    <string name="full_advisory">पूरी सलाह</string>
+    <string name="scan_another">दूसरी जांच करें</string>
+    <string name="recent_detections_history">हाल की पहचान और इतिहास</string>
+    <string name="agribot_assistant_title">कृषिसेतु एग्रीबॉट AI</string>
+    <string name="agribot_assistant_desc">पीएम-किसान, सब्सिडी, मंडी भाव और फसल देखभाल के बारे में पूछें</string>
+
+    <!-- Equipment Rental Screen -->
+    <string name="equipment_rental_title">कृषि उपकरण किराया</string>
+    <string name="equipment_rental_subtitle">सत्यापित ट्रैक्टर, हार्वेस्टर और कृषि यंत्र</string>
+    <string name="search_equipment_hint">ट्रैक्टर, हार्वेस्टर, रोटावेटर खोजें...</string>
+    <string name="all_machinery">सभी मशीनरी</string>
+    <string name="tractors">ट्रैक्टर</string>
+    <string name="agri_implements">कृषि यंत्र</string>
+    <string name="harvesters">हार्वेस्टर</string>
+    <string name="available">उपलब्ध</string>
+    <string name="book_rent">बुक / किराए पर लें</string>
+    <string name="view_details">विवरण देखें</string>
+
+    <!-- Labour Screen -->
+    <string name="labour_hiring_title">मज़दूर किराए पर लें</string>
+    <string name="labour_hiring_subtitle">सत्यापित कृषि श्रमिक, कटाई दल और ऑपरेटर</string>
+    <string name="search_labour_hint">मज़दूर, ठेकेदार, कौशल खोजें...</string>
+    <string name="all_teams">सभी दल</string>
+    <string name="harvesting">फसल कटाई</string>
+    <string name="planting">बुवाई / रोपाई</string>
+    <string name="hire_now">किराए पर लें</string>
+    <string name="contact_thekedar">संपर्क करें</string>
+
+    <!-- Chat & Deals -->
+    <string name="chat_conversations">बातचीत</string>
+    <string name="escrow_protection_badge">🛡️ KRISHISETU एस्क्रो सुरक्षित • 100% भुगतान गारंटी</string>
+    <string name="official_escrow_proposal">🤝 आधिकारिक KRISHISETU एस्क्रो प्रस्ताव</string>
+    <string name="accept_escrow_deal">सौदा स्वीकार करें और एस्क्रो में लॉक करें</string>
+    <string name="type_message_hint">खरीदार को संदेश लिखें...</string>
+    <string name="send">भेजें</string>
+    <string name="no_messages_yet">अभी कोई संदेश नहीं है।</string>
+
+    <!-- Profile & Settings -->
+    <string name="activity_management">गतिविधि और प्रबंधन</string>
+    <string name="my_orders_bookings">मेरे ऑर्डर और बुकिंग</string>
+    <string name="my_published_listings">मेरी प्रकाशित लिस्टिंग</string>
+    <string name="messages_deals">संदेश और सौदे</string>
+    <string name="preferences_settings">प्राथमिकताएं और सेटिंग्स</string>
+    <string name="theme_mode">थीम मोड</string>
+    <string name="language">भाषा</string>
+    <string name="help_kisan_support">सहायता और किसान सपोर्ट</string>
+    <string name="privacy_terms">गोपनीयता और शर्तें</string>
+    <string name="about_krishisetu">KRISHISETU के बारे में</string>
+    <string name="log_out">लॉग आउट</string>
+    <string name="withdraw">पैसे निकालें</string>
+    <string name="escrow_wallet_header">KRISHISETU एस्क्रो वॉलेट</string>
+    <string name="available_balance">उपलब्ध बैलेंस</string>
+    <string name="escrow_protected_note" formatted="false">⚡ 100% कृषिसेतु द्वारा सुरक्षित एस्क्रो</string>
+
+    <!-- Errors & Feedback -->
+    <string name="something_went_wrong">कुछ गलत हो गया।</string>
+    <string name="check_internet_connection">कृपया अपना इंटरनेट कनेक्शन जांचें।</string>
+    <string name="invalid_mobile_number">अमान्य मोबाइल नंबर।</string>
+    <string name="invalid_email">अमान्य ईमेल।</string>
+    <string name="incorrect_password">गलत पासवर्ड।</string>
+    <string name="no_orders_yet">अभी कोई ऑर्डर नहीं है।</string>
+    <string name="no_recent_detections">हाल की कोई पहचान नहीं है।</string>
     <string name="language_selected">भाषा चुनी गई: हिंदी</string>
+
+    <!-- Roles Array -->
     <string-array name="roles_array">
         <item>किसान (Farmer)</item>
         <item>उद्योग खरीदार (Industry Buyer)</item>
@@ -20,4 +165,235 @@
         <item>श्रमिक / मजदूर (Labour / Worker)</item>
         <item>ट्रांसपोर्टर (Transporter)</item>
     </string-array>
+
+    <!-- Additional Strings -->
+    <string name="otp_instruction">अपने पंजीकृत मोबाइल नंबर पर भेजा गया 6 अंकों का सत्यापन कोड दर्ज करें</string>
+    <string name="resend_otp_timer">00:25 में पुनः ओटीपी भेजें</string>
+    <string name="verify_and_continue">सत्यापित करें और आगे बढ़ें</string>
+    <string name="post_new_listing">नई लिस्टिंग पोस्ट करें</string>
+    <string name="publish_banner_tip">🌱 कृषिसेतु पर पूरे भारत में सत्यापित किसानों और उद्योग खरीदारों के लिए सीधे प्रकाशित करें।</string>
+    <string name="listing_category">लिस्टिंग श्रेणी</string>
+    <string name="listing_title_hint">लिस्टिंग शीर्षक (जैसे गेहूं का भूसा)</string>
+    <string name="price_hint">कीमत (₹ में)</string>
+    <string name="quantity_hint">मात्रा और इकाई (जैसे 50 क्विंटल)</string>
+    <string name="location_hint">स्थान / मंडी (जैसे इंदौर, म.प्र.)</string>
+    <string name="desc_hint">विवरण और फसल गुणवत्ता</string>
+    <string name="publish_to_krishisetu">कृषिसेतु पर प्रकाशित करें</string>
+
+    <!-- Dialogs & Functional Features -->
+    <string name="weather_advisory_title">कृषिसेतु मौसम सलाह</string>
+    <string name="weather_location_format">📍 वर्तमान स्थान: %1$s</string>
+    <string name="weather_temp_info">🌡️ 28°C • मुख्य रूप से धूप\n💧 नमी: 62% • हवा: 11 किमी/घंटा\n🌧️ बारिश की संभावना: 5%</string>
+    <string name="weather_advisory_advice">🌾 कृषि सलाह:\nगेहूं की पराली की बेलिंग और सुरक्षित भंडारण के लिए मौसम अनुकूल है। नमी से पहले सूखे भूसे को ढक कर रखें।</string>
+    <string name="got_it">समझ गया</string>
+    <string name="schemes_dialog_title">सरकारी कृषि योजनाएं</string>
+    <string name="schemes_content" formatted="false">1. पीएम-किसान सम्मान निधि: ₹6,000 वार्षिक प्रत्यक्ष बैंक अंतरण।\n2. फसल अवशेष प्रबंधन (CRM): बेलर, हैप्पी सीडर और सुपर एसएमएस पर 50% से 80% सब्सिडी।\n3. प्रधानमंत्री फसल बीमा योजना: मौसम के जोखिमों से फसल क्षति का बीमा।\n4. पीएम-कुसुम सोलर योजना: सोलर सिंचाई पंपों के लिए 60% तक सब्सिडी।</string>
+    <string name="apply_or_details">हेल्पलाइन / आवेदन</string>
+    <string name="transport_dialog_title">कृषिसेतु परिवहन और लॉजिस्टिक्स</string>
+    <string name="transport_content">🚚 उपलब्ध ट्रांसपोर्टर:\n• महिंद्रा बोलेरो पिकअप (1.5 टन) — देवास मंडी (₹15/किमी)\n• आयशर भारी ट्रक (10 टन) — पीथमपुर / इंदौर (₹35/किमी)\n• ट्रैक्टर ट्रॉली (5 टन) — स्थानीय खेत डिलीवरी (₹500/फेरा)</string>
+    <string name="call_transporter">ट्रांसपोर्टर को कॉल करें</string>
+    <string name="agribot_dialog_title">कृषिसेतु एग्रीबॉट AI सहायक</string>
+    <string name="agribot_intro">फसल अवशेष, मंडी भाव, खाद या सरकारी योजनाओं के बारे में कोई भी सवाल पूछें:</string>
+    <string name="agribot_sample_q1">पराली बेलर सब्सिडी</string>
+    <string name="agribot_sample_q2">गेहूं भूसा मंडी भाव</string>
+    <string name="agribot_sample_q3">पीएम-किसान अगली किस्त</string>
+    <string name="agribot_ans_1" formatted="false">सरकार सीआरएम योजना के तहत व्यक्तिगत किसानों को 50% और कस्टम हायरिंग सेंटर्स (CHC) को 80% तक सब्सिडी देती है।</string>
+    <string name="agribot_ans_2">गेहूं के भूसे (पराली) के वर्तमान मंडी भाव नमी के आधार पर ₹1,200 से ₹1,450 प्रति टन के बीच हैं।</string>
+    <string name="agribot_ans_3">पीएम-किसान की अगली किस्त सीधे आधार से जुड़े खातों में डीबीटी द्वारा भेजी जाती है। pmkisan.gov.in पर ई-केवाईसी अपडेट रखें।</string>
+    <string name="notifications_dialog_title">सूचनाएं और किसान अलर्ट</string>
+    <string name="notifications_content">📢 1. उद्योग मांग: पीथमपुर के बायो-पेलेट प्लांट को 200 मीट्रिक टन गेहूं के भूसे की तत्काल आवश्यकता है।\n🌾 2. मौसम अलर्ट: मालवा क्षेत्र में अगले 4 दिनों तक मौसम साफ रहेगा — बेलिंग के लिए उपयुक्त।\n✅ 3. एस्क्रो अपडेट: ऑर्डर #KS-9842 के लिए एस्क्रो में ₹12,000 प्राप्त हुए।</string>
+    <string name="select_mandi_location">मंडी / बाज़ार स्थान चुनें</string>
+    <string name="book_equipment_title">कृषि मशीनरी बुक करें</string>
+    <string name="book_equipment_msg">उपकरण: %1$s\nदर: %2$s\nस्थान: %3$s\n\n⚡ 100%% कृषिसेतु एस्क्रो सुरक्षा: काम पूरा होने तक भुगतान सुरक्षित एस्क्रो में रहता है।</string>
+    <string name="confirm_booking">बुकिंग की पुष्टि करें</string>
+    <string name="booking_confirmed_toast">बुकिंग कन्फर्म हो गई! उपकरण मालिक जल्द आपसे संपर्क करेंगे।</string>
+    <string name="hire_labour_title">कृषि श्रमिक / मजदूर किराए पर लें</string>
+    <string name="hire_labour_msg">श्रमिक श्रेणी: %1$s\nदैनिक मजदूरी: %2$s\nस्थान: %3$s\n\n⚡ एस्क्रो सुरक्षा के साथ 100%% सत्यापित श्रमिक।</string>
+    <string name="confirm_hire">श्रमिक बुक करें</string>
+    <string name="hire_confirmed_toast">मजदूर अनुरोध कन्फर्म! ठेकेदार जल्द आपसे संपर्क करेंगे।</string>
+    <string name="add_money">पैसे जोड़ें</string>
+    <string name="wallet_escrow_dialog_msg">• उपलब्ध बैलेंस: ₹4,250.00\n• एस्क्रो में सुरक्षित: ₹56,350.00 (2 सक्रिय सौदों में सुरक्षित)\n\nहाल के लेनदेन:\n+ ₹12,000.00 पराली बिक्री (ऑर्डर #KS-9842)\n- ₹2,500.00 हार्वेस्टर किराया (बुकिंग #KS-2311)</string>
+
+    <!-- Profile Dialog Strings -->
+    <string name="orders_content">• ऑर्डर #KS-9842: गेहूं भूसा (50 क्विंटल) — ट्रांजिट में 🚚\n• बुकिंग #KS-2311: महिंद्रा 575 डीआई ट्रैक्टर — कल के लिए कन्फर्म 🚜\n• बुकिंग #KS-1102: हार्वेस्टर ऑपरेटर — पूर्ण ✅</string>
+    <string name="listings_content">• जैविक धान पराली (20 टन) — सक्रिय (3 पूछताछ)\n• सरसों अवशेष (15 टन) — सक्रिय (1 पूछताछ)</string>
+    <string name="help_support_content">हम 24x7 अपने किसान भाइयों की सेवा में उपस्थित हैं।\n\n📞 टोल-फ्री किसान हेल्पलाइन: 1800-180-1551\n📧 ईमेल: support@krishisetu.in\n🕒 कार्य समय: सोमवार - रविवार (सुबह 6 - रात 10)\n📍 नई दिल्ली, भारत</string>
+    <string name="terms_content" formatted="false">कृषिसेतु भारतीय कृषि व्यापार को पूर्ण सुरक्षित करता है:\n\n1. 100% एस्क्रो सुरक्षा: डिलीवरी सत्यापन के बाद ही राशि जारी होती है।\n2. निष्पक्ष मूल्य: गारंटीकृत न्यूनतम समर्थन मूल्य और वास्तविक मंडी दरें।\n3. डेटा गोपनीयता: किसानों का डेटा और लेनदेन पूर्णतः सुरक्षित।</string>
+    <string name="post_new_crop_listing">नई लिस्टिंग पोस्ट करें</string>
+
+    <!-- Deal Escrow Strings -->
+    <string name="escrow_deal_summary_title">⚡ एस्क्रो लॉक करें और भुगतान विभाजित करें</string>
+    <string name="escrow_deal_summary_msg" formatted="false">💳 सौदा सारांश और स्वचालित भुगतान विभाजन\n\n📦 सौदा सामग्री: 50 क्विंटल धान पराली\n💰 कुल सौदा मूल्य: ₹56,350.00\n\n⚡ स्वचालित भुगतान मार्ग:\n• 👨‍🌾 किसान को सीधा भुगतान: ₹54,941.25 (97.5%)\n  └ सीधे किसान के बैंक / यूपीआई में ट्रांसफर।\n\n• ⚡ प्लेटफ़ॉर्म सेवा कमीशन: ₹1,408.75 (2.5%)\n  └ सीधे कृषिसेतु प्लेटफ़ॉर्म रिज़र्व में भेजा गया।\n\n🔒 एस्क्रो सुरक्षा: डिलीवरी ओटीपी सत्यापन तक खरीदार का धन सुरक्षित रहता है।</string>
+    <string name="confirm_lock_escrow">पुष्टि करें और एस्क्रो लॉक करें</string>
+    <string name="escrow_locked_toast">🎉 सौदा लॉक हो गया! किसान के लिए ₹54,941.25 और कृषिसेतु एस्क्रो सुरक्षित!</string>
+    <string name="message_sent_toast">संदेश भेज दिया गया</string>
+
+    <!-- Input & Validation Strings -->
+    <string name="enter_phone_number">फ़ोन नंबर दर्ज करें</string>
+    <string name="err_enter_mobile">कृपया अपना मोबाइल नंबर दर्ज करें</string>
+    <string name="err_enter_name">कृपया मान्य पूरा नाम दर्ज करें (कम से कम 2 अक्षर)</string>
+    <string name="err_enter_email">कृपया अपना ईमेल पता दर्ज करें</string>
+    <string name="err_password_length">पासवर्ड कम से कम 8 अक्षरों का होना चाहिए</string>
+    <string name="err_passwords_dont_match">पासवर्ड मेल नहीं खाते</string>
+    <string name="err_agree_terms">पंजीकरण के लिए कृपया नियम और शर्तों से सहमत हों</string>
+    <string name="creating_account">खाता बनाया जा रहा है...</string>
+    <string name="welcome_account_created">🎉 कृषिसेतु में आपका स्वागत है! खाता सफलतापूर्वक बनाया गया।</string>
+    <string name="connecting_google">गूगल किसान खाते से कनेक्ट हो रहा है...</string>
+    <string name="reset_password_instruction">पासवर्ड रीसेट निर्देश प्राप्त करने के लिए अपना मोबाइल या ईमेल दर्ज करें।</string>
+    <string name="send_reset_link">रीसेट लिंक भेजें</string>
+    <string name="reset_sent_to">पासवर्ड रीसेट निर्देश भेज दिए गए हैं: %1$s</string>
+    <string name="logging_in">लॉग इन हो रहा है...</string>
+    <string name="login_successful">लॉगिन सफल!</string>
+    <string name="language_switched_toast">भाषा बदलकर %1$s कर दी गई</string>
+    <string name="language_toggle_btn">🌐 English</string>
+
+    <!-- Choose Role Strings -->
+    <string name="choose_role_subtitle">अपने कृषिसेतु अनुभव को अनुकूलित करने के लिए अपनी भूमिका चुनें</string>
+    <string name="role_farmer_title">किसान (Farmer)</string>
+    <string name="role_farmer_desc">मैं फसलें उगाता हूँ और पराली/कृषि अवशेष बेचता हूँ</string>
+    <string name="role_industry_title">उद्योग खरीदार (Industry Buyer)</string>
+    <string name="role_industry_desc">मैं थोक में बायोमास और पराली खरीदता हूँ</string>
+    <string name="role_equipment_title">उपकरण मालिक (Equipment Owner)</string>
+    <string name="role_equipment_desc">मैं ट्रैक्टर, बेलर और हार्वेस्टर किराए पर देता हूँ</string>
+    <string name="role_contractor_title">ठेकेदार (Contractor)</string>
+    <string name="role_contractor_desc">मैं कृषि मजदूर और श्रमिक टीमें उपलब्ध कराता हूँ</string>
+    <string name="role_labour_title">श्रमिक / मजदूर (Labour)</string>
+    <string name="role_labour_desc">मैं दैनिक और मौसमी कृषि कार्य की तलाश में हूँ</string>
+    <string name="role_transporter_title">ट्रांसपोर्टर (Transporter)</string>
+    <string name="role_transporter_desc">मैं कृषि परिवहन और ग्रामीण लॉजिस्टिक्स प्रदान करता हूँ</string>
+
+    <!-- Product & Marketplace Strings -->
+    <string name="crop_residue">फसल अवशेष</string>
+    <string name="verified_seller_badge">✓ सत्यापित विक्रेता</string>
+    <string name="quantity_label">मात्रा</string>
+    <string name="availability_label">उपलब्धता</string>
+    <string name="location_label_dialog">स्थान</string>
+    <string name="product_quality_desc_title">उत्पाद और गुणवत्ता विवरण</string>
+    <string name="call_seller">विक्रेता को कॉल करें</string>
+    <string name="contact_deal">सौदा / चैट करें</string>
+    <string name="chat_negotiations_sub">सक्रिय बातचीत और एस्क्रो प्रस्ताव</string>
+    <string name="search_conversations_hint">बातचीत, खरीदार, सौदे खोजें...</string>
+    <string name="hello_farmer">नमस्ते, किसान भाई!</string>
+    <string name="plant_operators">🏭 प्लांट ऑपरेटर</string>
+    <string name="theme_system_default">सिस्टम डिफ़ॉल्ट ›</string>
+    <string name="dialer_unavailable_toast">डायल करने की सुविधा अनुपलब्ध है</string>
+
+    <!-- Create Listing & Profile Dialogs -->
+    <string name="err_enter_listing_title">कृपया लिस्टिंग शीर्षक दर्ज करें</string>
+    <string name="err_enter_price">कृपया कीमत दर्ज करें</string>
+    <string name="publishing_listing_prefix">प्रकाशित हो रहा है: %1$s...</string>
+    <string name="listing_published_success">🎉 लिस्टिंग सफलतापूर्वक प्रकाशित हो गई!</string>
+    <string name="wallet_withdrawal_title">कृषिसेतु वॉलेट निकासी</string>
+    <string name="wallet_withdrawal_msg">आपकी उपलब्ध ₹4,250.00 की राशि आपके सत्यापित UPI/बैंक खाते में तुरंत स्थानांतरित कर दी जाएगी।\n\nक्या आप ट्रांसफर करना चाहते हैं?</string>
+    <string name="transfer_now">अभी ट्रांसफर करें</string>
+    <string name="withdrawal_sent_toast">₹4,250 की निकासी का अनुरोध बैंक को भेज दिया गया है!</string>
+    <string name="logout_title">कृषिसेतु से लॉग आउट करें</string>
+    <string name="logout_confirm_msg">क्या आप सुनिश्चित हैं कि वर्तमान सत्र समाप्त करना चाहते हैं?</string>
+    <string name="logout">लॉग आउट</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="logged_out_toast">सफलतापूर्वक लॉग आउट हो गए</string>
+    <string name="theme_updated_toast">थीम अपडेट हो गई</string>
+
+    <!-- Disease & Advisory Strings -->
+    <string name="select_image_source">पत्ती की फोटो का स्रोत चुनें</string>
+    <string name="ai_analyzing_leaf">🔬 AI स्थानीय TFLite से फसल की पत्ती का विश्लेषण कर रहा है...</string>
+    <string name="ai_leaf_analysis_result">🔬 AI पत्ती रोग विश्लेषण परिणाम</string>
+    <string name="ok_and_save">ठीक है और सहेजें</string>
+    <string name="schemes_subsidies_btn">योजनाएं एवं सब्सिडी</string>
+    <string name="agribot_ai_schemes_title">🤖 एग्रीबॉट AI — योजनाएं एवं सब्सिडी</string>
+    <string name="ai_solution_breakdown_title">🤖 कृषिसेतु AI समाधान और तकनीकी विश्लेषण</string>
+
+    <!-- Add Options & Live Weather Strings (Hindi) -->
+    <string name="post_equipment">➕ किराए पर दें</string>
+    <string name="post_labour">➕ मजदूर जोड़ें</string>
+    <string name="add_equipment_title">🚜 कृषि उपकरण किराए पर लिस्ट करें</string>
+    <string name="add_labour_title">👨‍🌾 मजदूर आवश्यकता / टीम पोस्ट करें</string>
+    <string name="add_waste_title">🌾 पराली / फसल अवशेष लिस्ट करें</string>
+    <string name="equipment_name_hint">उपकरण का नाम / मॉडल (उदा. ट्रैक्टर 45 HP)</string>
+    <string name="equipment_rate_hint">किराया दर (उदा. ₹1200/दिन या ₹400/घंटा)</string>
+    <string name="equipment_location_hint">स्थान (उदा. इंदौर, म.प्र.)</string>
+    <string name="equipment_owner_hint">मालिक का नाम / रेंटल सेंटर</string>
+    <string name="equipment_phone_hint">संपर्क मोबाइल नंबर</string>
+    <string name="labour_title_hint">कार्य का प्रकार (उदा. कटाई मजदूर टीम)</string>
+    <string name="labour_workers_hint">मजदूरों की संख्या (उदा. 15 मजदूर)</string>
+    <string name="labour_wage_hint">दैनिक मजदूरी (उदा. ₹550/दिन)</string>
+    <string name="labour_location_hint">स्थान (उदा. देवास, म.प्र.)</string>
+    <string name="labour_timing_hint">उपलब्धता (उदा. तुरंत / कल से)</string>
+    <string name="post_now">अभी पोस्ट करें</string>
+    <string name="equipment_added_success">🎉 उपकरण किराए के लिए सफलतापूर्वक लिस्ट हो गया!</string>
+    <string name="labour_added_success">🎉 मजदूर आवश्यकता सफलतापूर्वक पोस्ट हो गई!</string>
+    <string name="waste_added_success">🎉 पराली लिस्टिंग सफलतापूर्वक प्रकाशित हो गई!</string>
+    <string name="live_weather_title">🌦️ कृषिसेतु लाइव मौसम एवं कृषि सलाह</string>
+    <string name="refresh_weather">🔄 मौसम रीफ्रेश करें</string>
+    <string name="use_gps_location">📍 मेरा वर्तमान GPS स्थान</string>
+    <string name="weather_live_badge">लाइव</string>
+    <string name="weather_fetching">लाइव मौसम लोड हो रहा है...</string>
+    <string name="weather_updated">लाइव मौसम अपडेट हो गया</string>
+    <string name="gps_detected">📍 आपका लाइव GPS स्थान मिल गया</string>
+
+    <!-- Report Template Strings (Hindi) -->
+    <string name="crop_pathology_report_title">🔬 फसल स्वास्थ्य निदान रिपोर्ट</string>
+    <string name="report_id_prefix">रिपोर्ट संख्या: #KS-SCAN-</string>
+    <string name="verified_by_ai">TFLite मॉडल द्वारा सत्यापित</string>
+    <string name="status_healthy_badge">🌿 फसल बिल्कुल स्वस्थ है</string>
+    <string name="status_infected_badge">⚠️ फसल में रोग के लक्षण मिले</string>
+    <string name="treatment_plan_title">💊 अनुशंसित कृषि उपचार व डॉक्टरी सलाह</string>
+    <string name="chemical_treatment_label">🧪 अनुशंसित उपचार दवा:</string>
+    <string name="cultural_prevention_label">🌱 रोकथाम व खेत सुरक्षा उपाय:</string>
+    <string name="kisan_helpline_label">📞 निःशुल्क किसान हेल्पलाइन: 1800-180-1551</string>
+    <string name="call_helpline">हेल्पलाइन पर कॉल करें</string>
+    <string name="ask_agribot">एग्रीबॉट AI से पूछें</string>
+    <string name="meteorological_report_title">🌦️ कृषि मौसम विज्ञान पूर्वानुमान</string>
+    <string name="radar_live_status">● लाइव सेटेलाइट रडार</string>
+    <string name="weather_parameters_title">📊 मौसम एवं कृषि मानक</string>
+    <string name="apparent_temp_label">महसूस तापमान</string>
+    <string name="soil_condition_label">मिट्टी की नमी</string>
+    <string name="stubble_advisory_label">🌾 पराली व फसल प्रबंधन सलाह</string>
+
+    <!-- Marketplace & Purchase Flow Strings (Hindi) -->
+    <string name="buy_waste_action">अपशिष्ट / पराली खरीदें</string>
+    <string name="order_now">अभी ऑर्डर करें</string>
+    <string name="enter_purchase_qty">खरीदने हेतु मात्रा दर्ज करें</string>
+    <string name="confirm_purchase_action">ऑर्डर की पुष्टि करें</string>
+    <string name="insufficient_qty_err">केवल %1$s उपलब्ध है।</string>
+    <string name="err_requested_qty_unavailable">मांगी गई मात्रा अब उपलब्ध नहीं है।</string>
+    <string name="err_invalid_quantity">कृपया शून्य से अधिक मान्य मात्रा दर्ज करें।</string>
+    <string name="sold_out_badge">स्टॉक समाप्त</string>
+    <string name="available_badge">उपलब्ध</string>
+    <string name="partially_sold_badge">आंशिक रूप से उपलब्ध</string>
+    <string name="order_placed_success">🎉 ऑर्डर सफलतापूर्वक दर्ज हो गया!</string>
+    <string name="quantity_loading">लोड हो रहा है...</string>
+    <string name="purchase_dialog_title">बायोमास / अपशिष्ट खरीदें</string>
+    <string name="total_cost_label">कुल लागत:</string>
+    <string name="available_stock_label">उपलब्ध स्टॉक:</string>
+
+    <!-- Role System & Dashboards (Hindi) -->
+    <string name="role_farmer_name">किसान</string>
+    <string name="role_industry_name">उद्योग खरीदार</string>
+    <string name="role_labour_name">श्रमिक / मजदूर</string>
+    <string name="role_equipment_name">उपकरण मालिक</string>
+    <string name="role_contractor_name">ठेकेदार</string>
+    <string name="role_transport_name">ट्रांसपोर्टर</string>
+    <string name="buyer_dashboard_subtitle">कृषि अपशिष्ट एवं बायोमास खरीद केंद्र</string>
+    <string name="labour_dashboard_subtitle">कार्य प्रोफ़ाइल, कौशल एवं काम के अनुरोध</string>
+    <string name="equipment_dashboard_subtitle">कृषि मशीनरी, बुकिंग एवं किराया आय</string>
+    <string name="contractor_dashboard_subtitle">कार्यबल, अनुबंध एवं कृषि सेवाएं</string>
+    <string name="transporter_dashboard_subtitle">वाहन, डिलीवरी एवं परिवहन अनुरोध</string>
+    <string name="my_purchases">मेरी खरीदारी और सौदे</string>
+    <string name="my_worker_profile">मेरी वर्कर प्रोफाइल</string>
+    <string name="my_equipment">मेरे उपकरण</string>
+    <string name="my_vehicles">मेरे वाहन</string>
+    <string name="post_work_requirement">काम की आवश्यकता पोस्ट करें</string>
+    <string name="job_requests">काम के अनुरोध</string>
+    <string name="active_jobs">सक्रिय काम</string>
+    <string name="completed_jobs">पूरे किए गए काम</string>
+    <string name="earnings">कमाई एवं भुगतान</string>
+    <string name="rental_requests">किराया अनुरोध</string>
+    <string name="transport_requests">परिवहन अनुरोध</string>
+    <string name="active_deliveries">सक्रिय डिलीवरी</string>
+    <string name="completed_deliveries">पूर्ण डिलीवरी</string>
+    <string name="worker_status_available">🟢 काम के लिए उपलब्ध</string>
+    <string name="worker_status_unavailable">🔴 वर्तमान में अनुपलब्ध</string>
+    <string name="select_user_role">सक्रिय भूमिका चुनें</string>
+    <string name="role_active_toast">भूमिका सक्रिय हो गई</string>
 </resources>

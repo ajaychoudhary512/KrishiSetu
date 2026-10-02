@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warm_cream"
+    android:background="@color/soft_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Nature Luxe Forest Green Header -->
+        <!-- Nature Forest Green Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Crop Health &amp; AI Diagnosis"
+                android:text="@string/crop_health_title"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:fontFamily="sans-serif-medium"
@@ -34,8 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Identify crop pests, blight &amp; get instant chemical remedies"
-                android:textColor="@color/light_sage_surface"
+                android:text="@string/crop_health_subtitle"
+                android:textColor="#C4D7B2"
                 android:textSize="13sp" />
         </LinearLayout>
 
@@ -45,12 +45,12 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Upload Card -->
+            <!-- Main Leaf Photo Capture & Upload Card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardUploadLeaf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="2dp"
                 app:strokeColor="@color/border_light"
@@ -68,23 +68,23 @@
                         android:layout_height="64dp"
                         app:cardCornerRadius="32dp"
                         app:cardElevation="0dp"
-                        app:cardBackgroundColor="@color/light_sage_surface"
-                        app:strokeColor="@color/primary_forest"
+                        app:cardBackgroundColor="@color/light_green"
+                        app:strokeColor="@color/primary_green"
                         app:strokeWidth="1.5dp">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="16dp"
-                            android:src="@android:drawable/ic_menu_camera"
-                            app:tint="@color/primary_forest" />
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_crop_health"
+                            app:tint="@color/primary_green" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Capture or Upload Leaf Photo"
+                        android:text="@string/capture_upload_leaf"
                         android:textColor="@color/text_main"
                         android:textSize="17sp"
                         android:fontFamily="sans-serif-medium"
@@ -95,26 +95,52 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:gravity="center"
-                        android:text="Hold camera steady over the infected leaf in natural sunlight"
+                        android:text="@string/camera_guide"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
-                    <!-- Upload Action Button -->
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnUploadImage"
+                    <!-- Two Action Buttons: Take Photo & Upload -->
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Upload or Take Photo"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:textStyle="bold"
-                        app:backgroundTint="@color/primary_forest"
-                        app:cornerRadius="12dp"
-                        app:icon="@android:drawable/ic_menu_camera"
-                        app:iconGravity="textStart"
-                        app:iconTint="@color/white" />
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnTakePhoto"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:text="@string/take_photo"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/primary_green"
+                            app:cornerRadius="12dp"
+                            app:icon="@drawable/ic_camera"
+                            app:iconGravity="textStart"
+                            app:iconTint="@color/white" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnUploadGallery"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:text="@string/upload_photo"
+                            android:textColor="@color/primary_green"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold"
+                            app:cornerRadius="12dp"
+                            app:icon="@drawable/ic_upload"
+                            app:iconGravity="textStart"
+                            app:iconTint="@color/primary_green"
+                            app:strokeColor="@color/border_light" />
+                    </LinearLayout>
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -126,10 +152,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:visibility="gone"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
-                app:strokeColor="@color/soft_sage"
+                app:strokeColor="@color/secondary_green"
                 app:strokeWidth="1.5dp">
 
                 <LinearLayout
@@ -142,14 +168,14 @@
                     <ProgressBar
                         android:layout_width="44dp"
                         android:layout_height="44dp"
-                        android:indeterminateTint="@color/primary_forest" />
+                        android:indeterminateTint="@color/primary_green" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="🔬 TFLite Model Analyzing Leaf Image..."
-                        android:textColor="@color/primary_forest"
+                        android:text="@string/analyzing_leaf"
+                        android:textColor="@color/primary_green"
                         android:textSize="15sp"
                         android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
@@ -158,7 +184,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Preprocessing 384x384 tensor &amp; executing on-device inference"
+                        android:text="Executing on-device neural network inference"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -171,10 +197,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:visibility="gone"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="3dp"
-                app:strokeColor="@color/primary_forest"
+                app:strokeColor="@color/primary_green"
                 app:strokeWidth="1.5dp">
 
                 <LinearLayout
@@ -194,8 +220,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="🔬 AI DIAGNOSIS RESULT"
-                            android:textColor="@color/primary_forest"
+                            android:text="@string/ai_diagnosis_result"
+                            android:textColor="@color/primary_green"
                             android:textSize="13sp"
                             android:fontFamily="sans-serif-medium"
                             android:textStyle="bold"
@@ -209,7 +235,7 @@
                             android:paddingHorizontal="10dp"
                             android:paddingVertical="4dp"
                             android:text="ON-DEVICE TFLITE"
-                            android:textColor="@color/primary_forest"
+                            android:textColor="@color/primary_green"
                             android:textSize="11sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -266,7 +292,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Confidence Score"
+                            android:text="@string/confidence_score"
                             android:textColor="@color/text_main"
                             android:textSize="13sp"
                             android:textStyle="bold" />
@@ -276,7 +302,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="94.8%"
-                            android:textColor="@color/primary_forest"
+                            android:textColor="@color/primary_green"
                             android:textSize="16sp"
                             android:fontFamily="sans-serif-medium"
                             android:textStyle="bold" />
@@ -290,7 +316,7 @@
                         android:layout_marginTop="6dp"
                         android:max="100"
                         android:progress="95"
-                        android:progressTint="@color/primary_forest" />
+                        android:progressTint="@color/primary_green" />
 
                     <!-- Remedy & Treatment Box -->
                     <LinearLayout
@@ -304,8 +330,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="💡 Recommended Advisory &amp; Treatment:"
-                            android:textColor="@color/primary_forest"
+                            android:text="@string/recommended_guidance"
+                            android:textColor="@color/primary_green"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"
                             android:textStyle="bold" />
@@ -319,6 +345,14 @@
                             android:textColor="@color/text_main"
                             android:textSize="12sp"
                             android:lineSpacingExtra="2dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/disclaimer_agronomic"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
                     </LinearLayout>
 
                     <!-- Buttons in Result Card -->
@@ -333,12 +367,12 @@
                             android:layout_width="0dp"
                             android:layout_height="44dp"
                             android:layout_weight="1"
-                            android:text="Full Advisory"
+                            android:text="@string/full_advisory"
                             android:textColor="@color/white"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"
                             android:textStyle="bold"
-                            app:backgroundTint="@color/primary_forest"
+                            app:backgroundTint="@color/primary_green"
                             app:cornerRadius="10dp" />
 
                         <com.google.android.material.button.MaterialButton
@@ -346,11 +380,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="44dp"
                             android:layout_marginStart="8dp"
-                            android:text="Scan Another"
-                            android:textColor="@color/primary_forest"
+                            android:text="@string/scan_another"
+                            android:textColor="@color/primary_green"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"
-                            app:backgroundTint="@color/light_sage_surface"
+                            app:backgroundTint="@color/light_green"
                             app:cornerRadius="10dp"
                             app:strokeColor="@color/border_light"
                             app:strokeWidth="1dp" />
@@ -365,7 +399,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                app:cardBackgroundColor="@color/light_sage_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="1dp"
                 app:strokeColor="@color/border_light"
@@ -378,17 +412,32 @@
                     android:orientation="horizontal"
                     android:padding="16dp">
 
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/light_green">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_agribot" />
+                    </com.google.android.material.card.MaterialCardView>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🤖 KrishiSetu AgriBot AI"
-                            android:textColor="@color/primary_forest"
+                            android:text="@string/agribot_assistant_title"
+                            android:textColor="@color/primary_green"
                             android:textSize="15sp"
                             android:fontFamily="sans-serif-medium"
                             android:textStyle="bold" />
@@ -397,17 +446,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Ask about PM-Kisan, Subsidies, Mandi Rates &amp; Crop Care"
+                            android:text="@string/agribot_assistant_desc"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="›"
-                        android:textColor="@color/primary_forest"
-                        android:textSize="22sp" />
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/text_secondary" />
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -418,7 +466,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:text="RECENT DETECTIONS &amp; HISTORY"
+                android:text="@string/recent_detections_history"
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -429,7 +477,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp"
                 app:strokeColor="@color/border_light"
@@ -446,15 +494,15 @@
                         android:layout_height="48dp"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
-                        app:cardBackgroundColor="@color/light_sage_surface">
+                        app:cardBackgroundColor="@color/light_green">
 
                         <ImageView
                             android:id="@+id/imgDet1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="10dp"
-                            android:src="@android:drawable/ic_menu_crop"
-                            app:tint="@color/primary_forest" />
+                            android:padding="8dp"
+                            android:src="@drawable/ic_crop_health"
+                            app:tint="@color/primary_green" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
@@ -484,7 +532,7 @@
                             android:singleLine="true"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:text="AI Confidence: 94.8% • Copper Spray Advised"
+                            android:text="AI Confidence: 94.8% • Advisory Provided"
                             android:textColor="@color/harvest_orange"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -497,7 +545,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp"
                 app:strokeColor="@color/border_light"
@@ -514,15 +562,15 @@
                         android:layout_height="48dp"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
-                        app:cardBackgroundColor="@color/light_sage_surface">
+                        app:cardBackgroundColor="@color/light_green">
 
                         <ImageView
                             android:id="@+id/imgDet2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="10dp"
-                            android:src="@android:drawable/ic_menu_crop"
-                            app:tint="@color/primary_forest" />
+                            android:padding="8dp"
+                            android:src="@drawable/ic_crop_health"
+                            app:tint="@color/primary_green" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
@@ -559,20 +607,6 @@
                     </LinearLayout>
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
-
-            <!-- Bottom Scan Action -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnScanNow"
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:text="START DIAGNOSIS SCAN"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif-medium"
-                android:textStyle="bold"
-                app:backgroundTint="@color/primary_forest"
-                app:cornerRadius="12dp"
-                app:elevation="2dp" />
 
         </LinearLayout>
     </LinearLayout>

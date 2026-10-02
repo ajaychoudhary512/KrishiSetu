@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="14dp"
-    app:cardBackgroundColor="@color/light_surface"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="16dp"
     app:cardElevation="2dp"
     app:strokeColor="@color/border_light"
@@ -18,7 +18,7 @@
         <!-- Top Banner Image Container -->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="160dp">
 
             <ImageView
                 android:id="@+id/imgWaste"
@@ -40,9 +40,10 @@
                 android:paddingVertical="4dp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:text="Crop Residue"
+                android:text="@string/filter_crop_residue"
                 android:textColor="@color/white"
                 android:textSize="11sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
 
             <TextView
@@ -52,12 +53,13 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_margin="12dp"
-                android:background="@color/status_verified_bg"
+                android:background="@color/primary_green"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
-                android:text="✓ Verified"
+                android:text="@string/verified_badge"
                 android:textColor="@color/white"
                 android:textSize="11sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -68,7 +70,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Title & Price Row (with single-line constraints) -->
+            <!-- Title & Price Row (maxLines=2 for title to avoid cutting important info) -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -79,11 +81,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="8dp"
-                    android:maxLines="1"
-                    android:ellipsize="end"
                     android:text="₹100/quintal"
-                    android:textColor="@color/primary_forest"
+                    android:textColor="@color/primary_green"
                     android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
                     android:textStyle="bold" />
 
                 <TextView
@@ -92,38 +93,106 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_toStartOf="@id/tvPrice"
-                    android:maxLines="1"
+                    android:maxLines="2"
                     android:ellipsize="end"
-                    android:text="Rice Straw"
+                    android:lineSpacingExtra="2dp"
                     android:textColor="@color/text_main"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <!-- Location with single-line constraint -->
-            <TextView
-                android:id="@+id/tvLocation"
+            <!-- Quantity & Availability Chip Row -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:text="📍 Indore, MP • 12 km"
-                android:textColor="@color/text_secondary"
-                android:textSize="13sp" />
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <!-- Seller with single-line constraint -->
-            <TextView
-                android:id="@+id/tvSeller"
+                <TextView
+                    android:id="@+id/tvCardQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_search_input"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="3dp"
+                    android:textColor="@color/text_main"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCardStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@color/status_available_bg"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="3dp"
+                    android:text="@string/available_badge"
+                    android:textColor="@color/status_available_text"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Location & Distance -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:text="Ramesh Patel (Farmer)"
-                android:textColor="@color/text_main"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_location_pin"
+                    app:tint="@color/text_secondary" />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Indore, MP • 12 km"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Seller and Verification Status -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:id="@+id/tvSeller"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Ramesh Patel (Farmer)"
+                    android:textColor="@color/text_main"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="View Details ›"
+                    android:textColor="@color/primary_green"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold" />
+            </RelativeLayout>
         </LinearLayout>
 
     </LinearLayout>

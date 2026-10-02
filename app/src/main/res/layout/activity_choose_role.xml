@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app"
+    android:background="@color/soft_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -11,22 +11,47 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
-        android:paddingTop="36dp"
+        android:paddingTop="20dp"
         android:paddingBottom="24dp">
+
+        <!-- Language Switcher Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLanguageToggle"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_alignParentEnd="true"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="@string/language_toggle_btn"
+                android:textColor="@color/primary_green"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/light_green"
+                app:cornerRadius="18dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp" />
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose Your Role"
-            android:textColor="@color/primary_forest"
+            android:text="@string/choose_your_role"
+            android:textColor="@color/primary_green"
             android:textSize="24sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Select your role to personalize your KRISHISETU experience"
+            android:text="@string/choose_role_subtitle"
             android:textColor="@color/text_secondary"
             android:textSize="14sp" />
 
@@ -36,10 +61,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
-            app:strokeColor="@color/primary_forest"
+            app:strokeColor="@color/primary_green"
             app:strokeWidth="1.5dp">
 
             <LinearLayout
@@ -52,16 +77,16 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    app:cardBackgroundColor="@color/light_sage_surface"
+                    app:cardBackgroundColor="@color/light_green"
                     app:cardCornerRadius="12dp"
                     app:strokeWidth="0dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
-                        android:text="🌾"
-                        android:textSize="22sp" />
+                        android:src="@drawable/ic_farmer"
+                        app:tint="@color/primary_green" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
@@ -74,31 +99,32 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="Farmer"
+                        android:text="@string/role_farmer_title"
                         android:textColor="@color/text_main"
                         android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="I grow crops &amp; sell agricultural waste"
+                        android:text="@string/role_farmer_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textColor="@color/primary_forest"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/primary_green" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -108,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
             app:strokeColor="@color/border_light"
@@ -124,16 +150,15 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    app:cardBackgroundColor="@color/light_sage_surface"
+                    app:cardBackgroundColor="@color/light_green"
                     app:cardCornerRadius="12dp"
                     app:strokeWidth="0dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
-                        android:text="🏭"
-                        android:textSize="22sp" />
+                        android:src="@drawable/ic_waste_market" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
@@ -146,30 +171,32 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="Industry Buyer"
+                        android:text="@string/role_industry_title"
                         android:textColor="@color/text_main"
                         android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="I purchase biomass &amp; stubble in bulk"
+                        android:text="@string/role_industry_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="22sp" />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/text_secondary" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -179,7 +206,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
             app:strokeColor="@color/border_light"
@@ -199,12 +226,11 @@
                     app:cardCornerRadius="12dp"
                     app:strokeWidth="0dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
-                        android:text="🚜"
-                        android:textSize="22sp" />
+                        android:src="@drawable/ic_equipment_rental" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
@@ -217,30 +243,32 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="Equipment Owner"
+                        android:text="@string/role_equipment_title"
                         android:textColor="@color/text_main"
                         android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="I rent out tractors, balers &amp; harvesters"
+                        android:text="@string/role_equipment_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="22sp" />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/text_secondary" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -250,7 +278,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
             app:strokeColor="@color/border_light"
@@ -266,16 +294,15 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    app:cardBackgroundColor="@color/light_sage_surface"
+                    app:cardBackgroundColor="@color/light_green"
                     app:cardCornerRadius="12dp"
                     app:strokeWidth="0dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
-                        android:text="👷"
-                        android:textSize="22sp" />
+                        android:src="@drawable/ic_hire_labour" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
@@ -288,30 +315,32 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="Contractor / Thekedar"
+                        android:text="@string/role_contractor_title"
                         android:textColor="@color/text_main"
                         android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="I supply agricultural labour teams"
+                        android:text="@string/role_contractor_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="22sp" />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/text_secondary" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -321,7 +350,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
             app:strokeColor="@color/border_light"
@@ -337,16 +366,15 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    app:cardBackgroundColor="@color/light_sage_surface"
+                    app:cardBackgroundColor="@color/light_green"
                     app:cardCornerRadius="12dp"
                     app:strokeWidth="0dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
-                        android:text="👨‍🌾"
-                        android:textSize="22sp" />
+                        android:src="@drawable/ic_hire_labour" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
@@ -359,30 +387,32 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="Labour / Worker"
+                        android:text="@string/role_labour_title"
                         android:textColor="@color/text_main"
                         android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="I am looking for daily &amp; seasonal farm work"
+                        android:text="@string/role_labour_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="22sp" />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/text_secondary" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -392,7 +422,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
             app:strokeColor="@color/border_light"
@@ -408,16 +438,15 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    app:cardBackgroundColor="@color/light_sage_surface"
+                    app:cardBackgroundColor="@color/light_green"
                     app:cardCornerRadius="12dp"
                     app:strokeWidth="0dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
-                        android:text="🚚"
-                        android:textSize="22sp" />
+                        android:src="@drawable/ic_transport" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
@@ -430,30 +459,32 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="Transporter"
+                        android:text="@string/role_transporter_title"
                         android:textColor="@color/text_main"
                         android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="I provide transport &amp; rural logistics"
+                        android:text="@string/role_transporter_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="22sp" />
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/text_secondary" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

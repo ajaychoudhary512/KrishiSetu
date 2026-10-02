@@ -214,13 +214,19 @@ class AuthService:
         return self._build_token_response(user)
 
     def _build_token_response(self, user: User) -> TokenData:
-        extra = {"role": user.role.value if hasattr(user.role, "value") else str(user.role), "email": user.email}
+        role_str = user.role.value if hasattr(user.role, "value") else str(user.role)
+        extra = {"role": role_str, "email": user.email}
         access_token = create_access_token(subject=str(user.id), extra_claims=extra)
         refresh_token = create_refresh_token(subject=str(user.id))
         return TokenData(
             access_token=access_token,
             refresh_token=refresh_token,
             expires_in=settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+            user_id=str(user.id),
+            role=role_str,
+            full_name=user.full_name,
+            phone=user.phone,
+            email=user.email,
         )
 
     async def _send_email_verification(self, user: User) -> None:

@@ -21,6 +21,11 @@ public class RegisterActivity extends AppCompatActivity {
     private CheckBox cbTerms;
 
     @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -37,6 +42,13 @@ public class RegisterActivity extends AppCompatActivity {
             android.widget.ArrayAdapter<String> adapter = new android.widget.ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, roles);
             actvRole.setAdapter(adapter);
             actvRole.setText(roles[0], false);
+        }
+
+        // Language Toggle Action
+        com.google.android.material.button.MaterialButton btnLang = findViewById(R.id.btnLanguageToggle);
+        if (btnLang != null) {
+            btnLang.setText(LocaleHelper.getLanguageToggleText(this));
+            btnLang.setOnClickListener(v -> LocaleHelper.toggleLanguage(RegisterActivity.this));
         }
 
         // Register Submit
@@ -65,12 +77,12 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(fullName) || fullName.length() < 2) {
-            Toast.makeText(this, "Please enter a valid full name (at least 2 characters)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.err_enter_name), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(mobile)) {
-            Toast.makeText(this, "Please enter your mobile number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.err_enter_mobile), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -81,12 +93,12 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(password) || password.length() < 8) {
-            Toast.makeText(this, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.err_password_length), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (cbTerms != null && !cbTerms.isChecked()) {
-            Toast.makeText(this, "Please agree to Terms & Conditions to register", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.err_agree_terms), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -104,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
             jsonBody.put("password", password);
             jsonBody.put("role", apiRole);
 
-            Toast.makeText(this, "Creating account...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.creating_account), Toast.LENGTH_SHORT).show();
 
             ApiClient.post("/auth/register", jsonBody.toString(), new ApiClient.ApiCallback() {
                 @Override
@@ -118,7 +130,7 @@ public class RegisterActivity extends AppCompatActivity {
                             .putString("user_role", finalRole)
                             .apply();
 
-                        Toast.makeText(RegisterActivity.this, "🎉 Welcome to KRISHISETU! Account Created Successfully.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterActivity.this, getString(R.string.welcome_account_created), Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

@@ -12,6 +12,11 @@ import com.agrilink.app.models.LaborItem;
 
 import java.util.List;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
+
 public class LaborAdapter extends RecyclerView.Adapter<LaborAdapter.ViewHolder> {
 
     private List<LaborItem> list;
@@ -39,6 +44,36 @@ public class LaborAdapter extends RecyclerView.Adapter<LaborAdapter.ViewHolder> 
             holder.tvSkill.setText("🔧 " + item.getSkill());
 
             holder.tvUrgentBadge.setVisibility(item.isUrgent() ? View.VISIBLE : View.GONE);
+
+            // Contact Thekedar / Call
+            if (holder.btnViewDetails != null) {
+                holder.btnViewDetails.setOnClickListener(v -> {
+                    try {
+                        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                        callIntent.setData(Uri.parse("tel:+919826054321"));
+                        v.getContext().startActivity(callIntent);
+                    } catch (Exception e) {
+                        Toast.makeText(v.getContext(), "Dialer unavailable", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            // Hire Crew Button
+            if (holder.btnHireNow != null) {
+                holder.btnHireNow.setOnClickListener(v -> {
+                    String msg = String.format(v.getContext().getString(R.string.hire_labour_msg),
+                            item.getCategory(), item.getWage(), item.getLocation());
+
+                    new AlertDialog.Builder(v.getContext())
+                            .setTitle(v.getContext().getString(R.string.hire_labour_title))
+                            .setMessage(msg)
+                            .setPositiveButton(v.getContext().getString(R.string.confirm_hire), (d, w) -> {
+                                Toast.makeText(v.getContext(), v.getContext().getString(R.string.hire_confirmed_toast), Toast.LENGTH_LONG).show();
+                            })
+                            .setNegativeButton(v.getContext().getString(R.string.got_it), null)
+                            .show();
+                });
+            }
         }
     }
 
@@ -49,6 +84,7 @@ public class LaborAdapter extends RecyclerView.Adapter<LaborAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvCategory, tvUrgentBadge, tvLocation, tvWage, tvWorkerCount, tvDate, tvSkill;
+        View btnViewDetails, btnHireNow;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +95,8 @@ public class LaborAdapter extends RecyclerView.Adapter<LaborAdapter.ViewHolder> 
             tvWorkerCount = itemView.findViewById(R.id.tvWorkerCount);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvSkill = itemView.findViewById(R.id.tvSkill);
+            btnViewDetails = itemView.findViewById(R.id.btnViewDetails);
+            btnHireNow = itemView.findViewById(R.id.btnHireNow);
         }
     }
 }

@@ -60,6 +60,11 @@ class TokenData(BaseModel):
     refresh_token: str
     token_type: str = "bearer"
     expires_in: int
+    user_id: Optional[str] = None
+    role: Optional[str] = "farmer"
+    full_name: Optional[str] = None
+    phone: Optional[str] = None
+    email: Optional[str] = None
 
 class RefreshTokenRequest(BaseModel):
     refresh_token: str

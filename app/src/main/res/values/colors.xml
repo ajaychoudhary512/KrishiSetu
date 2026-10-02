@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- =================================================== -->
-    <!-- KRISHISETU — Nature Luxe Primary Palette (Light)    -->
+    <!-- KRISHISETU — Official Nature Agriculture Theme (Light) -->
     <!-- =================================================== -->
-    <color name="primary_forest">#245C45</color>        <!-- Primary Forest Green -->
-    <color name="secondary_green">#387A59</color>       <!-- Secondary Green -->
-    <color name="soft_sage">#A7BE8B</color>             <!-- Soft Sage -->
-    <color name="light_sage_surface">#E5EEDF</color>    <!-- Light Sage Surface -->
-    <color name="warm_cream">#F6F1E7</color>            <!-- Warm Cream Background -->
-    <color name="light_surface">#FFFFFF</color>         <!-- Light Surface -->
-    <color name="harvest_orange">#E99555</color>        <!-- Harvest Orange Highlight -->
-    <color name="text_main">#202B24</color>             <!-- Main Light Text -->
-    <color name="text_secondary">#65756B</color>        <!-- Secondary Light Text -->
-    <color name="border_light">#E0E6DC</color>          <!-- Light Borders -->
+    <color name="primary_green">#2E7D32</color>        <!-- Primary Green -->
+    <color name="secondary_green">#66BB6A</color>      <!-- Secondary Green -->
+    <color name="deep_green">#1B5E20</color>           <!-- Deep Green -->
+    <color name="light_green">#E8F3E8</color>          <!-- Light Green -->
+    <color name="soft_background">#F7F9F4</color>      <!-- Soft Background -->
+    <color name="white">#FFFFFF</color>                <!-- White -->
+    <color name="text_main">#1B2A1F</color>            <!-- Text -->
+    <color name="text_secondary">#66736A</color>       <!-- Secondary Text -->
+    <color name="border_light">#DDE6DC</color>         <!-- Border -->
+    <color name="harvest_orange">#F4A261</color>       <!-- Harvest Orange -->
+    <color name="success">#2E7D32</color>              <!-- Success -->
+    <color name="error">#D64545</color>                <!-- Error -->
 
-    <!-- Status & Semantic Colors -->
-    <color name="status_urgent_bg">#FEE2E2</color>
-    <color name="status_urgent_text">#DC2626</color>
-    <color name="status_verified_bg">#387A59</color>
-    <color name="status_available_bg">#E5EEDF</color>
-    <color name="status_available_text">#245C45</color>
-    <color name="status_booked_bg">#FEE2E2</color>
-    <color name="status_booked_text">#DC2626</color>
+    <!-- Splash Background -->
+    <color name="splash_bg">#E8F3E8</color>
+    <color name="splash_title">#1B5E20</color>
+    <color name="splash_subtitle">#2E7D32</color>
 
-    <!-- Backward Compatibility Aliases for Existing Layouts -->
-    <color name="primary_dark">#1B4634</color>
-    <color name="primary_green">#245C45</color>
-    <color name="primary_light">#387A59</color>
-    <color name="accent_green">#A7BE8B</color>
-    <color name="accent_light">#E5EEDF</color>
+    <!-- Semantic & Backward-Compatibility Aliases -->
+    <color name="primary_forest">#2E7D32</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="primary_light">#66BB6A</color>
+    <color name="soft_sage">#66BB6A</color>
+    <color name="light_sage_surface">#E8F3E8</color>
+    <color name="warm_cream">#F7F9F4</color>
+    <color name="light_surface">#FFFFFF</color>
+    <color name="bg_app">#F7F9F4</color>
 
-    <color name="bg_app">#F6F1E7</color>
-    <color name="white">#FFFFFF</color>
-    <color name="text_dark">#202B24</color>
-    <color name="text_muted">#65756B</color>
+    <color name="text_dark">#1B2A1F</color>
+    <color name="text_muted">#66736A</color>
     <color name="text_black">#141D17</color>
-    <color name="border_color">#E0E6DC</color>
+    <color name="border_color">#DDE6DC</color>
 
-    <color name="header_green">#245C45</color>
-    <color name="header_green_end">#387A59</color>
-    <color name="header_blue">#245C45</color>
-    <color name="header_blue_end">#387A59</color>
-    <color name="header_orange">#E99555</color>
-    <color name="header_orange_end">#D97736</color>
+    <color name="status_urgent_bg">#FEE2E2</color>
+    <color name="status_urgent_text">#D64545</color>
+    <color name="status_verified_bg">#2E7D32</color>
+    <color name="status_available_bg">#E8F3E8</color>
+    <color name="status_available_text">#1B5E20</color>
+    <color name="status_booked_bg">#FEE2E2</color>
+    <color name="status_booked_text">#D64545</color>
 
-    <color name="mint_bg">#E5EEDF</color>
-    <color name="soft_blue_bg">#E5EEDF</color>
-    <color name="soft_orange_bg">#FDF3EB</color>
+    <!-- Header Gradients -->
+    <color name="header_green">#1B5E20</color>
+    <color name="header_green_end">#2E7D32</color>
+    <color name="header_blue">#1B5E20</color>
+    <color name="header_blue_end">#2E7D32</color>
+    <color name="header_orange">#F4A261</color>
+    <color name="header_orange_end">#E76F51</color>
+
+    <color name="mint_bg">#E8F3E8</color>
+    <color name="soft_blue_bg">#E8F3E8</color>
+    <color name="soft_orange_bg">#FEF3EB</color>
 
     <color name="urgent_bg">#FEE2E2</color>
-    <color name="urgent_text">#DC2626</color>
-    <color name="verified_bg">#387A59</color>
-    <color name="available_bg">#E5EEDF</color>
-    <color name="available_text">#245C45</color>
+    <color name="urgent_text">#D64545</color>
+    <color name="verified_bg">#2E7D32</color>
+    <color name="available_bg">#E8F3E8</color>
+    <color name="available_text">#1B5E20</color>
     <color name="booked_bg">#FEE2E2</color>
-    <color name="booked_text">#DC2626</color>
+    <color name="booked_text">#D64545</color>
 
     <color name="color_blue">#2563EB</color>
-    <color name="color_orange">#E99555</color>
+    <color name="color_orange">#F4A261</color>
     <color name="color_purple">#7E57C2</color>
-    <color name="color_red">#DC2626</color>
+    <color name="color_red">#D64545</color>
 </resources>

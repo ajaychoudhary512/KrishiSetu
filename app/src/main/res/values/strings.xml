@@ -1,17 +1,162 @@
 <resources>
+    <!-- Brand Identity -->
     <string name="app_name">KRISHISETU</string>
     <string name="brand_name">KRISHISETU</string>
     <string name="tagline">Grow More. Waste Less. Connect Better.</string>
-    <string name="welcome_back">Welcome Back!</string>
-    <string name="login_to_continue">Login to continue to KRISHISETU</string>
-    <string name="create_account">Create Account</string>
-    <string name="verify_otp">Verify OTP</string>
-    <string name="choose_your_role">Choose Your Role</string>
+    <string name="splash_categories">Waste • Equipment • Labour • Crop Health</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="version_info">Version 1.0.0 (Production Release)</string>
+
+    <!-- Navigation -->
     <string name="home">Home</string>
     <string name="market">Market</string>
-    <string name="deals">Deals/Chat</string>
+    <string name="chat">Chat</string>
     <string name="profile">Profile</string>
+    <string name="deals">Deals &amp; Chat</string>
+
+    <!-- Authentication - Login -->
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="login_to_continue">Login to continue to KRISHISETU</string>
+    <string name="mobile_or_email">Mobile Number or Email</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">LOGIN</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_phone">Continue with Phone</string>
+    <string name="dont_have_account">Don\'t have an account? Register</string>
+
+    <!-- Authentication - Register -->
+    <string name="create_account">Create Account</string>
+    <string name="join_network">Join India\'s Smart Agriculture Network</string>
+    <string name="select_role">Select Your Role</string>
+    <string name="full_name">Full Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="email_optional">Email Address (Optional)</string>
+    <string name="password_hint">Password (Min. 8 characters)</string>
+    <string name="terms_agreement">I agree to KRISHISETU Terms &amp; Privacy Policy</string>
+    <string name="create_krishisetu_account">CREATE KRISHISETU ACCOUNT</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="choose_your_role">Choose Your Role</string>
+
+    <!-- Home Screen -->
+    <string name="greeting_farmer">Hello, %1$s!</string>
+    <string name="default_farmer">Farmer</string>
+    <string name="location_default">Indore, Madhya Pradesh</string>
+    <string name="wallet_escrow_title">KRISHISETU Wallet &amp; Escrow</string>
+    <string name="wallet_default_balance">₹4,250.00</string>
+    <string name="wallet_escrow_subtext">₹56,350 Secured in Escrow Deals</string>
+    <string name="view_wallet">View Wallet →</string>
+    <string name="main_services">Main Services</string>
+    <string name="additional_services">Additional Services</string>
+
+    <!-- Services -->
+    <string name="service_waste_market">Waste Market</string>
+    <string name="service_waste_market_desc">Buy &amp; sell crop stubble</string>
+    <string name="service_equipment">Equipment Rental</string>
+    <string name="service_equipment_desc">Rent farm machinery</string>
+    <string name="service_labour">Hire Labour</string>
+    <string name="service_labour_desc">Verified workers &amp; crews</string>
+    <string name="service_crop_health">Crop Health AI</string>
+    <string name="service_crop_health_desc">Instant leaf disease scan</string>
+    <string name="service_transport">Transport</string>
+    <string name="service_schemes">Schemes</string>
+    <string name="service_weather">Weather</string>
+    <string name="service_agribot">AgriBot</string>
+
+    <!-- Waste Marketplace -->
+    <string name="waste_marketplace">Waste Marketplace</string>
+    <string name="connect_stubble_buyers">Connect Stubble Sellers &amp; Buyers</string>
+    <string name="search_waste_hint">Search waste, stubble, or biomass...</string>
+    <string name="filter_all">All</string>
+    <string name="filter_crop_residue">Crop Residue</string>
+    <string name="filter_industry_demand">Industry Demand</string>
+    <string name="filter_bagasse">Bagasse</string>
+    <string name="post_listing">+ Post Listing</string>
+    <string name="no_listings_found">No listings found.</string>
+    <string name="adjust_filter_hint">Try adjusting your search or category filter</string>
+    <string name="verified_badge">✓ Verified</string>
+    <string name="verified_buyer">🟢 Verified Buyer • Online</string>
+
+    <!-- Crop Health & AI -->
+    <string name="crop_health_title">Crop Health &amp; AI Diagnosis</string>
+    <string name="crop_health_subtitle">Identify crop pests, diseases and get appropriate guidance.</string>
+    <string name="capture_upload_leaf">Capture or Upload Leaf Photo</string>
+    <string name="camera_guide">Hold camera steady over infected leaf in natural sunlight</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="upload_photo">Upload</string>
+    <string name="start_diagnosis_scan">START DIAGNOSIS SCAN</string>
+    <string name="analyzing_leaf">TFLite Model Analyzing Leaf Image...</string>
+    <string name="ai_diagnosis_result">AI DIAGNOSIS RESULT</string>
+    <string name="confidence_score">Confidence Score</string>
+    <string name="recommended_guidance">Recommended Guidance &amp; Treatment:</string>
+    <string name="disclaimer_agronomic">Note: Follow certified agricultural safety standards before chemical application.</string>
+    <string name="full_advisory">Full Advisory</string>
+    <string name="scan_another">Scan Another</string>
+    <string name="recent_detections_history">Recent Detections &amp; History</string>
+    <string name="agribot_assistant_title">KrishiSetu AgriBot AI</string>
+    <string name="agribot_assistant_desc">Ask about PM-Kisan, Subsidies, Mandi Rates &amp; Crop Care</string>
+
+    <!-- Equipment Rental Screen -->
+    <string name="equipment_rental_title">Equipment Rental</string>
+    <string name="equipment_rental_subtitle">Verified Tractors, Harvesters &amp; Implements</string>
+    <string name="search_equipment_hint">Search tractors, harvesters, rotavators...</string>
+    <string name="all_machinery">All Machinery</string>
+    <string name="tractors">Tractors</string>
+    <string name="agri_implements">Implements</string>
+    <string name="harvesters">Harvesters</string>
+    <string name="available">Available</string>
+    <string name="book_rent">Book / Rent</string>
+    <string name="view_details">View Details</string>
+
+    <!-- Labour Screen -->
+    <string name="labour_hiring_title">Hire Labour &amp; Contractors</string>
+    <string name="labour_hiring_subtitle">Verified Farm Crews, Harvesters &amp; Plant Operators</string>
+    <string name="search_labour_hint">Search workers, thekedars, skills...</string>
+    <string name="all_teams">All Teams</string>
+    <string name="harvesting">Harvesting</string>
+    <string name="planting">Planting</string>
+    <string name="hire_now">Hire Now</string>
+    <string name="contact_thekedar">Contact</string>
+
+    <!-- Chat & Deals -->
+    <string name="chat_conversations">Conversations</string>
+    <string name="escrow_protection_badge">🛡️ KRISHISETU Escrow Protected • 100% Payout Guarantee</string>
+    <string name="official_escrow_proposal">🤝 Official KRISHISETU Escrow Proposal</string>
+    <string name="accept_escrow_deal">Accept Deal &amp; Lock in Escrow</string>
+    <string name="type_message_hint">Type message to buyer...</string>
+    <string name="send">Send</string>
+    <string name="no_messages_yet">No messages yet.</string>
+
+    <!-- Profile & Settings -->
+    <string name="activity_management">ACTIVITY &amp; MANAGEMENT</string>
+    <string name="my_orders_bookings">My Orders &amp; Bookings</string>
+    <string name="my_published_listings">My Published Listings</string>
+    <string name="messages_deals">Messages &amp; Deals</string>
+    <string name="preferences_settings">PREFERENCES &amp; SETTINGS</string>
+    <string name="theme_mode">Theme Mode</string>
+    <string name="language">Language</string>
+    <string name="help_kisan_support">Help &amp; Kisan Support</string>
+    <string name="privacy_terms">Privacy &amp; Terms</string>
+    <string name="about_krishisetu">About KRISHISETU</string>
+    <string name="log_out">Log Out</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="escrow_wallet_header">KRISHISETU ESCROW WALLET</string>
+    <string name="available_balance">Available Balance</string>
+    <string name="escrow_protected_note" formatted="false">⚡ 100% Escrow Protected by KrishiSetu</string>
+
+    <!-- Errors & Feedback -->
+    <string name="something_went_wrong">Something went wrong.</string>
+    <string name="check_internet_connection">Please check your internet connection.</string>
+    <string name="invalid_mobile_number">Invalid mobile number.</string>
+    <string name="invalid_email">Invalid email.</string>
+    <string name="incorrect_password">Incorrect password.</string>
+    <string name="no_orders_yet">No orders yet.</string>
+    <string name="no_recent_detections">No recent detections.</string>
     <string name="language_selected">Language Selected: English</string>
+
+    <!-- Roles Array -->
     <string-array name="roles_array">
         <item>Farmer</item>
         <item>Industry Buyer</item>
@@ -20,4 +165,235 @@
         <item>Labour / Worker</item>
         <item>Transporter</item>
     </string-array>
+
+    <!-- Additional Strings -->
+    <string name="otp_instruction">Enter the 6-digit verification code sent to your registered mobile number</string>
+    <string name="resend_otp_timer">Resend OTP in 00:25</string>
+    <string name="verify_and_continue">VERIFY &amp; CONTINUE</string>
+    <string name="post_new_listing">Post New Listing</string>
+    <string name="publish_banner_tip">🌱 Publish directly to verified farmers and industry buyers across India on KrishiSetu.</string>
+    <string name="listing_category">Listing Category</string>
+    <string name="listing_title_hint">Listing Title (e.g. Wheat Straw Bales)</string>
+    <string name="price_hint">Price (in ₹)</string>
+    <string name="quantity_hint">Quantity &amp; Unit (e.g. 50 Quintals)</string>
+    <string name="location_hint">Location / Mandi (e.g. Indore, MP)</string>
+    <string name="desc_hint">Description &amp; Crop Quality</string>
+    <string name="publish_to_krishisetu">PUBLISH TO KRISHISETU</string>
+
+    <!-- Dialogs & Functional Features -->
+    <string name="weather_advisory_title">KRISHISETU Weather Advisory</string>
+    <string name="weather_location_format">📍 Current Location: %1$s</string>
+    <string name="weather_temp_info">🌡️ 28°C • Mostly Sunny\n💧 Humidity: 62% • Wind: 11 km/h NE\n🌧️ Rain Probability: 5%</string>
+    <string name="weather_advisory_advice">🌾 Farming Advisory:\nOptimal dry weather for wheat stubble baling and storage. Cover dry biomass before any moisture.</string>
+    <string name="got_it">Got It</string>
+    <string name="schemes_dialog_title">Government Agricultural Schemes</string>
+    <string name="schemes_content" formatted="false">1. PM-Kisan Samman Nidhi: ₹6,000 yearly direct benefit transfer.\n2. CRM Stubble Subsidy: 50% to 80% subsidy on Balers, Happy Seeders &amp; Super SMS.\n3. PM Fasal Bima Yojana (PMFBY): Crop damage insurance coverage against weather risks.\n4. PM-KUSUM Solar Scheme: 60% subsidy for solar irrigation pumps.</string>
+    <string name="apply_or_details">Helpline / Apply</string>
+    <string name="transport_dialog_title">KRISHISETU Transport Fleet</string>
+    <string name="transport_content">🚚 Available Transporters:\n• Mahindra Bolero Pickup (1.5T) — Dewas Mandi (₹15/km)\n• Eicher Heavy Truck (10T) — Pithampur / Indore (₹35/km)\n• Tractor Trolley (5T) — Local Farm Delivery (₹500/trip)</string>
+    <string name="call_transporter">Call Transporter</string>
+    <string name="agribot_dialog_title">KrishiSetu AgriBot AI Assistant</string>
+    <string name="agribot_intro">Ask any question regarding crop stubble, mandi rates, fertilizers, or government subsidies:</string>
+    <string name="agribot_sample_q1">Stubble Baler Subsidy</string>
+    <string name="agribot_sample_q2">Wheat Straw Mandi Rates</string>
+    <string name="agribot_sample_q3">PM-Kisan Next Date</string>
+    <string name="agribot_ans_1" formatted="false">Government provides 50% individual farmer subsidy and up to 80% for Custom Hiring Centers (CHCs) on Balers &amp; Rakes under CRM scheme.</string>
+    <string name="agribot_ans_2">Current mandi rates for wheat straw bales are ₹1,200 - ₹1,450 per tonne in MP and Punjab regions depending on moisture content.</string>
+    <string name="agribot_ans_3">The next PM-Kisan installment is transferred directly via DBT to Aadhaar-linked accounts. Keep your e-KYC updated on pmkisan.gov.in.</string>
+    <string name="notifications_dialog_title">Notifications &amp; Kisan Alerts</string>
+    <string name="notifications_content">📢 1. Industry Demand: Bio-Pellet plant in Pithampur urgently requires 200 MT Wheat Straw.\n🌾 2. Weather Alert: Clear skies for next 4 days in Malwa region — ideal for baling.\n✅ 3. Escrow Update: ₹12,000 received in escrow for Order #KS-9842.</string>
+    <string name="select_mandi_location">Select Mandi / Market Location</string>
+    <string name="book_equipment_title">Book Farm Machinery</string>
+    <string name="book_equipment_msg">Equipment: %1$s\nRate: %2$s\nLocation: %3$s\n\n⚡ 100%% KrishiSetu Escrow Protection: Payment is held in secure escrow until work is completed.</string>
+    <string name="confirm_booking">Confirm Booking</string>
+    <string name="booking_confirmed_toast">Booking confirmed! Owner will contact you shortly.</string>
+    <string name="hire_labour_title">Hire Agriculture Labour Crew</string>
+    <string name="hire_labour_msg">Crew Category: %1$s\nDaily Wage: %2$s\nLocation: %3$s\n\n⚡ 100%% Verified Workers with Escrow protection.</string>
+    <string name="confirm_hire">Hire Crew</string>
+    <string name="hire_confirmed_toast">Labour request confirmed! Thekedar will contact you.</string>
+    <string name="add_money">Add Money</string>
+    <string name="wallet_escrow_dialog_msg">• Available Balance: ₹4,250.00\n• Escrow Locked: ₹56,350.00 (Secured in 2 active deals)\n\nRecent Transactions:\n+ ₹12,000.00 Stubble Sale (Order #KS-9842)\n- ₹2,500.00 Harvester Rental (Booking #KS-2311)</string>
+
+    <!-- Profile Dialog Strings -->
+    <string name="orders_content">• Order #KS-9842: Wheat Straw (50 Qtl) — In Transit 🚚\n• Booking #KS-2311: Mahindra 575 DI Tractor — Confirmed for Tomorrow 🚜\n• Booking #KS-1102: Harvester Operator — Completed ✅</string>
+    <string name="listings_content">• Organic Paddy Straw (20 Tonnes) — Active (3 Enquiries)\n• Mustard Stubble (15 Tonnes) — Active (1 Enquiry)</string>
+    <string name="help_support_content">We are here to support our farmers 24x7.\n\n📞 Toll-Free Kisan Helpline: 1800-180-1551\n📧 Email: support@krishisetu.in\n🕒 Working Hours: Monday - Sunday (6 AM - 10 PM)\n📍 New Delhi, India</string>
+    <string name="terms_content" formatted="false">KRISHISETU safeguards Indian agricultural trade:\n\n1. 100% Escrow Protection: Funds released only after delivery confirmation.\n2. Fair Pricing: Guaranteed MSP and verified mandi price tracking.\n3. Data Confidentiality: Farmer land &amp; transaction data encrypted.</string>
+    <string name="post_new_crop_listing">Post New Listing</string>
+
+    <!-- Deal Escrow Strings -->
+    <string name="escrow_deal_summary_title">⚡ Lock Escrow &amp; Process Payout Split</string>
+    <string name="escrow_deal_summary_msg" formatted="false">💳 DEAL SUMMARY &amp; AUTOMATIC SPLIT PAYOUT\n\n📦 Deal Item: 50 Quintals Rice Straw Stubble\n💰 Total Deal Value: ₹56,350.00\n\n⚡ AUTOMATIC PAYMENT ROUTING:\n• 👨‍🌾 Direct Payout to Farmer: ₹54,941.25 (97.5%)\n  └ Transferred directly to Farmer\'s Bank / UPI.\n\n• ⚡ Platform Service Commission: ₹1,408.75 (2.5%)\n  └ Sent directly to KRISHISETU Platform Reserve.\n\n🔒 Escrow Safety: Buyer funds remain protected until delivery OTP verification.</string>
+    <string name="confirm_lock_escrow">Confirm &amp; Lock Escrow</string>
+    <string name="escrow_locked_toast">🎉 Deal Locked! ₹54,941.25 queued for Farmer and ₹1,408.75 KRISHISETU escrow secured!</string>
+    <string name="message_sent_toast">Message Sent</string>
+
+    <!-- Input & Validation Strings -->
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="err_enter_mobile">Please enter your mobile number</string>
+    <string name="err_enter_name">Please enter a valid full name (at least 2 characters)</string>
+    <string name="err_enter_email">Please enter your email address</string>
+    <string name="err_password_length">Password must be at least 8 characters long</string>
+    <string name="err_passwords_dont_match">Passwords do not match</string>
+    <string name="err_agree_terms">Please agree to Terms &amp; Conditions to register</string>
+    <string name="creating_account">Creating account...</string>
+    <string name="welcome_account_created">🎉 Welcome to KRISHISETU! Account Created Successfully.</string>
+    <string name="connecting_google">Connecting to Google Kisan Account...</string>
+    <string name="reset_password_instruction">Enter your mobile or email to receive password reset instructions.</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="reset_sent_to">Password reset instructions sent to %1$s</string>
+    <string name="logging_in">Logging in...</string>
+    <string name="login_successful">Login Successful!</string>
+    <string name="language_switched_toast">Language switched to %1$s</string>
+    <string name="language_toggle_btn">🌐 हिंदी</string>
+
+    <!-- Choose Role Strings -->
+    <string name="choose_role_subtitle">Select your role to personalize your KRISHISETU experience</string>
+    <string name="role_farmer_title">Farmer / किसान</string>
+    <string name="role_farmer_desc">I grow crops &amp; sell agricultural waste</string>
+    <string name="role_industry_title">Industry Buyer / उद्योग खरीदार</string>
+    <string name="role_industry_desc">I purchase biomass &amp; stubble in bulk</string>
+    <string name="role_equipment_title">Equipment Owner / उपकरण मालिक</string>
+    <string name="role_equipment_desc">I rent out tractors, balers &amp; harvesters</string>
+    <string name="role_contractor_title">Contractor / ठेकेदार</string>
+    <string name="role_contractor_desc">I supply agricultural labour teams</string>
+    <string name="role_labour_title">Labour / श्रमिक</string>
+    <string name="role_labour_desc">I am looking for daily &amp; seasonal farm work</string>
+    <string name="role_transporter_title">Transporter / ट्रांसपोर्टर</string>
+    <string name="role_transporter_desc">I provide transport &amp; rural logistics</string>
+
+    <!-- Product & Marketplace Strings -->
+    <string name="crop_residue">Crop Residue</string>
+    <string name="verified_seller_badge">✓ Verified Seller</string>
+    <string name="quantity_label">Quantity</string>
+    <string name="availability_label">Availability</string>
+    <string name="location_label_dialog">Location</string>
+    <string name="product_quality_desc_title">Product &amp; Quality Description</string>
+    <string name="call_seller">Call Seller</string>
+    <string name="contact_deal">Contact / Deal</string>
+    <string name="chat_negotiations_sub">Active negotiations &amp; escrow proposals</string>
+    <string name="search_conversations_hint">Search conversations, buyers, deals...</string>
+    <string name="hello_farmer">Hello, Farmer!</string>
+    <string name="plant_operators">🏭 Plant Operators</string>
+    <string name="theme_system_default">System Default ›</string>
+    <string name="dialer_unavailable_toast">Dialer unavailable</string>
+
+    <!-- Create Listing & Profile Dialogs -->
+    <string name="err_enter_listing_title">Please enter a listing title</string>
+    <string name="err_enter_price">Please enter the price</string>
+    <string name="publishing_listing_prefix">Publishing %1$s...</string>
+    <string name="listing_published_success">🎉 Listing Published Successfully!</string>
+    <string name="wallet_withdrawal_title">KRISHISETU Wallet Withdrawal</string>
+    <string name="wallet_withdrawal_msg">Your available balance of ₹4,250.00 will be deposited to your verified UPI/Bank Account via KrishiSetu Instant Payout.\n\nProceed with transfer?</string>
+    <string name="transfer_now">Transfer Now</string>
+    <string name="withdrawal_sent_toast">Withdrawal request of ₹4,250 sent to Bank!</string>
+    <string name="logout_title">Logout of KRISHISETU</string>
+    <string name="logout_confirm_msg">Are you sure you want to end your current session?</string>
+    <string name="logout">Logout</string>
+    <string name="cancel">Cancel</string>
+    <string name="logged_out_toast">Logged Out Successfully</string>
+    <string name="theme_updated_toast">Theme updated</string>
+
+    <!-- Disease & Advisory Strings -->
+    <string name="select_image_source">Select Leaf Image Source</string>
+    <string name="ai_analyzing_leaf">🔬 AI Analyzing Crop Leaf with Local TFLite...</string>
+    <string name="ai_leaf_analysis_result">🔬 AI Leaf Disease Analysis Result</string>
+    <string name="ok_and_save">OK &amp; Save</string>
+    <string name="schemes_subsidies_btn">Schemes &amp; Subsidies</string>
+    <string name="agribot_ai_schemes_title">🤖 AgriBot AI — Schemes &amp; Subsidies</string>
+    <string name="ai_solution_breakdown_title">🤖 KRISHISETU AI Solution &amp; Technical Breakdown</string>
+
+    <!-- Add Options & Live Weather Strings -->
+    <string name="post_equipment">➕ Post Rental</string>
+    <string name="post_labour">➕ Post Labour</string>
+    <string name="add_equipment_title">🚜 List Machinery for Rent</string>
+    <string name="add_labour_title">👨‍🌾 Post Labour Requirement / Crew</string>
+    <string name="add_waste_title">🌾 Post Stubble / Crop Residue</string>
+    <string name="equipment_name_hint">Equipment Name / Model (e.g. Tractor 45 HP)</string>
+    <string name="equipment_rate_hint">Rental Rate (e.g. ₹1200/Day)</string>
+    <string name="equipment_location_hint">Location (e.g. Indore, MP)</string>
+    <string name="equipment_owner_hint">Owner Name / Rental Center</string>
+    <string name="equipment_phone_hint">Contact Phone Number</string>
+    <string name="labour_title_hint">Requirement Title (e.g. Harvesting Crew)</string>
+    <string name="labour_workers_hint">Workers Count (e.g. 15 workers)</string>
+    <string name="labour_wage_hint">Daily Wage (e.g. ₹550/Day)</string>
+    <string name="labour_location_hint">Location (e.g. Dewas, MP)</string>
+    <string name="labour_timing_hint">Availability (e.g. Immediate / Tomorrow)</string>
+    <string name="post_now">Post Now</string>
+    <string name="equipment_added_success">🎉 Equipment listed for rent successfully!</string>
+    <string name="labour_added_success">🎉 Labour requirement posted successfully!</string>
+    <string name="waste_added_success">🎉 Crop waste listing published successfully!</string>
+    <string name="live_weather_title">🌦️ KrishiSetu Live Weather &amp; Advisory</string>
+    <string name="refresh_weather">🔄 Refresh Weather</string>
+    <string name="use_gps_location">📍 Use My GPS Location</string>
+    <string name="weather_live_badge">LIVE</string>
+    <string name="weather_fetching">Fetching live weather...</string>
+    <string name="weather_updated">Live weather updated</string>
+    <string name="gps_detected">📍 Live GPS coordinates detected</string>
+
+    <!-- Report Template Strings -->
+    <string name="crop_pathology_report_title">🔬 Plant Health Diagnosis Report</string>
+    <string name="report_id_prefix">Report ID: #KS-SCAN-</string>
+    <string name="verified_by_ai">TFLite Neural Model Verified</string>
+    <string name="status_healthy_badge">🌿 HEALTHY CROP</string>
+    <string name="status_infected_badge">⚠️ INFECTION DETECTED</string>
+    <string name="treatment_plan_title">💊 Prescribed Agronomic Treatment Plan</string>
+    <string name="chemical_treatment_label">🧪 Recommended Treatment:</string>
+    <string name="cultural_prevention_label">🌱 Preventive Care &amp; Farm Practices:</string>
+    <string name="kisan_helpline_label">📞 Free Kisan Helpline: 1800-180-1551</string>
+    <string name="call_helpline">Call Helpline</string>
+    <string name="ask_agribot">Ask AgriBot AI</string>
+    <string name="meteorological_report_title">🌦️ Meteorological Agro-Forecast</string>
+    <string name="radar_live_status">● LIVE SATELLITE RADAR</string>
+    <string name="weather_parameters_title">📊 Agro-Climate Parameters</string>
+    <string name="apparent_temp_label">Feels Like</string>
+    <string name="soil_condition_label">Soil Moisture</string>
+    <string name="stubble_advisory_label">🌾 Stubble &amp; Crop Advisory</string>
+
+    <!-- Marketplace & Purchase Flow Strings -->
+    <string name="buy_waste_action">Buy Waste / Biomass</string>
+    <string name="order_now">Order Now</string>
+    <string name="enter_purchase_qty">Enter Quantity to Buy</string>
+    <string name="confirm_purchase_action">Confirm Order</string>
+    <string name="insufficient_qty_err">Only %1$s is available.</string>
+    <string name="err_requested_qty_unavailable">Requested quantity is no longer available.</string>
+    <string name="err_invalid_quantity">Please enter a valid quantity greater than zero.</string>
+    <string name="sold_out_badge">Sold Out</string>
+    <string name="available_badge">Available</string>
+    <string name="partially_sold_badge">Partially Sold</string>
+    <string name="order_placed_success">🎉 Order placed successfully!</string>
+    <string name="quantity_loading">Loading...</string>
+    <string name="purchase_dialog_title">Purchase Biomass / Residue</string>
+    <string name="total_cost_label">Total Cost:</string>
+    <string name="available_stock_label">Available Stock:</string>
+
+    <!-- Role System & Dashboards -->
+    <string name="role_farmer_name">Farmer</string>
+    <string name="role_industry_name">Industry Buyer</string>
+    <string name="role_labour_name">Labour / Worker</string>
+    <string name="role_equipment_name">Equipment Owner</string>
+    <string name="role_contractor_name">Contractor / Thekedar</string>
+    <string name="role_transport_name">Transporter</string>
+    <string name="buyer_dashboard_subtitle">Agricultural Residue &amp; Biomass Procurement</string>
+    <string name="labour_dashboard_subtitle">Manage Work Profile, Skills &amp; Job Requests</string>
+    <string name="equipment_dashboard_subtitle">Manage Agri Fleet, Bookings &amp; Rental Earnings</string>
+    <string name="contractor_dashboard_subtitle">Manage Workforce, Contracts &amp; Farm Services</string>
+    <string name="transporter_dashboard_subtitle">Manage Vehicles, Deliveries &amp; Transport Requests</string>
+    <string name="my_purchases">My Purchases &amp; Deals</string>
+    <string name="my_worker_profile">My Worker Profile</string>
+    <string name="my_equipment">My Equipment</string>
+    <string name="my_vehicles">My Vehicles</string>
+    <string name="post_work_requirement">Post Work Requirement</string>
+    <string name="job_requests">Job Requests</string>
+    <string name="active_jobs">Active Jobs</string>
+    <string name="completed_jobs">Completed Jobs</string>
+    <string name="earnings">Earnings &amp; Payouts</string>
+    <string name="rental_requests">Rental Requests</string>
+    <string name="transport_requests">Transport Requests</string>
+    <string name="active_deliveries">Active Deliveries</string>
+    <string name="completed_deliveries">Completed Deliveries</string>
+    <string name="worker_status_available">🟢 Available for Work</string>
+    <string name="worker_status_unavailable">🔴 Currently Unavailable</string>
+    <string name="select_user_role">Select Active Role</string>
+    <string name="role_active_toast">Role activated</string>
 </resources>

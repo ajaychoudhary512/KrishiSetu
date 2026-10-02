@@ -8,6 +8,7 @@ from app.api.v1.endpoints.labor import router as labor_router
 from app.api.v1.endpoints.disease_detection import router as disease_router
 from app.api.v1.endpoints.chat import router as chat_router
 from app.api.v1.endpoints.wallet import router as wallet_router
+from app.api.v1.endpoints.transport import router as transport_router
 
 api_router = APIRouter()
 
@@ -20,3 +21,4 @@ api_router.include_router(labor_router)
 api_router.include_router(disease_router)
 api_router.include_router(chat_router)
 api_router.include_router(wallet_router)
+api_router.include_router(transport_router)

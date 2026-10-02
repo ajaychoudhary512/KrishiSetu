@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
 
 public class KrishiSetuApplication extends Application {
 
@@ -11,9 +12,15 @@ public class KrishiSetuApplication extends Application {
     public static final String KEY_THEME_MODE = "theme_mode"; // "system", "light", "dark"
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleHelper.onAttach(base));
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
         applyStoredTheme(this);
+        applyStoredLanguage(this);
     }
 
     public static void applyStoredTheme(Context context) {
@@ -32,5 +39,11 @@ public class KrishiSetuApplication extends Application {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 break;
         }
+    }
+
+    public static void applyStoredLanguage(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String lang = prefs.getString(LocaleHelper.KEY_LANGUAGE, LocaleHelper.LANG_EN);
+        LocaleHelper.applyAppLanguage(lang);
     }
 }

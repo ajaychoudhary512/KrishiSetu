@@ -3,7 +3,7 @@ package com.agrilink.app.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -20,10 +20,10 @@ import androidx.fragment.app.Fragment;
 
 import com.agrilink.app.ChatDealActivity;
 import com.agrilink.app.KrishiSetuApplication;
+import com.agrilink.app.LocaleHelper;
 import com.agrilink.app.LoginActivity;
+import com.agrilink.app.MainActivity;
 import com.agrilink.app.R;
-
-import java.util.Locale;
 
 public class ProfileFragment extends Fragment {
 
@@ -61,7 +61,13 @@ public class ProfileFragment extends Fragment {
             // User Role
             TextView tvUserRole = view.findViewById(R.id.tvUserRole);
             if (tvUserRole != null) {
-                tvUserRole.setText(userRole + " • Verified ✓");
+                tvUserRole.setText(userRole + " • " + getString(R.string.verified_badge));
+                View parent = (View) tvUserRole.getParent();
+                View.OnClickListener roleListener = v -> showRoleSelectionDialog(tvUserRole);
+                tvUserRole.setOnClickListener(roleListener);
+                if (parent != null) {
+                    parent.setOnClickListener(roleListener);
+                }
             }
         }
 
@@ -77,6 +83,8 @@ public class ProfileFragment extends Fragment {
         // Language Switcher Setup
         View rlLanguageToggle = view.findViewById(R.id.rlLanguageToggle);
         TextView tvCurrentLanguage = view.findViewById(R.id.tvCurrentLanguage);
+        updateLanguageDisplay(tvCurrentLanguage);
+
         if (rlLanguageToggle != null) {
             rlLanguageToggle.setOnClickListener(v -> showLanguageSelectionDialog(tvCurrentLanguage));
         }
@@ -85,12 +93,12 @@ public class ProfileFragment extends Fragment {
         if (view.findViewById(R.id.btnWithdraw) != null) {
             view.findViewById(R.id.btnWithdraw).setOnClickListener(v -> {
                 new AlertDialog.Builder(requireContext())
-                        .setTitle("💰 KrishiSetu Wallet Withdrawal")
-                        .setMessage("Your available balance of ₹4,250.00 will be deposited to your verified UPI/Bank Account via KrishiSetu Instant Payout.\n\nProceed with transfer?")
-                        .setPositiveButton("Transfer Now", (dialog, which) -> {
-                            Toast.makeText(getContext(), "✅ Withdrawal request of ₹4,250 sent to Bank!", Toast.LENGTH_LONG).show();
+                        .setTitle(getString(R.string.wallet_withdrawal_title))
+                        .setMessage(getString(R.string.wallet_withdrawal_msg))
+                        .setPositiveButton(getString(R.string.transfer_now), (dialog, which) -> {
+                            Toast.makeText(getContext(), getString(R.string.withdrawal_sent_toast), Toast.LENGTH_LONG).show();
                         })
-                        .setNegativeButton("Cancel", null)
+                        .setNegativeButton(getString(R.string.cancel), null)
                         .show();
             });
         }
@@ -111,8 +119,12 @@ public class ProfileFragment extends Fragment {
         View rlMessages = view.findViewById(R.id.rlMessages);
         if (rlMessages != null) {
             rlMessages.setOnClickListener(v -> {
-                Intent intent = new Intent(getActivity(), ChatDealActivity.class);
-                startActivity(intent);
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).setSelectedTab(R.id.nav_deals);
+                } else {
+                    Intent intent = new Intent(getActivity(), ChatDealActivity.class);
+                    startActivity(intent);
+                }
             });
         }
 
@@ -133,18 +145,18 @@ public class ProfileFragment extends Fragment {
         if (rlLogout != null) {
             rlLogout.setOnClickListener(v -> {
                 new AlertDialog.Builder(requireContext())
-                        .setTitle("🚪 Logout of KrishiSetu")
-                        .setMessage("Are you sure you want to end your current session?")
-                        .setPositiveButton("Logout", (dialog, which) -> {
+                        .setTitle(getString(R.string.logout_title))
+                        .setMessage(getString(R.string.logout_confirm_msg))
+                        .setPositiveButton(getString(R.string.logout), (dialog, which) -> {
                             if (getActivity() != null) {
                                 SharedPreferences prefs = getActivity().getSharedPreferences(KrishiSetuApplication.PREFS_NAME, Context.MODE_PRIVATE);
                                 prefs.edit().clear().apply();
-                                Toast.makeText(getContext(), "Logged Out Successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), getString(R.string.logged_out_toast), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getActivity(), LoginActivity.class));
                                 getActivity().finish();
                             }
                         })
-                        .setNegativeButton("Cancel", null)
+                        .setNegativeButton(getString(R.string.cancel), null)
                         .show();
             });
         }
@@ -170,6 +182,16 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    private void updateLanguageDisplay(TextView tvCurrentLanguage) {
+        if (tvCurrentLanguage == null || getActivity() == null) return;
+        String lang = LocaleHelper.getPersistedLanguage(requireContext());
+        if ("hi".equalsIgnoreCase(lang)) {
+            tvCurrentLanguage.setText("हिंदी 🇮🇳 ›");
+        } else {
+            tvCurrentLanguage.setText("English 🇬🇧 ›");
+        }
+    }
+
     private void showThemeSelectionDialog(TextView tvCurrentTheme) {
         if (getActivity() == null) return;
         SharedPreferences prefs = getActivity().getSharedPreferences(KrishiSetuApplication.PREFS_NAME, Context.MODE_PRIVATE);
@@ -186,7 +208,7 @@ public class ProfileFragment extends Fragment {
         };
 
         new AlertDialog.Builder(requireContext())
-                .setTitle("🎨 Choose App Theme")
+                .setTitle(getString(R.string.theme_mode))
                 .setSingleChoiceItems(themeOptions, checkedItem, (dialog, which) -> {
                     String selectedMode = "system";
                     int nightMode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
@@ -204,54 +226,79 @@ public class ProfileFragment extends Fragment {
                     updateThemeDisplay(tvCurrentTheme);
                     dialog.dismiss();
 
-                    Toast.makeText(getContext(), "Theme updated to " + themeOptions[which].split("\\(")[0].trim(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.theme_updated_toast), Toast.LENGTH_SHORT).show();
                 })
                 .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
                 .show();
     }
 
+    private void showLanguageSelectionDialog(TextView tvCurrentLanguage) {
+        String[] languages = {"🇬🇧 English (Default)", "🇮🇳 हिंदी (Hindi)"};
+        int checkedItem = "hi".equalsIgnoreCase(LocaleHelper.getPersistedLanguage(requireContext())) ? 1 : 0;
+
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Select App Language / भाषा चुनें")
+                .setSingleChoiceItems(languages, checkedItem, (dialog, which) -> {
+                    String selectedLang = which == 1 ? LocaleHelper.LANG_HI : LocaleHelper.LANG_EN;
+                    LocaleHelper.setLocale(requireContext(), selectedLang);
+                    LocaleHelper.applyAppLanguage(selectedLang);
+
+                    updateLanguageDisplay(tvCurrentLanguage);
+                    dialog.dismiss();
+
+                    if (getActivity() != null) {
+                        getActivity().recreate();
+                    }
+                })
+                .setNegativeButton("Cancel / रद्द करें", (d, w) -> d.dismiss())
+                .show();
+    }
+
     private void showOrdersDialog() {
         new AlertDialog.Builder(requireContext())
-                .setTitle("📦 My Orders & Bookings")
-                .setMessage("• Order #KS-9842: Wheat Straw (50 Quintals) — In Transit 🚚\n• Booking #KS-2311: Mahindra 575 DI Tractor — Confirmed for Tomorrow 🚜\n• Booking #KS-1102: Harvester Operator — Completed ✅")
-                .setPositiveButton("Done", null)
+                .setTitle(getString(R.string.my_orders_bookings))
+                .setMessage(getString(R.string.orders_content))
+                .setPositiveButton(getString(R.string.got_it), null)
                 .show();
     }
 
     private void showListingsDialog() {
         new AlertDialog.Builder(requireContext())
-                .setTitle("📋 My Published Listings")
-                .setMessage("• Organic Paddy Straw (20 Tonnes) — Active (3 Enquiries)\n• Mustard Stubble (15 Tonnes) — Active (1 Enquiry)")
-                .setPositiveButton("Done", null)
+                .setTitle(getString(R.string.my_published_listings))
+                .setMessage(getString(R.string.listings_content))
+                .setPositiveButton(getString(R.string.post_new_crop_listing), (d, w) -> {
+                    startActivity(new Intent(getActivity(), com.agrilink.app.CreateListingActivity.class));
+                })
+                .setNegativeButton(getString(R.string.got_it), null)
                 .show();
     }
 
     private void showHelpSupportDialog() {
         new AlertDialog.Builder(requireContext())
-                .setTitle("❓ KrishiSetu Kisan Support")
-                .setMessage("We are here to support our farmers 24x7.\n\n📞 Toll-Free Helpline: 1800-889-SETU\n📧 Email: support@krishisetu.in\n🕒 Working Hours: Monday - Sunday (6 AM - 10 PM)\n📍 New Delhi, India")
-                .setPositiveButton("Call Helpline", (d, w) -> {
+                .setTitle(getString(R.string.help_kisan_support))
+                .setMessage(getString(R.string.help_support_content))
+                .setPositiveButton("1800-180-1551", (d, w) -> {
                     try {
                         Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                        callIntent.setData(android.net.Uri.parse("tel:18008897388"));
+                        callIntent.setData(Uri.parse("tel:18001801551"));
                         startActivity(callIntent);
                     } catch (Exception ignored) {
                     }
                 })
-                .setNegativeButton("Close", null)
+                .setNegativeButton(getString(R.string.got_it), null)
                 .show();
     }
 
     private void showTermsDialog() {
         new AlertDialog.Builder(requireContext())
-                .setTitle("🔒 KrishiSetu Privacy & Escrow Guarantee")
-                .setMessage("KrishiSetu safeguards Indian agricultural trade:\n\n1. 100% Escrow Protection: Funds are only released when both buyer and farmer confirm grain/waste delivery.\n2. Fair Pricing: Guaranteed MSP and verified mandi price tracking.\n3. Data Confidentiality: Farmer land and transaction details are encrypted and never sold to third parties.")
-                .setPositiveButton("Understood", null)
+                .setTitle(getString(R.string.privacy_terms))
+                .setMessage(getString(R.string.terms_content))
+                .setPositiveButton(getString(R.string.got_it), null)
                 .show();
     }
 
     private String getCleanDisplayName(String input) {
-        if (TextUtils.isEmpty(input)) return "KrishiSetu Farmer";
+        if (TextUtils.isEmpty(input)) return "Farmer";
         if (input.contains("@")) {
             String namePart = input.split("@")[0];
             namePart = namePart.replaceAll("[._-]", " ");
@@ -267,29 +314,68 @@ public class ProfileFragment extends Fragment {
         return input;
     }
 
-    private void showLanguageSelectionDialog(TextView tvCurrentLanguage) {
-        String[] languages = {"🇬🇧 English (Default)", "🇮🇳 हिंदी (Hindi)"};
+    private void showRoleSelectionDialog(TextView tvUserRole) {
+        String[] roles = {
+                "🌾 " + getString(R.string.role_farmer_name) + " (Farmer)",
+                "🏭 " + getString(R.string.role_industry_name) + " (Industry Buyer)",
+                "🛠️ " + getString(R.string.role_labour_name) + " (Labour / Worker)",
+                "🚜 " + getString(R.string.role_equipment_name) + " (Equipment Owner)",
+                "🏗️ " + getString(R.string.role_contractor_name) + " (Contractor)",
+                "🚚 " + getString(R.string.role_transport_name) + " (Transporter)"
+        };
+
+        if (getActivity() == null) return;
+        SharedPreferences prefs = getActivity().getSharedPreferences(KrishiSetuApplication.PREFS_NAME, Context.MODE_PRIVATE);
+        String currentRole = prefs.getString("user_role", "Farmer");
+        int checkedItem = 0;
+        if (currentRole.equalsIgnoreCase("Industry Buyer")) checkedItem = 1;
+        else if (currentRole.equalsIgnoreCase("Labour") || currentRole.equalsIgnoreCase("Labor")) checkedItem = 2;
+        else if (currentRole.equalsIgnoreCase("Equipment Owner") || currentRole.equalsIgnoreCase("Equipment")) checkedItem = 3;
+        else if (currentRole.equalsIgnoreCase("Contractor")) checkedItem = 4;
+        else if (currentRole.equalsIgnoreCase("Transporter")) checkedItem = 5;
+
         new AlertDialog.Builder(requireContext())
-                .setTitle("🌐 Select App Language / भाषा चुनें")
-                .setItems(languages, (dialog, which) -> {
-                    String selectedLang = which == 1 ? "hi" : "en";
-                    if (getActivity() != null) {
-                        SharedPreferences prefs = getActivity().getSharedPreferences(KrishiSetuApplication.PREFS_NAME, Context.MODE_PRIVATE);
-                        prefs.edit().putString("app_lang", selectedLang).apply();
-
-                        Locale locale = new Locale(selectedLang);
-                        Locale.setDefault(locale);
-                        Configuration config = new Configuration();
-                        config.setLocale(locale);
-                        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-
-                        if (tvCurrentLanguage != null) {
-                            tvCurrentLanguage.setText(which == 1 ? "हिंदी 🇮🇳 ›" : "English 🇬🇧 ›");
-                        }
-                        Toast.makeText(getContext(), which == 1 ? "🇮🇳 भाषा बदलकर 'हिंदी' कर दी गई है!" : "🇬🇧 Language set to English!", Toast.LENGTH_SHORT).show();
+                .setTitle(getString(R.string.select_user_role))
+                .setSingleChoiceItems(roles, checkedItem, (dialog, which) -> {
+                    String selectedRole = "Farmer";
+                    String apiRole = "FARMER";
+                    switch (which) {
+                        case 1:
+                            selectedRole = "Industry Buyer";
+                            apiRole = "BUYER";
+                            break;
+                        case 2:
+                            selectedRole = "Labour";
+                            apiRole = "LABOR";
+                            break;
+                        case 3:
+                            selectedRole = "Equipment Owner";
+                            apiRole = "EQUIPMENT";
+                            break;
+                        case 4:
+                            selectedRole = "Contractor";
+                            apiRole = "CONTRACTOR";
+                            break;
+                        case 5:
+                            selectedRole = "Transporter";
+                            apiRole = "TRANSPORTER";
+                            break;
+                        default:
+                            selectedRole = "Farmer";
+                            apiRole = "FARMER";
+                            break;
                     }
+                    prefs.edit()
+                            .putString("user_role", selectedRole)
+                            .putString("api_role", apiRole)
+                            .apply();
+                    if (tvUserRole != null) {
+                        tvUserRole.setText(selectedRole + " • " + getString(R.string.verified_badge));
+                    }
+                    dialog.dismiss();
+                    Toast.makeText(getContext(), selectedRole + " - " + getString(R.string.role_active_toast), Toast.LENGTH_SHORT).show();
                 })
-                .setNegativeButton("Cancel / रद्द करें", (d, w) -> d.dismiss())
+                .setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.dismiss())
                 .show();
     }
 }

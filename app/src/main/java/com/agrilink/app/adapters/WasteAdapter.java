@@ -45,6 +45,26 @@ public class WasteAdapter extends RecyclerView.Adapter<WasteAdapter.ViewHolder> 
             holder.tvCategoryBadge.setText(item.getCategory());
             holder.tvVerifiedBadge.setVisibility(item.isVerified() ? View.VISIBLE : View.GONE);
             
+            // Real Quantity & Stock Status
+            if (holder.tvCardQuantity != null) {
+                holder.tvCardQuantity.setText("📦 " + item.getQuantityDisplay());
+            }
+            if (holder.tvCardStatus != null) {
+                if (item.isSoldOut()) {
+                    holder.tvCardStatus.setText(holder.itemView.getContext().getString(R.string.sold_out_badge));
+                    holder.tvCardStatus.setBackgroundColor(holder.itemView.getContext().getResources().getColor(R.color.status_urgent_bg));
+                    holder.tvCardStatus.setTextColor(holder.itemView.getContext().getResources().getColor(R.color.status_urgent_text));
+                } else if ("PARTIALLY_SOLD".equalsIgnoreCase(item.getStatus())) {
+                    holder.tvCardStatus.setText(holder.itemView.getContext().getString(R.string.partially_sold_badge));
+                    holder.tvCardStatus.setBackgroundColor(holder.itemView.getContext().getResources().getColor(R.color.soft_orange_bg));
+                    holder.tvCardStatus.setTextColor(holder.itemView.getContext().getResources().getColor(R.color.harvest_orange));
+                } else {
+                    holder.tvCardStatus.setText(holder.itemView.getContext().getString(R.string.available_badge));
+                    holder.tvCardStatus.setBackgroundColor(holder.itemView.getContext().getResources().getColor(R.color.status_available_bg));
+                    holder.tvCardStatus.setTextColor(holder.itemView.getContext().getResources().getColor(R.color.status_available_text));
+                }
+            }
+
             if (item.getImageResId() != 0) {
                 holder.imgWaste.setImageResource(item.getImageResId());
             }
@@ -61,7 +81,7 @@ public class WasteAdapter extends RecyclerView.Adapter<WasteAdapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitle, tvPrice, tvLocation, tvSeller, tvCategoryBadge, tvVerifiedBadge;
+        TextView tvTitle, tvPrice, tvLocation, tvSeller, tvCategoryBadge, tvVerifiedBadge, tvCardQuantity, tvCardStatus;
         ImageView imgWaste;
 
         public ViewHolder(@NonNull View itemView) {
@@ -72,6 +92,8 @@ public class WasteAdapter extends RecyclerView.Adapter<WasteAdapter.ViewHolder> 
             tvSeller = itemView.findViewById(R.id.tvSeller);
             tvCategoryBadge = itemView.findViewById(R.id.tvCategoryBadge);
             tvVerifiedBadge = itemView.findViewById(R.id.tvVerifiedBadge);
+            tvCardQuantity = itemView.findViewById(R.id.tvCardQuantity);
+            tvCardStatus = itemView.findViewById(R.id.tvCardStatus);
             imgWaste = itemView.findViewById(R.id.imgWaste);
         }
     }

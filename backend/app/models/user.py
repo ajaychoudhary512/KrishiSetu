@@ -11,6 +11,8 @@ class UserRole(str, enum.Enum):
     FARMER = "farmer"
     INDUSTRY = "industry"
     LABOR = "labor"
+    EQUIPMENT = "equipment"
+    CONTRACTOR = "contractor"
     TRANSPORT = "transport"
     ADMIN = "admin"
 

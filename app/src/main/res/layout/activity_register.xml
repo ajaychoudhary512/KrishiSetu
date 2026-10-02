@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app"
+    android:background="@color/soft_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -11,8 +11,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="24dp"
-        android:paddingTop="32dp"
+        android:paddingTop="20dp"
         android:paddingBottom="24dp">
+
+        <!-- Language Switcher Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLanguageToggle"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_alignParentEnd="true"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="@string/language_toggle_btn"
+                android:textColor="@color/primary_green"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/light_green"
+                app:cornerRadius="18dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp" />
+        </RelativeLayout>
 
         <!-- Logo Header -->
         <LinearLayout
@@ -23,10 +47,10 @@
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                app:cardBackgroundColor="@color/light_surface"
-                app:cardCornerRadius="16dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="18dp"
                 app:cardElevation="3dp"
                 app:strokeColor="@color/border_light"
                 app:strokeWidth="1dp">
@@ -34,10 +58,10 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="6dp"
+                    android:padding="8dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/krishisetu"
-                    android:contentDescription="KRISHISETU Logo" />
+                    android:contentDescription="@string/brand_name" />
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
@@ -45,25 +69,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/brand_name"
-                android:textColor="@color/primary_forest"
+                android:textColor="@color/primary_green"
                 android:textSize="20sp"
                 android:letterSpacing="0.06"
+                android:fontFamily="sans-serif-black"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Create Account"
+                android:text="@string/create_account"
                 android:textColor="@color/text_main"
                 android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Join India's Smart Agriculture Network"
+                android:text="@string/join_network"
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
         </LinearLayout>
@@ -73,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="18dp"
             app:cardElevation="2dp"
             app:strokeColor="@color/border_light"
@@ -90,12 +116,12 @@
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Select Your Role"
+                    android:hint="@string/select_role"
                     app:boxCornerRadiusBottomEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="@color/primary_forest">
+                    app:boxStrokeColor="@color/primary_green">
 
                     <AutoCompleteTextView
                         android:id="@+id/actvRole"
@@ -113,12 +139,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:hint="Full Name"
+                    android:hint="@string/full_name"
                     app:boxCornerRadiusBottomEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="@color/primary_forest">
+                    app:boxStrokeColor="@color/primary_green">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etFullName"
@@ -126,6 +152,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName|textCapWords"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
                         android:textColor="@color/text_main"
                         android:textColorHint="@color/text_secondary"
@@ -138,12 +165,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:hint="Mobile Number"
+                    android:hint="@string/mobile_number"
                     app:boxCornerRadiusBottomEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="@color/primary_forest"
+                    app:boxStrokeColor="@color/primary_green"
                     app:prefixText="+91 "
                     app:prefixTextColor="@color/text_main">
 
@@ -153,23 +180,24 @@
                         android:layout_height="wrap_content"
                         android:inputType="phone"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:textColor="@color/text_main"
                         android:textColorHint="@color/text_secondary"
                         android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Email (Optional) - Single line with horizontal scroll -->
+                <!-- Email (Optional) -->
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:hint="Email Address (Optional)"
+                    android:hint="@string/email_optional"
                     app:boxCornerRadiusBottomEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="@color/primary_forest">
+                    app:boxStrokeColor="@color/primary_green">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etEmail"
@@ -177,6 +205,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:scrollHorizontally="true"
                         android:ellipsize="end"
                         android:autofillHints="emailAddress"
@@ -191,14 +220,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:hint="Password (Min. 8 characters)"
+                    android:hint="@string/password_hint"
                     app:boxCornerRadiusBottomEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="@color/primary_forest"
+                    app:boxStrokeColor="@color/primary_green"
                     app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@color/primary_forest">
+                    app:passwordToggleTint="@color/primary_green">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etPassword"
@@ -206,6 +235,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:textColor="@color/text_main"
                         android:textColorHint="@color/text_secondary"
                         android:textSize="15sp" />
@@ -219,7 +249,7 @@
                     android:layout_marginTop="12dp"
                     android:checked="false"
                     android:minHeight="48dp"
-                    android:text="I agree to KRISHISETU Terms &amp; Privacy Policy"
+                    android:text="@string/terms_agreement"
                     android:textColor="@color/text_main"
                     android:textSize="13sp" />
 
@@ -229,11 +259,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="16dp"
-                    android:text="CREATE KRISHISETU ACCOUNT"
+                    android:text="@string/create_krishisetu_account"
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:backgroundTint="@color/primary_forest"
+                    app:backgroundTint="@color/primary_green"
                     app:cornerRadius="12dp"
                     app:elevation="2dp" />
 
@@ -249,9 +279,10 @@
             android:layout_marginTop="24dp"
             android:minHeight="48dp"
             android:gravity="center"
-            android:text="Already have an account? Login"
-            android:textColor="@color/primary_forest"
+            android:text="@string/already_have_account"
+            android:textColor="@color/primary_green"
             android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold" />
 
     </LinearLayout>

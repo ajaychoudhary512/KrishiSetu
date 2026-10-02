@@ -1,18 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:orientation="vertical">
+    android:layout_marginBottom="8dp">
 
-    <TextView
-        android:id="@+id/tvMessageText"
+    <!-- Container for Received Message -->
+    <LinearLayout
+        android:id="@+id/layoutReceived"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="12dp"
-        android:text="Message sample text"
-        android:textColor="@color/text_dark"
-        android:textSize="14sp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/bg_chat_bubble_received"
+        android:orientation="vertical"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="10dp"
+        android:visibility="visible">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvMessageReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="2dp"
+            android:text="Namaste Ji, we have created an escrow proposal of ₹56,350 for 50 Quintals of Rice Straw."
+            android:textColor="@color/text_main"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvTimeReceived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:text="10:42 AM"
+            android:textColor="@color/text_secondary"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <!-- Container for Sent Message -->
+    <LinearLayout
+        android:id="@+id/layoutSent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="64dp"
+        android:background="@drawable/bg_chat_bubble_sent"
+        android:orientation="vertical"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvMessageSent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="2dp"
+            android:text="Yes, the moisture content is below 12%. Ready for baling."
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvTimeSent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:text="10:44 AM"
+            android:textColor="#E5EEDF"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+</RelativeLayout>

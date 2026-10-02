@@ -13,19 +13,24 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SplashActivity extends AppCompatActivity {
 
     @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
         // Subtle Logo Entrance Animation (Fade & Gentle Scale)
-        View cardLogo = findViewById(R.id.cardSplashLogo);
+        View imgLogo = findViewById(R.id.imgSplashLogo);
         View contentLayout = findViewById(R.id.layoutSplashContent);
 
-        if (cardLogo != null) {
-            cardLogo.setAlpha(0f);
-            cardLogo.setScaleX(0.85f);
-            cardLogo.setScaleY(0.85f);
-            cardLogo.animate()
+        if (imgLogo != null) {
+            imgLogo.setAlpha(0f);
+            imgLogo.setScaleX(0.85f);
+            imgLogo.setScaleY(0.85f);
+            imgLogo.animate()
                     .alpha(1f)
                     .scaleX(1f)
                     .scaleY(1f)

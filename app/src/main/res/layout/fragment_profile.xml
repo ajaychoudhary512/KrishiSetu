@@ -3,21 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/warm_cream"
+    android:background="@color/soft_background"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:paddingTop="24dp">
 
         <!-- Top Header & User Identity Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="20dp"
             app:cardElevation="2dp"
             app:strokeColor="@color/border_light"
@@ -36,8 +37,8 @@
                     android:layout_height="80dp"
                     app:cardCornerRadius="40dp"
                     app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/light_sage_surface"
-                    app:strokeColor="@color/primary_forest"
+                    app:cardBackgroundColor="@color/light_green"
+                    app:strokeColor="@color/primary_green"
                     app:strokeWidth="2dp">
 
                     <ImageView
@@ -47,10 +48,10 @@
                         android:padding="16dp"
                         android:scaleType="centerInside"
                         android:src="@drawable/ic_farmer"
-                        app:tint="@color/primary_forest" />
+                        app:tint="@color/primary_green" />
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- User Name (Strictly Single-Line) -->
+                <!-- User Name -->
                 <TextView
                     android:id="@+id/tvUserName"
                     android:layout_width="match_parent"
@@ -66,7 +67,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:textStyle="bold" />
 
-                <!-- User Email / Contact (Strictly Single-Line) -->
+                <!-- User Email / Contact -->
                 <TextView
                     android:id="@+id/tvUserEmail"
                     android:layout_width="match_parent"
@@ -99,7 +100,7 @@
                         android:maxLines="1"
                         android:ellipsize="end"
                         android:text="Farmer • Verified ✓"
-                        android:textColor="@color/primary_forest"
+                        android:textColor="@color/primary_green"
                         android:textSize="12sp"
                         android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
@@ -108,12 +109,12 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Nature Luxe Forest Green Wallet Card -->
+        <!-- Escrow Wallet Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/primary_forest"
+            app:cardBackgroundColor="@color/primary_green"
             app:cardCornerRadius="18dp"
             app:cardElevation="3dp">
 
@@ -132,8 +133,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="KRISHISETU ESCROW WALLET"
-                        android:textColor="@color/soft_sage"
+                        android:text="@string/escrow_wallet_header"
+                        android:textColor="#C4D7B2"
                         android:textSize="11sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.06" />
@@ -143,7 +144,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="₹4,250.00"
+                        android:text="@string/wallet_default_balance"
                         android:textColor="@color/white"
                         android:textSize="26sp"
                         android:fontFamily="sans-serif-medium"
@@ -153,8 +154,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="⚡ 100% Escrow Protected by KrishiSetu"
-                        android:textColor="@color/light_sage_surface"
+                        android:text="@string/escrow_protected_note"
+                        android:textColor="#E5EEDF"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -164,34 +165,34 @@
                     android:layout_height="44dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:text="Withdraw"
-                    android:textColor="@color/primary_forest"
+                    android:text="@string/withdraw"
+                    android:textColor="@color/primary_green"
                     android:textSize="13sp"
                     android:textStyle="bold"
-                    app:backgroundTint="@color/soft_sage"
+                    app:backgroundTint="@color/white"
                     app:cornerRadius="12dp" />
 
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Section Title: Account & Orders -->
+        <!-- Section: Activity & Management -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginBottom="8dp"
-            android:text="ACTIVITY &amp; MANAGEMENT"
+            android:text="@string/activity_management"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
             android:textStyle="bold"
             android:letterSpacing="0.05" />
 
-        <!-- Account Cards Container -->
+        <!-- Activity Cards Container -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="1dp"
             app:strokeColor="@color/border_light"
@@ -219,19 +220,18 @@
                         android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="📦  My Orders &amp; Bookings"
+                        android:text="@string/my_orders_bookings"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="›"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/text_secondary" />
                 </RelativeLayout>
 
                 <View
@@ -256,19 +256,18 @@
                         android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="📋  My Published Listings"
+                        android:text="@string/my_published_listings"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="›"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/text_secondary" />
                 </RelativeLayout>
 
                 <View
@@ -293,31 +292,30 @@
                         android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="💬  Messages &amp; Deals"
+                        android:text="@string/messages_deals"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="›"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/text_secondary" />
                 </RelativeLayout>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Section Title: App Settings -->
+        <!-- Section: Preferences & Settings -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginBottom="8dp"
-            android:text="PREFERENCES &amp; SETTINGS"
+            android:text="@string/preferences_settings"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
             android:textStyle="bold"
@@ -328,7 +326,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="1dp"
             app:strokeColor="@color/border_light"
@@ -356,7 +354,7 @@
                         android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="🎨  Theme Mode"
+                        android:text="@string/theme_mode"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
@@ -367,8 +365,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="System Default ⚙️ ›"
-                        android:textColor="@color/primary_forest"
+                        android:text="System Default ›"
+                        android:textColor="@color/primary_green"
                         android:textSize="13sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -395,7 +393,7 @@
                         android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="🌐  Language (भाषा)"
+                        android:text="@string/language"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
@@ -406,8 +404,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="English 🇮🇳 ›"
-                        android:textColor="@color/primary_forest"
+                        android:text="English ›"
+                        android:textColor="@color/primary_green"
                         android:textSize="13sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -434,19 +432,18 @@
                         android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="❓  Help &amp; Kisan Support"
+                        android:text="@string/help_kisan_support"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="›"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/text_secondary" />
                 </RelativeLayout>
 
                 <View
@@ -471,30 +468,29 @@
                         android:singleLine="true"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="🔒  Privacy &amp; Terms"
+                        android:text="@string/privacy_terms"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="›"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="20sp" />
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/text_secondary" />
                 </RelativeLayout>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Brand About Card with krishisetu.png logo -->
+        <!-- Brand About Card with Single Centered krishisetu.png logo -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="1dp"
             app:strokeColor="@color/border_light"
@@ -507,19 +503,20 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <!-- krishisetu.png Logo -->
+                <!-- Single Centered krishisetu.png Logo -->
                 <ImageView
                     android:layout_width="72dp"
                     android:layout_height="72dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/krishisetu" />
+                    android:src="@drawable/krishisetu"
+                    android:contentDescription="@string/brand_name" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="KRISHISETU"
-                    android:textColor="@color/primary_forest"
+                    android:text="@string/brand_name"
+                    android:textColor="@color/primary_green"
                     android:textSize="18sp"
                     android:fontFamily="sans-serif-black"
                     android:letterSpacing="0.08" />
@@ -528,16 +525,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Grow More. Waste Less. Connect Better."
+                    android:text="@string/tagline"
                     android:textColor="@color/harvest_orange"
                     android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="Version 1.0.0 (Production Release)"
+                    android:text="@string/version_info"
                     android:textColor="@color/text_secondary"
                     android:textSize="11sp" />
 
@@ -550,10 +548,10 @@
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="@color/light_surface"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="16dp"
             app:cardElevation="1dp"
-            app:strokeColor="@color/color_red"
+            app:strokeColor="@color/error"
             app:strokeWidth="1dp">
 
             <RelativeLayout
@@ -565,20 +563,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="🚪  Log Out of KrishiSetu"
-                    android:textColor="@color/color_red"
+                    android:text="@string/log_out"
+                    android:textColor="@color/error"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:text="›"
-                    android:textColor="@color/color_red"
-                    android:textSize="20sp" />
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/error" />
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 

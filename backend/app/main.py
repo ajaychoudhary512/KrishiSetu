@@ -9,6 +9,7 @@ from app.core.config import settings
 from app.core.exceptions import register_exception_handlers
 from app.database.session import engine
 from app.database.base import Base
+import app.models
 from app.middleware.logging import LoggingMiddleware
 from app.middleware.request_id import RequestIDMiddleware
 from app.api.v1.router import api_router

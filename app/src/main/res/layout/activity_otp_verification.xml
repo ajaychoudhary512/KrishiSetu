@@ -11,8 +11,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="24dp"
-        android:paddingTop="36dp"
+        android:paddingTop="20dp"
         android:paddingBottom="24dp">
+
+        <!-- Language Switcher Bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLanguageToggle"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_alignParentEnd="true"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="@string/language_toggle_btn"
+                android:textColor="@color/primary_forest"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/light_sage_surface"
+                app:cornerRadius="18dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp" />
+        </RelativeLayout>
 
         <!-- Top Header Icon -->
         <LinearLayout
@@ -45,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Verify OTP"
+                android:text="@string/verify_otp"
                 android:textColor="@color/text_main"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -55,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:gravity="center"
-                android:text="Enter the 6-digit verification code sent to your registered mobile number"
+                android:text="@string/otp_instruction"
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
         </LinearLayout>
@@ -76,6 +100,33 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="20dp">
+
+                <!-- Phone Number Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/enter_phone_number"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_forest"
+                    app:prefixText="+91 "
+                    app:prefixTextColor="@color/text_main">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOtpPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/text_main"
+                        android:textColorHint="@color/text_secondary"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- OTP Input Boxes Row -->
                 <LinearLayout
@@ -172,7 +223,7 @@
                     android:layout_marginTop="20dp"
                     android:minHeight="48dp"
                     android:gravity="center"
-                    android:text="Resend OTP in 00:25"
+                    android:text="@string/resend_otp_timer"
                     android:textColor="@color/primary_forest"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -183,7 +234,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="16dp"
-                    android:text="VERIFY &amp; CONTINUE"
+                    android:text="@string/verify_and_continue"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold"

@@ -14,6 +14,11 @@ import com.agrilink.app.models.EquipmentItem;
 
 import java.util.List;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
+
 public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.ViewHolder> {
 
     private List<EquipmentItem> list;
@@ -50,6 +55,36 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.View
             if (item.getImageResId() != 0) {
                 holder.imgEquip.setImageResource(item.getImageResId());
             }
+
+            // Call Owner / View Details
+            if (holder.btnViewDetails != null) {
+                holder.btnViewDetails.setOnClickListener(v -> {
+                    try {
+                        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                        callIntent.setData(Uri.parse("tel:+919826012345"));
+                        v.getContext().startActivity(callIntent);
+                    } catch (Exception e) {
+                        Toast.makeText(v.getContext(), "Dialer unavailable", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            // Book / Rent button
+            if (holder.btnBookRent != null) {
+                holder.btnBookRent.setOnClickListener(v -> {
+                    String msg = String.format(v.getContext().getString(R.string.book_equipment_msg),
+                            item.getTitle(), item.getPrice(), item.getLocation());
+
+                    new AlertDialog.Builder(v.getContext())
+                            .setTitle(v.getContext().getString(R.string.book_equipment_title))
+                            .setMessage(msg)
+                            .setPositiveButton(v.getContext().getString(R.string.confirm_booking), (d, w) -> {
+                                Toast.makeText(v.getContext(), v.getContext().getString(R.string.booking_confirmed_toast), Toast.LENGTH_LONG).show();
+                            })
+                            .setNegativeButton(v.getContext().getString(R.string.got_it), null)
+                            .show();
+                });
+            }
         }
     }
 
@@ -61,6 +96,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.View
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle, tvRating, tvLocation, tvPrice, tvStatusBadge;
         ImageView imgEquip;
+        View btnViewDetails, btnBookRent;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -70,6 +106,8 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.View
             tvPrice = itemView.findViewById(R.id.tvEquipPrice);
             tvStatusBadge = itemView.findViewById(R.id.tvStatusBadge);
             imgEquip = itemView.findViewById(R.id.imgEquip);
+            btnViewDetails = itemView.findViewById(R.id.btnViewDetails);
+            btnBookRent = itemView.findViewById(R.id.btnBookRent);
         }
     }
 }

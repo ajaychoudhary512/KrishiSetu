@@ -1,11 +1,11 @@
 package com.agrilink.app;
 
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import com.agrilink.app.fragments.ChatFragment;
 import com.agrilink.app.fragments.DiseaseFragment;
 import com.agrilink.app.fragments.HomeFragment;
 import com.agrilink.app.fragments.MarketplaceFragment;
@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNav = findViewById(R.id.bottomNav);
 
         // Load default fragment (HomeFragment)
-        loadFragment(new HomeFragment());
+        if (savedInstanceState == null) {
+            loadFragment(new HomeFragment());
+        }
 
         bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (id == R.id.nav_market) {
                     selectedFragment = new MarketplaceFragment();
                 } else if (id == R.id.nav_deals) {
-                    selectedFragment = new DiseaseFragment();
+                    selectedFragment = new ChatFragment();
                 } else if (id == R.id.nav_profile) {
                     selectedFragment = new ProfileFragment();
                 }
@@ -50,6 +52,17 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
+
+    public void setSelectedTab(int navItemId) {
+        if (bottomNav != null) {
+            bottomNav.setSelectedItemId(navItemId);
+        }
     }
 
     public void loadFragment(Fragment fragment) {

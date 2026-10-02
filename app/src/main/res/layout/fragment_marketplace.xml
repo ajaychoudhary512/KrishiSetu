@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app"
+    android:background="@color/soft_background"
     android:orientation="vertical">
 
     <!-- Green Header Banner -->
@@ -30,15 +30,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Waste Marketplace"
+                    android:text="@string/waste_marketplace"
                     android:textColor="@color/white"
                     android:textSize="22sp"
+                    android:fontFamily="sans-serif-medium"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Connect Stubble Sellers &amp; Buyers"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/connect_stubble_buyers"
                     android:textColor="#C4D7B2"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -49,11 +51,11 @@
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:text="+ Post Listing"
-                android:textColor="@color/primary_forest"
+                android:text="@string/post_listing"
+                android:textColor="@color/primary_green"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:backgroundTint="@color/soft_sage"
+                app:backgroundTint="@color/light_green"
                 app:cornerRadius="10dp" />
         </RelativeLayout>
 
@@ -65,13 +67,13 @@
             android:background="@drawable/bg_search_input"
             android:paddingHorizontal="14dp">
 
-            <TextView
+            <ImageView
                 android:id="@+id/icSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:text="🔍"
-                android:textSize="16sp" />
+                android:src="@drawable/ic_search"
+                app:tint="@color/white" />
 
             <EditText
                 android:id="@+id/etSearchWaste"
@@ -80,9 +82,10 @@
                 android:layout_toEndOf="@id/icSearch"
                 android:layout_toStartOf="@id/icClearSearch"
                 android:background="@android:color/transparent"
-                android:hint="Search waste, stubble, or biomass..."
+                android:hint="@string/search_waste_hint"
                 android:inputType="text"
                 android:maxLines="1"
+                android:singleLine="true"
                 android:paddingStart="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="#BFFFFFFF"
@@ -122,28 +125,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="All" />
+                android:text="@string/filter_all" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipResidue"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Crop Residue" />
+                android:text="@string/filter_crop_residue" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipBiomass"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Industry Demand" />
+                android:text="@string/filter_industry_demand" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipBagasse"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bagasse" />
+                android:text="@string/filter_bagasse" />
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
@@ -158,37 +161,57 @@
         android:padding="20dp"
         android:visibility="gone">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🌾"
-            android:textSize="48sp" />
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_waste_market"
+            app:tint="@color/text_secondary" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="No Listings Found"
+            android:layout_marginTop="10dp"
+            android:text="@string/no_listings_found"
             android:textColor="@color/text_main"
             android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Try adjusting your search or category filter"
+            android:text="@string/adjust_filter_hint"
             android:textColor="@color/text_secondary"
             android:textSize="13sp" />
     </LinearLayout>
 
-    <!-- Listings RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvWaste"
+    <!-- Listings RecyclerView with Floating Add Button -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingHorizontal="16dp"
-        android:paddingBottom="16dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWaste"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="72dp" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabAddWaste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="16dp"
+            android:text="@string/post_listing"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_green"
+            app:icon="@drawable/ic_waste_market"
+            app:iconTint="@color/white" />
+    </RelativeLayout>
 
 </LinearLayout>

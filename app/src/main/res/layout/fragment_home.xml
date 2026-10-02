@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_app">
+    android:background="@color/soft_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:paddingBottom="24dp">
 
-        <!-- Top Forest Green Header Container -->
+        <!-- Top Header Container (Single KRISHISETU Logo) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp">
 
-                <!-- Logo & Brand Name -->
+                <!-- ONE KRISHISETU Logo & Location -->
                 <LinearLayout
                     android:id="@+id/layoutBrandHeader"
                     android:layout_width="wrap_content"
@@ -37,22 +37,13 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
-                        app:cardBackgroundColor="@color/light_surface"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="2dp"
-                        app:strokeWidth="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="4dp"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/krishisetu"
-                            android:contentDescription="KRISHISETU Logo" />
-                    </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/krishisetu"
+                        android:contentDescription="@string/brand_name" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -67,14 +58,33 @@
                             android:text="@string/brand_name"
                             android:textColor="@color/white"
                             android:textSize="18sp"
+                            android:fontFamily="sans-serif-black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/llLocationSelector"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="📍 Indore, Madhya Pradesh"
-                            android:textColor="#C4D7B2"
-                            android:textSize="11sp" />
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:src="@drawable/ic_location_pin"
+                                app:tint="#C4D7B2" />
+
+                            <TextView
+                                android:id="@+id/tvHomeLocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="@string/location_default"
+                                android:textColor="#C4D7B2"
+                                android:textSize="11sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -92,20 +102,23 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_search_input"
-                        android:padding="8dp">
+                        android:clickable="true"
+                        android:focusable="true">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_centerInParent="true"
-                            android:text="🔔"
-                            android:textSize="16sp" />
+                            android:src="@drawable/ic_notifications"
+                            app:tint="@color/white" />
 
                         <TextView
                             android:layout_width="16dp"
                             android:layout_height="16dp"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentTop="true"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="2dp"
                             android:background="@color/harvest_orange"
                             android:gravity="center"
                             android:text="2"
@@ -119,11 +132,12 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="10dp"
-                        android:background="@color/soft_sage"
+                        android:background="@color/secondary_green"
                         android:gravity="center"
                         android:text="KS"
-                        android:textColor="@color/primary_forest"
+                        android:textColor="@color/white"
                         android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
                 </LinearLayout>
             </RelativeLayout>
@@ -136,12 +150,13 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:text="Hello, Farmer!"
+                android:text="@string/hello_farmer"
                 android:textColor="@color/white"
                 android:textSize="22sp"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="bold" />
 
-            <!-- Wallet Summary Card (Forest Green Luxe Card) -->
+            <!-- Wallet Card: KRISHISETU Wallet & Escrow -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardHomeWallet"
                 android:layout_width="match_parent"
@@ -163,7 +178,7 @@
                         android:layout_height="wrap_content"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="KRISHISETU Wallet &amp; Escrow"
+                        android:text="@string/wallet_escrow_title"
                         android:textColor="#C4D7B2"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -176,9 +191,10 @@
                         android:layout_marginTop="2dp"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="₹4,250.00"
+                        android:text="@string/wallet_default_balance"
                         android:textColor="@color/white"
                         android:textSize="22sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -189,17 +205,17 @@
                         android:layout_marginTop="4dp"
                         android:maxLines="1"
                         android:ellipsize="end"
-                        android:text="₹56,350 Secured in Escrow Deals"
+                        android:text="@string/wallet_escrow_subtext"
                         android:textColor="#E5EEDF"
                         android:textSize="11sp" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnBannerSell"
+                        android:id="@+id/btnHomeWallet"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:text="View Wallet →"
+                        android:text="@string/view_wallet"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold"
@@ -210,32 +226,34 @@
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
-        <!-- Main Services 2-Column Responsive Grid -->
+        <!-- Main Services Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="12dp"
-            android:text="Main Services"
+            android:text="@string/main_services"
             android:textColor="@color/text_main"
             android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold" />
 
+        <!-- 2-Column Responsive Grid -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="12dp">
 
-            <!-- Card 1: Waste Marketplace -->
+            <!-- Card 1: Waste Market -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardWasteMarket"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
                 app:strokeColor="@color/border_light"
@@ -247,30 +265,44 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:cardBackgroundColor="@color/light_sage_surface"
-                        app:cardCornerRadius="12dp"
-                        app:strokeWidth="0dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="♻️"
-                            android:textSize="22sp" />
-                    </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:cardBackgroundColor="@color/light_green"
+                            app:cardCornerRadius="12dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_waste_market" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:tint="@color/text_secondary" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Waste Market"
+                        android:text="@string/service_waste_market"
                         android:textColor="@color/text_main"
                         android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -278,8 +310,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Buy &amp; sell stubble"
+                        android:text="@string/service_waste_market_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -292,7 +325,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
                 app:strokeColor="@color/border_light"
@@ -304,30 +337,44 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:cardBackgroundColor="@color/soft_orange_bg"
-                        app:cardCornerRadius="12dp"
-                        app:strokeWidth="0dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="🚜"
-                            android:textSize="22sp" />
-                    </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:cardBackgroundColor="@color/soft_orange_bg"
+                            app:cardCornerRadius="12dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_equipment_rental" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:tint="@color/text_secondary" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Equipment Rental"
+                        android:text="@string/service_equipment"
                         android:textColor="@color/text_main"
                         android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -335,8 +382,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Rent farm machinery"
+                        android:text="@string/service_equipment_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -356,7 +404,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
                 app:strokeColor="@color/border_light"
@@ -368,30 +416,44 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:cardBackgroundColor="@color/light_sage_surface"
-                        app:cardCornerRadius="12dp"
-                        app:strokeWidth="0dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="👷"
-                            android:textSize="22sp" />
-                    </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:cardBackgroundColor="@color/light_green"
+                            app:cardCornerRadius="12dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_hire_labour" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:tint="@color/text_secondary" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Hire Labour"
+                        android:text="@string/service_labour"
                         android:textColor="@color/text_main"
                         android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -399,21 +461,22 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Verified workers &amp; crews"
+                        android:text="@string/service_labour_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Card 4: Crop Disease Detection -->
+            <!-- Card 4: Crop Health AI -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardDisease"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
                 app:strokeColor="@color/border_light"
@@ -425,30 +488,44 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:cardBackgroundColor="@color/light_sage_surface"
-                        app:cardCornerRadius="12dp"
-                        app:strokeWidth="0dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="🔬"
-                            android:textSize="22sp" />
-                    </com.google.android.material.card.MaterialCardView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:cardBackgroundColor="@color/light_green"
+                            app:cardCornerRadius="12dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_crop_health" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:tint="@color/text_secondary" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Crop Health AI"
+                        android:text="@string/service_crop_health"
                         android:textColor="@color/text_main"
                         android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -456,8 +533,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Instant leaf disease scan"
+                        android:text="@string/service_crop_health_desc"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -471,9 +549,10 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="12dp"
-            android:text="Additional Services"
+            android:text="@string/additional_services"
             android:textColor="@color/text_main"
             android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold" />
 
         <GridLayout
@@ -489,7 +568,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp"
                 app:strokeColor="@color/border_light"
@@ -502,21 +581,22 @@
                     android:orientation="vertical"
                     android:padding="12dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🚚"
-                        android:textSize="22sp" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_transport" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Transport"
+                        android:text="@string/service_transport"
                         android:textColor="@color/text_main"
                         android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -528,7 +608,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp"
                 app:strokeColor="@color/border_light"
@@ -541,21 +621,22 @@
                     android:orientation="vertical"
                     android:padding="12dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📋"
-                        android:textSize="22sp" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_schemes" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="Schemes"
+                        android:text="@string/service_schemes"
                         android:textColor="@color/text_main"
                         android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -567,7 +648,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp"
                 app:strokeColor="@color/border_light"
@@ -578,24 +659,56 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/ivWeatherIcon"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_weather" />
+
+                        <TextView
+                            android:id="@+id/tvWeatherLiveBadge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/ivWeatherIcon"
+                            android:layout_marginStart="4dp"
+                            android:background="@drawable/bg_badge_verified"
+                            android:text="@string/weather_live_badge"
+                            android:textColor="@color/primary_green"
+                            android:textSize="8sp"
+                            android:textStyle="bold"
+                            android:paddingHorizontal="4dp"
+                            android:paddingVertical="1dp" />
+                    </RelativeLayout>
 
                     <TextView
+                        android:id="@+id/tvWeatherCardTemp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🌤️"
-                        android:textSize="22sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="3dp"
                         android:maxLines="1"
-                        android:ellipsize="end"
-                        android:text="Weather"
+                        android:text="32°C ☀️"
                         android:textColor="@color/text_main"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvWeatherCardLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:text="@string/service_weather"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="10sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -606,7 +719,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp"
-                app:cardBackgroundColor="@color/light_surface"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="1dp"
                 app:strokeColor="@color/border_light"
@@ -619,21 +732,22 @@
                     android:orientation="vertical"
                     android:padding="12dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🤖"
-                        android:textSize="22sp" />
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_agribot" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:maxLines="1"
+                        android:singleLine="true"
                         android:ellipsize="end"
-                        android:text="AgriBot"
+                        android:text="@string/service_agribot"
                         android:textColor="@color/text_main"
                         android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
                         android:textStyle="bold" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet_rounded">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Top Drag Handle -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="#D1D5DB" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_labour_title"
+            android:textColor="@color/text_main"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/labour_hiring_subtitle"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- Category Selection -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work Type / Category"
+            android:textColor="@color/text_main"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupAddLabor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAddHarvesting"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/harvesting" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAddPlanting"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/planting" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAddOperators"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plant_operators" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Requirement / Crew Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/labour_title_hint"
+            android:textColor="@color/text_main"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etAddLaborTitle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_edit_text_rounded"
+            android:hint="e.g. 🌾 Harvesting Workers (Farm)"
+            android:paddingHorizontal="14dp"
+            android:textSize="14sp" />
+
+        <!-- Workers Count -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/labour_workers_hint"
+            android:textColor="@color/text_main"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etAddLaborCount"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_edit_text_rounded"
+            android:hint="e.g. 15 workers"
+            android:paddingHorizontal="14dp"
+            android:textSize="14sp" />
+
+        <!-- Daily Wage -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/labour_wage_hint"
+            android:textColor="@color/text_main"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etAddLaborWage"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_edit_text_rounded"
+            android:hint="e.g. ₹550/Day"
+            android:paddingHorizontal="14dp"
+            android:textSize="14sp" />
+
+        <!-- Location -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/labour_location_hint"
+            android:textColor="@color/text_main"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etAddLaborLocation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_edit_text_rounded"
+            android:hint="e.g. Indore, MP"
+            android:paddingHorizontal="14dp"
+            android:textSize="14sp" />
+
+        <!-- Availability -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/labour_timing_hint"
+            android:textColor="@color/text_main"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etAddLaborTiming"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_edit_text_rounded"
+            android:hint="e.g. Immediate / Tomorrow"
+            android:paddingHorizontal="14dp"
+            android:textSize="14sp" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelAddLabor"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="@string/cancel"
+                android:textColor="@color/text_secondary"
+                app:cornerRadius="12dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmitAddLabor"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:layout_marginStart="8dp"
+                android:text="@string/post_now"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:backgroundTint="@color/primary_green"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
