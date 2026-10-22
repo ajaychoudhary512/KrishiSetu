@@ -25,20 +25,9 @@ public class KrishiSetuApplication extends Application {
 
     public static void applyStoredTheme(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        String themeMode = prefs.getString(KEY_THEME_MODE, "system");
-
-        switch (themeMode) {
-            case "light":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                break;
-            case "dark":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                break;
-            case "system":
-            default:
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                break;
-        }
+        prefs.edit().putString(KEY_THEME_MODE, "light").apply();
+        // Keep exclusively Light version - remove dark mode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     public static void applyStoredLanguage(Context context) {

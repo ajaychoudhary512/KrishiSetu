@@ -73,18 +73,6 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, getString(R.string.connecting_google), Toast.LENGTH_SHORT).show();
             });
         }
-
-        View btnPhone = findViewById(R.id.btnContinuePhone);
-        if (btnPhone != null) {
-            btnPhone.setOnClickListener(v -> {
-                Intent intent = new Intent(LoginActivity.this, OtpVerificationActivity.class);
-                String mobile = etMobile != null ? etMobile.getText().toString().trim() : "";
-                if (!TextUtils.isEmpty(mobile)) {
-                    intent.putExtra("phone_number", mobile);
-                }
-                startActivity(intent);
-            });
-        }
     }
 
     private void showForgotPasswordDialog() {

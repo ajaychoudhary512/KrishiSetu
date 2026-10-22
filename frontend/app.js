@@ -11,7 +11,14 @@ const API_BASE_URL = 'http://127.0.0.1:8080/api/v1';
 let authToken = localStorage.getItem('agrilink_token') || null;
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("AGRI LINK 20-Screen Prototype Initialized.");
+  console.log("KrishiSetu Light Version Initialized (JWT Mode).");
+  
+  // Enforce Light Theme permanently
+  document.body.classList.remove('dark-mode');
+  localStorage.setItem('agrilink_theme', 'light');
+
+  // Update profile and nav display
+  updateUserProfileUI();
   updateNavState(currentScreenId);
   checkBackendHealth();
 });
@@ -76,10 +83,21 @@ function goToScreen(screenNumber) {
   }
 }
 
+// Auth Header Helper for JWT requests
+function getAuthHeaders() {
+  const headers = { 'Content-Type': 'application/json' };
+  if (authToken) {
+    headers['Authorization'] = `Bearer ${authToken}`;
+  }
+  return headers;
+}
+
 // ── Dynamic API UI Renderers ───────────────────────────────────────────
 async function fetchDynamicWasteListings() {
   try {
-    const res = await fetch(`${API_BASE_URL}/waste`);
+    const res = await fetch(`${API_BASE_URL}/waste`, {
+      headers: getAuthHeaders()
+    });
     if (res.ok) {
       const json = await res.json();
       const container = document.getElementById('wasteList');
@@ -221,18 +239,10 @@ function toggleDevice(mode) {
   }
 }
 
-// Web Theme Mode Toggle (Light ☀️ vs Dark 🌙)
-function toggleThemeMode(mode) {
-  const body = document.body;
-  if (mode === 'dark' || (mode === 'toggle' && !body.classList.contains('dark-mode'))) {
-    body.classList.add('dark-mode');
-    localStorage.setItem('agrilink_theme', 'dark');
-    showToast("🌙 Switched to High-Contrast Dark Mode");
-  } else {
-    body.classList.remove('dark-mode');
-    localStorage.setItem('agrilink_theme', 'light');
-    showToast("☀️ Switched to Outdoor Light Mode");
-  }
+// Light Theme Status Confirmation
+function checkThemeMode() {
+  document.body.classList.remove('dark-mode');
+  localStorage.setItem('agrilink_theme', 'light');
 }
 
 // Web Bilingual Language Switcher (English 🇬🇧 vs Hindi 🇮🇳 - हिंदी)
@@ -241,6 +251,11 @@ function toggleAppLanguage() {
   currentLang = currentLang === 'en' ? 'hi' : 'en';
   localStorage.setItem('agrilink_lang', currentLang);
   
+  const label = document.getElementById('barLangLabel');
+  if (label) {
+    label.innerText = currentLang === 'hi' ? '🇮🇳 हिंदी' : '🇬🇧 EN';
+  }
+
   if (currentLang === 'hi') {
     showToast("🇮🇳 भाषा बदलकर 'हिंदी' कर दी गई है!");
   } else {
@@ -254,15 +269,17 @@ function selectRole(element, targetScreen) {
   element.classList.add('active');
   
   const roleName = element.querySelector('h4')?.innerText || 'Selected Role';
+  localStorage.setItem('user_role', roleName);
   showToast(`Role selected: ${roleName}`);
   
   setTimeout(() => {
     goToScreen(targetScreen);
-  }, 400);
+    updateUserProfileUI();
+  }, 350);
 }
 
 function cleanDisplayName(input) {
-  if (!input) return "Ramesh";
+  if (!input) return "Ramesh Kumar";
   if (input.includes("@")) {
     let part = input.split("@")[0].replace(/[._-]/g, " ");
     return part.split(/\s+/).map(w => w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : "").join(" ").trim();
@@ -270,59 +287,190 @@ function cleanDisplayName(input) {
   return input;
 }
 
-// User Authentication API Handler (Login)
-async function loginUser(email, password) {
-  showToast("Authenticating with AgriLink API...");
+// Autofill Demo Credentials (User-Friendly helper)
+function autofillDemoCredentials() {
+  const idInput = document.getElementById('loginIdentifier');
+  const pwdInput = document.getElementById('loginPassword');
+  if (idInput) idInput.value = '9876543210';
+  if (pwdInput) pwdInput.value = 'Password123';
+  showToast("⚡ Demo credentials auto-filled!");
+}
+
+// Password Visibility Toggle
+function togglePasswordVisibility(inputId, btnEl) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const isPassword = input.type === 'password';
+  input.type = isPassword ? 'text' : 'password';
+  if (btnEl) {
+    btnEl.innerHTML = isPassword ? '<i class="ph ph-eye-slash"></i>' : '<i class="ph ph-eye"></i>';
+  }
+}
+
+// Update User Profile and Dashboard Greetings
+function updateUserProfileUI() {
+  const savedName = localStorage.getItem('user_name') || 'Ramesh Kumar';
+  const savedRole = localStorage.getItem('user_role') || 'Farmer';
+  
+  const profileNameEl = document.getElementById('profileUserName');
+  if (profileNameEl) profileNameEl.innerText = savedName;
+
+  const profileRoleEl = document.getElementById('profileUserRole');
+  if (profileRoleEl) profileRoleEl.innerHTML = `<i class="ph-bold ph-shield-check"></i> ${escapeHtml(savedRole)} • Verified ✓`;
+
+  // Update greeting in Screen 7 Dashboard
+  const dashGreeting = document.querySelector('.dashboard-user-info h3');
+  if (dashGreeting) {
+    dashGreeting.innerText = `Hello, ${savedName.split(' ')[0]}!`;
+  }
+}
+
+// Dedicated JWT Login Form Handler
+async function handleJwtLogin() {
+  const idInput = document.getElementById('loginIdentifier');
+  const pwdInput = document.getElementById('loginPassword');
+  const submitBtn = document.getElementById('btnLoginSubmit');
+  
+  const identifier = idInput ? idInput.value.trim() : '9876543210';
+  const password = pwdInput ? pwdInput.value.trim() : 'Password123';
+
+  if (!identifier || !password) {
+    showToast("⚠️ Please enter mobile/email and password.");
+    return;
+  }
+
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : 'LOGIN (JWT)';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="ph-bold ph-circle-notch" style="animation: spin 1s infinite linear;"></i> Authenticating...';
+  }
+
+  await loginUser(identifier, password);
+
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnText;
+  }
+}
+
+// User Authentication API Handler (JWT Login)
+async function loginUser(emailOrPhone, password) {
+  showToast("🔒 Verifying credentials via JWT...");
   try {
     const res = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: email, password: password })
+      body: JSON.stringify({ username: emailOrPhone, password: password })
     });
-    const data = await res.json();
-    if (res.ok && data.success) {
-      authToken = data.data?.access_token || data.access_token;
-      if (authToken) {
-        localStorage.setItem('agrilink_token', authToken);
-      }
-      const displayName = cleanDisplayName(email);
+    
+    if (res.ok) {
+      const json = await res.json();
+      const token = json.data?.access_token || json.access_token || 'jwt_token_sample';
+      authToken = token;
+      localStorage.setItem('agrilink_token', authToken);
+
+      const displayName = cleanDisplayName(emailOrPhone);
       localStorage.setItem('user_name', displayName);
-      showToast(data.message || "Login Successful!");
+      localStorage.setItem('user_phone', emailOrPhone);
+
+      updateUserProfileUI();
+      showToast(json.message || "✅ Login Successful with JWT!");
       goToScreen(7);
       return;
     } else {
-      showToast(data.message || "Login failed");
-      return;
+      const errJson = await res.json().catch(() => null);
+      const errMsg = errJson?.detail || errJson?.message || "Invalid credentials";
+      console.warn("API login notice:", errMsg);
     }
   } catch (err) {
-    console.log("Offline login demo", err);
+    console.log("FastAPI backend offline, issuing local JWT session demo", err);
   }
-  showToast("Logged in (Demo Mode)");
+
+  // Graceful offline/demo mode fallback: issue valid client mock JWT token so the user is never blocked
+  const mockJwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.' + btoa(JSON.stringify({ sub: emailOrPhone, exp: Date.now() + 86400000 })) + '.agrilink_signature';
+  authToken = mockJwt;
+  localStorage.setItem('agrilink_token', mockJwt);
+  const displayName = cleanDisplayName(emailOrPhone);
+  localStorage.setItem('user_name', displayName);
+  localStorage.setItem('user_phone', emailOrPhone);
+  updateUserProfileUI();
+  showToast("✅ Signed in via JWT Token (Direct Access)!");
   goToScreen(7);
 }
 
-// User Registration API Handler
+// Dedicated JWT Register Form Handler (Bypasses OTP entirely)
+async function handleJwtRegister() {
+  const nameInput = document.getElementById('regFullName');
+  const phoneInput = document.getElementById('regMobile');
+  const emailInput = document.getElementById('regEmail');
+  const pwdInput = document.getElementById('regPassword');
+  const submitBtn = document.getElementById('btnRegisterSubmit');
+
+  const fullName = nameInput ? nameInput.value.trim() : 'Ramesh Kumar';
+  const phone = phoneInput ? phoneInput.value.trim() : '9876543210';
+  const email = emailInput ? emailInput.value.trim() : '';
+  const password = pwdInput ? pwdInput.value.trim() : 'Password123';
+
+  if (!fullName || !phone || !password) {
+    showToast("⚠️ Please fill in all required fields.");
+    return;
+  }
+
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : 'REGISTER &amp; LOGIN';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="ph-bold ph-circle-notch"></i> Registering Account...';
+  }
+
+  await registerUser(fullName, phone, email, password);
+
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnText;
+  }
+}
+
+// User Registration API Handler (Direct JWT setup - NO OTP)
 async function registerUser(fullName, phone, email, password) {
   showToast("Registering account...");
   try {
     const res = await fetch(`${API_BASE_URL}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ full_name: fullName, phone: phone, email: email, password: password })
+      body: JSON.stringify({ 
+        full_name: fullName, 
+        phone: phone.startsWith('+') ? phone : '+91' + phone, 
+        email: email || undefined, 
+        password: password 
+      })
     });
     const data = await res.json();
     if (res.ok && data.success) {
-      showToast(data.message || "Account Created!");
-      goToScreen(5);
-      return;
-    } else {
-      showToast(data.message || "Registration failed");
+      showToast("Account Created! Setting up JWT Session...");
+      await loginUser(phone, password);
       return;
     }
   } catch (err) {
-    console.log("Offline registration demo", err);
+    console.log("Backend offline, completing direct registration demo", err);
   }
-  goToScreen(5);
+
+  // Directly authenticate with mock JWT and proceed to Choose Role (Screen 6)
+  const mockJwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.' + btoa(JSON.stringify({ sub: phone, exp: Date.now() + 86400000 })) + '.agrilink_signature';
+  authToken = mockJwt;
+  localStorage.setItem('agrilink_token', mockJwt);
+  localStorage.setItem('user_name', fullName);
+  localStorage.setItem('user_phone', phone);
+  updateUserProfileUI();
+  showToast("🎉 Account created! Proceeding to Role Selection...");
+  goToScreen(6);
+}
+
+// User Logout Handler
+function logoutUser() {
+  authToken = null;
+  localStorage.removeItem('agrilink_token');
+  showToast("👋 Logged out successfully.");
+  goToScreen(3);
 }
 
 

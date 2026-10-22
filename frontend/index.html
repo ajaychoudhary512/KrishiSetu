@@ -14,19 +14,56 @@
 <body>
 
   <!-- Top App Navigation Header -->
-  <div class="prototype-bar" id="prototypeBar" style="display: none;">
+  <div class="prototype-bar" id="prototypeBar">
     <div class="brand">
       <i class="ph-fill ph-plant"></i>
       <span>KrishiSetu</span>
-      <span class="badge">Live App</span>
+      <span class="badge">Light Theme</span>
+    </div>
+
+    <div class="screen-selector">
+      <label for="screenSelect">Go to Screen:</label>
+      <select id="screenSelect" onchange="jumpToScreen(this.value)">
+        <option value="1">01. Splash Screen</option>
+        <option value="2">02. Onboarding / Landing</option>
+        <option value="3">03. Login (JWT)</option>
+        <option value="4">04. Register</option>
+        <option value="6">06. Choose Role</option>
+        <option value="7" selected>07. Home Dashboard</option>
+        <option value="8">08. Waste Marketplace</option>
+        <option value="9">09. Equipment Rental</option>
+        <option value="10">10. Labour Hiring</option>
+        <option value="11">11. Crop Disease AI</option>
+        <option value="12">12. User Profile</option>
+        <option value="13">13. Waste Detail</option>
+        <option value="14">14. Equipment Detail</option>
+        <option value="15">15. Labour Detail</option>
+        <option value="16">16. Disease Scan Result</option>
+        <option value="17">17. Order Tracking</option>
+        <option value="18">18. Escrow Wallet</option>
+        <option value="19">19. Notifications</option>
+        <option value="20">20. Live Chat &amp; Deal</option>
+      </select>
+    </div>
+
+    <div class="device-toggle">
+      <button class="btn-toggle active" onclick="toggleDevice('phone')">
+        <i class="ph-bold ph-device-mobile"></i> Phone View
+      </button>
+      <button class="btn-toggle" onclick="toggleDevice('full')">
+        <i class="ph-bold ph-arrows-out-simple"></i> Expand
+      </button>
+      <button class="btn-toggle" onclick="toggleAppLanguage()" title="Toggle Language">
+        <i class="ph-bold ph-translate"></i> <span id="barLangLabel">EN / HI</span>
+      </button>
     </div>
   </div>
 
 
   <!-- Mobile Floating Screen Selector Pill -->
-  <button class="mobile-proto-trigger" onclick="openProtoDrawer()" style="display: none;">
+  <button class="mobile-proto-trigger" onclick="openProtoDrawer()">
     <i class="ph-bold ph-list"></i>
-    <span>Screens (20)</span>
+    <span>Screens</span>
   </button>
 
 
@@ -34,15 +71,14 @@
   <div class="proto-drawer-overlay" id="protoDrawer">
     <div class="proto-drawer">
       <h4>
-        <span>Jump to Screen (1-20)</span>
+        <span>Jump to Screen</span>
         <button class="btn-close" onclick="closeProtoDrawer()">&times;</button>
       </h4>
       <div class="proto-drawer-grid">
         <button class="proto-drawer-btn" onclick="goToScreen(1); closeProtoDrawer();">01. Splash</button>
         <button class="proto-drawer-btn" onclick="goToScreen(2); closeProtoDrawer();">02. Onboarding</button>
-        <button class="proto-drawer-btn" onclick="goToScreen(3); closeProtoDrawer();">03. Login</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(3); closeProtoDrawer();">03. Login (JWT)</button>
         <button class="proto-drawer-btn" onclick="goToScreen(4); closeProtoDrawer();">04. Register</button>
-        <button class="proto-drawer-btn" onclick="goToScreen(5); closeProtoDrawer();">05. OTP Verify</button>
         <button class="proto-drawer-btn" onclick="goToScreen(6); closeProtoDrawer();">06. Choose Role</button>
         <button class="proto-drawer-btn" onclick="goToScreen(7); closeProtoDrawer();">07. Home Dashboard</button>
         <button class="proto-drawer-btn" onclick="goToScreen(8); closeProtoDrawer();">08. Waste Market</button>
@@ -57,7 +93,7 @@
         <button class="proto-drawer-btn" onclick="goToScreen(17); closeProtoDrawer();">17. Order Tracking</button>
         <button class="proto-drawer-btn" onclick="goToScreen(18); closeProtoDrawer();">18. Payment</button>
         <button class="proto-drawer-btn" onclick="goToScreen(19); closeProtoDrawer();">19. Notifications</button>
-        <button class="proto-drawer-btn" onclick="goToScreen(20); closeProtoDrawer();">20. Chat & Escrow</button>
+        <button class="proto-drawer-btn" onclick="goToScreen(20); closeProtoDrawer();">20. Chat &amp; Escrow</button>
       </div>
     </div>
   </div>
@@ -148,39 +184,59 @@
           </div>
         </div>
 
-        <!-- 03. LOGIN SCREEN -->
+        <!-- 03. LOGIN SCREEN (JWT AUTHENTICATION) -->
         <div class="screen" id="screen-3">
           <div class="auth-container">
             <div class="auth-logo-header">
               <img src="assets/logo.png" alt="KrishiSetu Logo" style="width:52px; height:52px; object-fit:contain; margin-bottom:6px;">
               <h2>Welcome Back!</h2>
-              <p>Login to continue</p>
+              <p>Sign in to your KrishiSetu Account</p>
+              <span class="jwt-badge active"><i class="ph-bold ph-shield-check"></i> JWT Secure Authentication</span>
             </div>
-            <form onsubmit="event.preventDefault(); goToScreen(5);">
+
+            <!-- User-Friendly Quick Demo Credentials Card -->
+            <div class="demo-credentials-box">
+              <div class="demo-credentials-top">
+                <span><i class="ph-bold ph-lightning"></i> Quick Demo Login</span>
+                <button type="button" class="btn-autofill" onclick="autofillDemoCredentials()">Auto Fill</button>
+              </div>
+              <div class="demo-credentials-info">
+                <strong>User:</strong> 9876543210 &nbsp;|&nbsp; <strong>Password:</strong> Password123
+              </div>
+            </div>
+
+            <form id="jwtLoginForm" onsubmit="event.preventDefault(); handleJwtLogin();">
               <div class="form-group">
-                <label><i class="ph ph-phone"></i> Mobile Number</label>
+                <label><i class="ph ph-user"></i> Mobile Number or Email</label>
                 <div class="input-prefix">
                   <span>+91</span>
-                  <input type="tel" value="9876543210" placeholder="Enter Mobile Number" required>
+                  <input type="text" id="loginIdentifier" value="9876543210" placeholder="Mobile number or email" required>
                 </div>
               </div>
               <div class="form-group">
                 <label><i class="ph ph-lock"></i> Password</label>
                 <div class="input-icon">
-                  <input type="password" value="••••••••" placeholder="Enter Password" required>
-                  <i class="ph ph-eye"></i>
+                  <input type="password" id="loginPassword" value="Password123" placeholder="Enter Password" required>
+                  <button type="button" class="toggle-pwd-btn" onclick="togglePasswordVisibility('loginPassword', this)" title="Show/Hide Password">
+                    <i class="ph ph-eye"></i>
+                  </button>
                 </div>
               </div>
-              <div class="forgot-link">
-                <a href="#">Forgot Password?</a>
+              <div class="forgot-link" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <label style="display:flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--text-sub); cursor:pointer;">
+                  <input type="checkbox" id="rememberMe" checked> Remember Me
+                </label>
+                <a href="#" onclick="showToast('Password reset link is available in API docs or contact support.');">Forgot Password?</a>
               </div>
-              <button type="submit" class="btn-primary-block">LOGIN</button>
+              <button type="submit" id="btnLoginSubmit" class="btn-primary-block">
+                <i class="ph-bold ph-sign-in"></i> LOGIN (JWT)
+              </button>
             </form>
+            
             <div class="divider"><span>or continue with</span></div>
             <div class="social-login">
-              <button class="social-btn"><i class="ph-bold ph-google-logo"></i></button>
-              <button class="social-btn"><i class="ph-bold ph-facebook-logo"></i></button>
-              <button class="social-btn"><i class="ph-bold ph-phone"></i></button>
+              <button class="social-btn" onclick="showToast('Connecting with Google...')"><i class="ph-bold ph-google-logo"></i></button>
+              <button class="social-btn" onclick="showToast('Connecting with Apple ID...')"><i class="ph-bold ph-apple-logo"></i></button>
             </div>
             <div class="auth-footer">
               Don't have an account? <a href="#" onclick="goToScreen(4)">Register</a>
@@ -188,39 +244,47 @@
           </div>
         </div>
 
-        <!-- 04. REGISTER SCREEN -->
+        <!-- 04. REGISTER SCREEN (JWT REGISTRATION) -->
         <div class="screen" id="screen-4">
           <div class="auth-container">
             <div class="auth-logo-header">
               <i class="ph-fill ph-plant"></i>
               <h2>Create Account</h2>
-              <p>Register to get started</p>
+              <p>Instant Access with JWT Security</p>
+              <span class="jwt-badge active"><i class="ph-bold ph-lock-key"></i> Direct JWT Setup (No OTP Required)</span>
             </div>
-            <form onsubmit="event.preventDefault(); goToScreen(5);">
+            <form id="jwtRegisterForm" onsubmit="event.preventDefault(); handleJwtRegister();">
               <div class="form-group">
                 <label><i class="ph ph-user"></i> Full Name</label>
-                <input type="text" value="Ramesh Kumar" placeholder="Full Name" required>
+                <input type="text" id="regFullName" value="Ramesh Kumar" placeholder="Full Name" required>
               </div>
               <div class="form-group">
                 <label><i class="ph ph-phone"></i> Mobile Number</label>
                 <div class="input-prefix">
                   <span>+91</span>
-                  <input type="tel" value="9876543210" placeholder="Mobile Number" required>
+                  <input type="tel" id="regMobile" value="9876543210" placeholder="Mobile Number" required>
                 </div>
               </div>
               <div class="form-group">
                 <label><i class="ph ph-envelope"></i> Email (Optional)</label>
-                <input type="email" value="ramesh.farmer@gmail.com" placeholder="Email Address">
+                <input type="email" id="regEmail" value="ramesh.farmer@gmail.com" placeholder="Email Address">
               </div>
               <div class="form-group">
                 <label><i class="ph ph-lock"></i> Password</label>
-                <input type="password" value="Password123" placeholder="Password" required>
+                <div class="input-icon">
+                  <input type="password" id="regPassword" value="Password123" placeholder="Password (min 8 chars)" required>
+                  <button type="button" class="toggle-pwd-btn" onclick="togglePasswordVisibility('regPassword', this)" title="Show/Hide Password">
+                    <i class="ph ph-eye"></i>
+                  </button>
+                </div>
               </div>
               <div class="checkbox-group">
                 <input type="checkbox" id="terms" checked required>
-                <label for="terms">I agree to Terms & Conditions</label>
+                <label for="terms">I agree to Terms &amp; Conditions</label>
               </div>
-              <button type="submit" class="btn-primary-block">REGISTER</button>
+              <button type="submit" id="btnRegisterSubmit" class="btn-primary-block">
+                <i class="ph-bold ph-user-plus"></i> REGISTER &amp; LOGIN (JWT)
+              </button>
             </form>
             <div class="auth-footer">
               Already have an account? <a href="#" onclick="goToScreen(3)">Login</a>
@@ -228,29 +292,20 @@
           </div>
         </div>
 
-        <!-- 05. OTP VERIFICATION SCREEN -->
+        <!-- 05. OTP REPLACED BY DIRECT JWT AUTHENTICATION -->
         <div class="screen" id="screen-5">
-          <div class="auth-container">
+          <div class="auth-container" style="text-align: center; justify-content: center; align-items: center; padding: 30px 24px;">
             <div class="auth-logo-header">
-              <i class="ph-fill ph-shield-check"></i>
-              <h2>Verify OTP</h2>
-              <p>Enter the 6-digit code sent to<br><strong>+91 98765 43210</strong></p>
+              <i class="ph-fill ph-check-circle" style="color: var(--primary); font-size: 3.5rem;"></i>
+              <h2 style="margin-top: 12px;">OTP Bypassed</h2>
+              <span class="jwt-badge active" style="margin-top: 8px;"><i class="ph-bold ph-shield-check"></i> Direct JWT Active</span>
+              <p style="margin-top: 14px; font-size: 0.9rem; line-height: 1.5; color: var(--text-sub);">
+                OTP has been removed! Authentication is now processed directly and securely through JSON Web Tokens (JWT).
+              </p>
             </div>
-            <div class="otp-inputs">
-              <input type="text" maxlength="1" value="1">
-              <input type="text" maxlength="1" value="2">
-              <input type="text" maxlength="1" value="3">
-              <input type="text" maxlength="1" value="4">
-              <input type="text" maxlength="1" value="5">
-              <input type="text" maxlength="1" value="6">
-            </div>
-            <div class="resend-box">
-              Resend OTP in <strong>00:25</strong>
-            </div>
-            <button class="btn-primary-block" onclick="goToScreen(6)">VERIFY & CONTINUE</button>
-            <div class="otp-graphic">
-              <i class="ph-fill ph-shield-check"></i>
-            </div>
+            <button class="btn-primary-block" onclick="goToScreen(7)" style="margin-top: 20px;">
+              GO TO DASHBOARD →
+            </button>
           </div>
         </div>
 
@@ -434,10 +489,6 @@
                 <i class="ph-bold ph-caret-right"></i>
               </div>
             </div>
-
-          </div>
-        </div>
-iv>
 
           </div>
         </div>
@@ -704,17 +755,6 @@ iv>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-                        <span class="unit">/ Day</span>
-                      </div>
-                      <button class="btn-sm-green" onclick="event.stopPropagation(); goToScreen(15)">Hire</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div class="sticky-post-job">
               <button class="btn-primary-block" onclick="showJobModal()"><i class="ph-bold ph-plus"></i> POST A JOB</button>
@@ -775,14 +815,15 @@ iv>
           <div class="profile-container">
             <div class="profile-header">
               <div class="avatar-large">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Ramesh">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Profile Picture">
               </div>
-              <h3>Ramesh Kumar</h3>
-              <p class="user-role-badge">Farmer • Verified ✓</p>
+              <h3 id="profileUserName">Ramesh Kumar</h3>
+              <p class="user-role-badge" id="profileUserRole"><i class="ph-bold ph-shield-check"></i> Farmer • Verified ✓</p>
+              <span class="jwt-badge active" style="margin-top: 6px;"><i class="ph-bold ph-key"></i> JWT Authenticated</span>
             </div>
 
             <div class="menu-list" style="margin-top: 14px;">
-              <div class="menu-item" onclick="showToast('Profile')">
+              <div class="menu-item" onclick="showToast('Profile: ' + (localStorage.getItem('user_name') || 'Ramesh Kumar'))">
                 <i class="ph-fill ph-user menu-icon"></i>
                 <span>My Profile</span>
                 <i class="ph-bold ph-caret-right"></i>
@@ -807,19 +848,26 @@ iv>
                 <span>Messages</span>
                 <i class="ph-bold ph-caret-right"></i>
               </div>
-              <div class="menu-item" onclick="showToast('Settings')">
-                <i class="ph-fill ph-gear menu-icon"></i>
-                <span>Settings</span>
-                <i class="ph-bold ph-caret-right"></i>
+              <!-- Light Theme Info -->
+              <div class="menu-item" onclick="showToast('☀️ Light Theme is permanently enabled for clear outdoor farm visibility.')">
+                <i class="ph-fill ph-sun menu-icon" style="color: #ea580c;"></i>
+                <span>Theme Mode</span>
+                <span style="font-size:0.75rem; font-weight:700; color:var(--primary); background:var(--primary-tint); padding:2px 8px; border-radius:999px;">Light Version</span>
+              </div>
+              <!-- Security Info -->
+              <div class="menu-item" onclick="showToast('🔒 Account secured with FastAPI JSON Web Token (JWT)')">
+                <i class="ph-fill ph-shield-check menu-icon" style="color: #15803d;"></i>
+                <span>Authentication</span>
+                <span style="font-size:0.75rem; font-weight:700; color:#15803d; background:#ecfdf5; padding:2px 8px; border-radius:999px;">JWT Active</span>
               </div>
               <div class="menu-item" onclick="showToast('Helpdesk Active: Call 1800-AGRI-LINK')">
                 <i class="ph-fill ph-question menu-icon"></i>
-                <span>Help & Support</span>
+                <span>Help &amp; Support</span>
                 <i class="ph-bold ph-caret-right"></i>
               </div>
-              <div class="menu-item logout" onclick="goToScreen(3)">
-                <i class="ph-fill ph-sign-out menu-icon"></i>
-                <span>Logout</span>
+              <div class="menu-item logout" onclick="logoutUser()">
+                <i class="ph-fill ph-sign-out menu-icon" style="color:#dc2626;"></i>
+                <span style="color:#dc2626; font-weight:700;">Logout</span>
                 <i class="ph-bold ph-caret-right"></i>
               </div>
             </div>

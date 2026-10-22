@@ -166,20 +166,7 @@ public class ProfileFragment extends Fragment {
 
     private void updateThemeDisplay(TextView tvCurrentTheme) {
         if (tvCurrentTheme == null || getActivity() == null) return;
-        SharedPreferences prefs = getActivity().getSharedPreferences(KrishiSetuApplication.PREFS_NAME, Context.MODE_PRIVATE);
-        String mode = prefs.getString(KrishiSetuApplication.KEY_THEME_MODE, "system");
-        switch (mode) {
-            case "light":
-                tvCurrentTheme.setText("Light ☀️ ›");
-                break;
-            case "dark":
-                tvCurrentTheme.setText("Dark 🌙 ›");
-                break;
-            case "system":
-            default:
-                tvCurrentTheme.setText("System Default ⚙️ ›");
-                break;
-        }
+        tvCurrentTheme.setText("Light ☀️ (Active)");
     }
 
     private void updateLanguageDisplay(TextView tvCurrentLanguage) {
@@ -193,43 +180,8 @@ public class ProfileFragment extends Fragment {
     }
 
     private void showThemeSelectionDialog(TextView tvCurrentTheme) {
-        if (getActivity() == null) return;
-        SharedPreferences prefs = getActivity().getSharedPreferences(KrishiSetuApplication.PREFS_NAME, Context.MODE_PRIVATE);
-        String currentMode = prefs.getString(KrishiSetuApplication.KEY_THEME_MODE, "system");
-
-        int checkedItem = 2; // Default system
-        if ("light".equalsIgnoreCase(currentMode)) checkedItem = 0;
-        else if ("dark".equalsIgnoreCase(currentMode)) checkedItem = 1;
-
-        String[] themeOptions = {
-                "☀️ Light Mode (Outdoor Sun Visibility)",
-                "🌙 Dark Mode (Night & Battery Saver)",
-                "⚙️ System Default (Follow Android OS)"
-        };
-
-        new AlertDialog.Builder(requireContext())
-                .setTitle(getString(R.string.theme_mode))
-                .setSingleChoiceItems(themeOptions, checkedItem, (dialog, which) -> {
-                    String selectedMode = "system";
-                    int nightMode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
-
-                    if (which == 0) {
-                        selectedMode = "light";
-                        nightMode = AppCompatDelegate.MODE_NIGHT_NO;
-                    } else if (which == 1) {
-                        selectedMode = "dark";
-                        nightMode = AppCompatDelegate.MODE_NIGHT_YES;
-                    }
-
-                    prefs.edit().putString(KrishiSetuApplication.KEY_THEME_MODE, selectedMode).apply();
-                    AppCompatDelegate.setDefaultNightMode(nightMode);
-                    updateThemeDisplay(tvCurrentTheme);
-                    dialog.dismiss();
-
-                    Toast.makeText(getContext(), getString(R.string.theme_updated_toast), Toast.LENGTH_SHORT).show();
-                })
-                .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
-                .show();
+        if (getContext() == null) return;
+        Toast.makeText(getContext(), "☀️ KrishiSetu is optimized exclusively for Light Version.", Toast.LENGTH_SHORT).show();
     }
 
     private void showLanguageSelectionDialog(TextView tvCurrentLanguage) {
